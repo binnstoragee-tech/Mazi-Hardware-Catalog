@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mazi Hardware — Product Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">
+      <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0L15 0L30 20L45 0L60 0L60 50L45 50L45 20L30 40L15 20L15 50L0 50Z" fill="#B4D334"/>
+      </svg>
+    </div>
+    <div class="preloader-bar"><div class="preloader-fill"></div></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+          <path d="M0 0L15 0L30 20L45 0L60 0L60 50L45 50L45 20L30 40L15 20L15 50L0 50Z" fill="#B4D334"/>
+        </svg>
+        <div class="nav-brand">
+          <span class="nav-brand-name">MAZI</span>
+          <span class="nav-brand-sub">HARDWARE</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="catalog.html" class="nav-cta">View All</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#categories" onclick="closeMobile()">Categories</a></li>
+      <li><a href="#featured" onclick="closeMobile()">Featured</a></li>
+      <li><a href="#about" onclick="closeMobile()">About</a></li>
+      <li><a href="catalog.html" onclick="closeMobile()">View All</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">PRODUCT CATALOG 2025</div>
+      <h1 class="hero-title reveal delay-1">
+        <span class="hero-title-main">BUILD</span>
+        <span class="hero-title-accent">SMARTER.</span>
+        <span class="hero-title-main">BUILD</span>
+        <span class="hero-title-accent">BETTER.</span>
+      </h1>
+      <p class="hero-desc reveal delay-2">Premium hardware solutions for professionals and builders. From fasteners to power tools — everything you need, all in one place.</p>
+      <div class="hero-actions reveal delay-3">
+        <a href="#categories" class="btn btn-primary">Browse Catalog</a>
+        <a href="catalog.html" class="btn btn-outline">All Products</a>
+      </div>
+      <div class="hero-stats reveal delay-4">
+        <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Products</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">85+</span><span class="stat-label">Brands</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">Categories</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal delay-2">
+      <div class="hero-card-stack">
+        <div class="hero-card hc-1">
+          <div class="hc-icon">🔧</div>
+          <div class="hc-label">Hand Tools</div>
+        </div>
+        <div class="hero-card hc-2">
+          <div class="hc-icon">⚡</div>
+          <div class="hc-label">Power Tools</div>
+        </div>
+        <div class="hero-card hc-3">
+          <div class="hc-icon">🔩</div>
+          <div class="hc-label">Fasteners</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>HAND TOOLS</span><span class="dot">◆</span>
+      <span>POWER TOOLS</span><span class="dot">◆</span>
+      <span>FASTENERS</span><span class="dot">◆</span>
+      <span>ELECTRICAL</span><span class="dot">◆</span>
+      <span>PLUMBING</span><span class="dot">◆</span>
+      <span>SAFETY</span><span class="dot">◆</span>
+      <span>STORAGE</span><span class="dot">◆</span>
+      <span>MEASURING</span><span class="dot">◆</span>
+      <span>HAND TOOLS</span><span class="dot">◆</span>
+      <span>POWER TOOLS</span><span class="dot">◆</span>
+      <span>FASTENERS</span><span class="dot">◆</span>
+      <span>ELECTRICAL</span><span class="dot">◆</span>
+      <span>PLUMBING</span><span class="dot">◆</span>
+      <span>SAFETY</span><span class="dot">◆</span>
+      <span>STORAGE</span><span class="dot">◆</span>
+      <span>MEASURING</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">SHOP BY CATEGORY</div>
+        <h2 class="section-title reveal delay-1">Everything You <br><em>Need to Build</em></h2>
+      </div>
+
+      <div class="cat-grid">
+
+        <a href="category.html?cat=hand-tools" class="cat-card cat-large reveal">
+          <div class="cat-bg" style="--hue:82"></div>
+          <div class="cat-icon-wrap">
+            <div class="cat-icon">🔧</div>
+          </div>
+          <div class="cat-info">
+            <h3>Hand Tools</h3>
+            <p>Hammers, wrenches, screwdrivers, pliers, and more professional-grade hand tools.</p>
+            <span class="cat-count">480+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=power-tools" class="cat-card cat-large reveal delay-1">
+          <div class="cat-bg dark"></div>
+          <div class="cat-icon-wrap">
+            <div class="cat-icon">⚡</div>
+          </div>
+          <div class="cat-info">
+            <h3>Power Tools</h3>
+            <p>Drills, saws, grinders, and more high-performance power equipment.</p>
+            <span class="cat-count">320+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=fasteners" class="cat-card reveal delay-2">
+          <div class="cat-icon">🔩</div>
+          <div class="cat-info">
+            <h3>Fasteners</h3>
+            <p>Bolts, nuts, screws & anchors</p>
+            <span class="cat-count">600+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=electrical" class="cat-card reveal delay-3">
+          <div class="cat-icon">💡</div>
+          <div class="cat-info">
+            <h3>Electrical</h3>
+            <p>Wiring, breakers & outlets</p>
+            <span class="cat-count">280+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=plumbing" class="cat-card reveal delay-1">
+          <div class="cat-icon">🚿</div>
+          <div class="cat-info">
+            <h3>Plumbing</h3>
+            <p>Pipes, fittings & valves</p>
+            <span class="cat-count">190+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=safety" class="cat-card reveal delay-2">
+          <div class="cat-icon">🦺</div>
+          <div class="cat-info">
+            <h3>Safety</h3>
+            <p>PPE, helmets & visibility gear</p>
+            <span class="cat-count">150+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=storage" class="cat-card reveal delay-3">
+          <div class="cat-icon">📦</div>
+          <div class="cat-info">
+            <h3>Storage</h3>
+            <p>Toolboxes, shelving & cabinets</p>
+            <span class="cat-count">120+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=measuring" class="cat-card reveal delay-4">
+          <div class="cat-icon">📐</div>
+          <div class="cat-info">
+            <h3>Measuring</h3>
+            <p>Levels, tapes & squares</p>
+            <span class="cat-count">210+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=adhesives" class="cat-card reveal delay-1">
+          <div class="cat-icon">🧴</div>
+          <div class="cat-info">
+            <h3>Adhesives</h3>
+            <p>Glues, sealants & tapes</p>
+            <span class="cat-count">95+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=paint" class="cat-card reveal delay-2">
+          <div class="cat-icon">🎨</div>
+          <div class="cat-info">
+            <h3>Paint & Finish</h3>
+            <p>Primers, paints & coatings</p>
+            <span class="cat-count">170+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=landscaping" class="cat-card reveal delay-3">
+          <div class="cat-icon">🌿</div>
+          <div class="cat-info">
+            <h3>Landscaping</h3>
+            <p>Garden tools & outdoor gear</p>
+            <span class="cat-count">130+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+        <a href="category.html?cat=welding" class="cat-card reveal delay-4">
+          <div class="cat-icon">🔥</div>
+          <div class="cat-info">
+            <h3>Welding</h3>
+            <p>Welders, rods & protection</p>
+            <span class="cat-count">80+ Products</span>
+          </div>
+          <div class="cat-arrow">→</div>
+          <div class="cat-hover-bar"></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal">TOP PICKS</div>
+        <h2 class="section-title reveal delay-1">Featured <em>Products</em></h2>
+      </div>
+
+      <div class="featured-filter reveal delay-2">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+        <button class="filter-btn" data-filter="fasteners">Fasteners</button>
+        <button class="filter-btn" data-filter="safety">Safety</button>
+      </div>
+
+      <div class="products-grid">
+
+        <div class="product-card reveal" data-cat="tools">
+          <div class="product-badge">Best Seller</div>
+          <div class="product-image">
+            <div class="product-img-placeholder">🔧</div>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Hand Tools</span>
+            <h4 class="product-name">Pro Combination Wrench Set</h4>
+            <p class="product-sku">SKU: MZ-HT-0041</p>
+            <div class="product-footer">
+              <span class="product-price">₱1,250</span>
+              <a href="category.html?cat=hand-tools" class="product-btn">View</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal delay-1" data-cat="tools">
+          <div class="product-badge new">New</div>
+          <div class="product-image">
+            <div class="product-img-placeholder">⚡</div>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Power Tools</span>
+            <h4 class="product-name">18V Brushless Drill Driver</h4>
+            <p class="product-sku">SKU: MZ-PT-0112</p>
+            <div class="product-footer">
+              <span class="product-price">₱4,800</span>
+              <a href="category.html?cat=power-tools" class="product-btn">View</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal delay-2" data-cat="fasteners">
+          <div class="product-image">
+            <div class="product-img-placeholder">🔩</div>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Fasteners</span>
+            <h4 class="product-name">Hex Bolt Assortment Kit 250pc</h4>
+            <p class="product-sku">SKU: MZ-FA-0023</p>
+            <div class="product-footer">
+              <span class="product-price">₱680</span>
+              <a href="category.html?cat=fasteners" class="product-btn">View</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal delay-3" data-cat="safety">
+          <div class="product-badge sale">Sale</div>
+          <div class="product-image">
+            <div class="product-img-placeholder">🦺</div>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Safety</span>
+            <h4 class="product-name">Hi-Vis Safety Vest Class 2</h4>
+            <p class="product-sku">SKU: MZ-SF-0078</p>
+            <div class="product-footer">
+              <span class="product-price">₱320</span>
+              <a href="category.html?cat=safety" class="product-btn">View</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal delay-1" data-cat="tools">
+          <div class="product-image">
+            <div class="product-img-placeholder">📐</div>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Measuring</span>
+            <h4 class="product-name">Digital Laser Distance Meter</h4>
+            <p class="product-sku">SKU: MZ-ME-0055</p>
+            <div class="product-footer">
+              <span class="product-price">₱2,100</span>
+              <a href="category.html?cat=measuring" class="product-btn">View</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal delay-2" data-cat="tools">
+          <div class="product-badge">Best Seller</div>
+          <div class="product-image">
+            <div class="product-img-placeholder">🔨</div>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Hand Tools</span>
+            <h4 class="product-name">Fiberglass Claw Hammer 16oz</h4>
+            <p class="product-sku">SKU: MZ-HT-0009</p>
+            <div class="product-footer">
+              <span class="product-price">₱580</span>
+              <a href="category.html?cat=hand-tools" class="product-btn">View</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner reveal">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <div class="section-tag">BROWSE THE FULL CATALOG</div>
+        <h2>2,400+ Products <br>Ready to Ship</h2>
+        <p>From individual fasteners to bulk orders — Mazi Hardware has everything professionals need on the jobsite.</p>
+      </div>
+      <a href="catalog.html" class="btn btn-primary btn-lg">View Full Catalog →</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <div class="section-tag">WHO WE ARE</div>
+        <h2 class="section-title">Built for the <em>Professionals</em></h2>
+        <p>Mazi Hardware has been the trusted partner of contractors, builders, and tradesmen for over two decades. We stock only the highest-quality products from world-leading brands — because your work deserves the best.</p>
+        <p>From a single screw to a complete tool kit, we supply it all with the expertise to back it up.</p>
+        <a href="#categories" class="btn btn-primary">Browse Our Products</a>
+      </div>
+      <div class="about-stats reveal delay-2">
+        <div class="astat">
+          <div class="astat-num">20+</div>
+          <div class="astat-label">Years in Business</div>
+        </div>
+        <div class="astat">
+          <div class="astat-num">85+</div>
+          <div class="astat-label">Trusted Brands</div>
+        </div>
+        <div class="astat">
+          <div class="astat-num">12,000+</div>
+          <div class="astat-label">Happy Customers</div>
+        </div>
+        <div class="astat">
+          <div class="astat-num">99%</div>
+          <div class="astat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+            <path d="M0 0L15 0L30 20L45 0L60 0L60 50L45 50L45 20L30 40L15 20L15 50L0 50Z" fill="#B4D334"/>
+          </svg>
+          <div class="nav-brand">
+            <span class="nav-brand-name">MAZI</span>
+            <span class="nav-brand-sub">HARDWARE</span>
+          </div>
+        </div>
+        <p>Your trusted source for premium hardware and building supplies.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="category.html?cat=hand-tools">Hand Tools</a></li>
+          <li><a href="category.html?cat=power-tools">Power Tools</a></li>
+          <li><a href="category.html?cat=fasteners">Fasteners</a></li>
+          <li><a href="category.html?cat=electrical">Electrical</a></li>
+          <li><a href="category.html?cat=safety">Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More</h4>
+        <ul>
+          <li><a href="catalog.html">Full Catalog</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Delivery Info</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>📍 123 Hardware Ave, Makati City</p>
+        <p>📞 (02) 8888-1234</p>
+        <p>✉️ info@mazihardware.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Mazi Hardware. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
