@@ -2,486 +2,976 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mazi Hardware — Product Catalog</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAZI Hardware – Product Catalog</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Barlow Condensed (display) + Nunito Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-logo">
-      <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0L15 0L30 20L45 0L60 0L60 50L45 50L45 20L30 40L15 20L15 50L0 50Z" fill="#B4D334"/>
-      </svg>
-    </div>
-    <div class="preloader-bar"><div class="preloader-fill"></div></div>
-  </div>
+<!-- ========================================================
+     NAVIGATION BAR
+     To change phone number: update data-phone and href below
+     ======================================================== -->
+<nav id="navbar">
+  <div class="nav-inner">
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
-          <path d="M0 0L15 0L30 20L45 0L60 0L60 50L45 50L45 20L30 40L15 20L15 50L0 50Z" fill="#B4D334"/>
-        </svg>
-        <div class="nav-brand">
-          <span class="nav-brand-name">MAZI</span>
-          <span class="nav-brand-sub">HARDWARE</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="#featured">Featured</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="catalog.html" class="nav-cta">View All</a></li>
-      </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+    <!-- LOGO: Drag & drop your logo image into the <div class="nav-logo"> below -->
+    <!-- Replace the placeholder text with: <img src="your-logo.png" alt="MAZI Hardware"> -->
+    <div class="nav-logo" id="logoDropZone">
+      <div class="logo-placeholder" id="logoPlaceholder">
+        <span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
+      </div>
+      <img id="logoPreview" src="" alt="MAZI Logo" style="display:none; height:48px; object-fit:contain;" />
+      <span class="drop-hint" id="logoDropHint">Drop logo here</span>
     </div>
-  </nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#categories" onclick="closeMobile()">Categories</a></li>
-      <li><a href="#featured" onclick="closeMobile()">Featured</a></li>
-      <li><a href="#about" onclick="closeMobile()">About</a></li>
-      <li><a href="catalog.html" onclick="closeMobile()">View All</a></li>
+    <!-- NAV LINKS -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#categories" class="nav-link">Categories</a></li>
+      <li><a href="#products" class="nav-link">Products</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
+
+    <!-- CONTACT BUTTONS -->
+    <!-- ⚠️ Replace 6399788851with your actual number (no + sign, no spaces) -->
+    <div class="nav-cta">
+      <a href="https://wa.me/9788851text=Hi%20MAZI%20Hardware!%20I'd%20like%20to%20inquire%20about%20your%20products."
+         target="_blank" class="btn-contact btn-whatsapp">
+        <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+      </a>
+      <a href="viber://chat?number=%2B9788851"
+         class="btn-contact btn-viber">
+        <i class="ph-fill ph-phone"></i> Viber
+      </a>
+    </div>
+
+    <!-- HAMBURGER for mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========================================================
+     HERO SECTION
+     Background: drag & drop store image into the hero zone
+     ======================================================== -->
+<section id="home" class="hero">
+
+
+ 
+    <!-- If no image dropped, shows the gradient background -->
+   <div class="hero-bg"></div>
+
+  <!-- Decorative animated stripes (brand identity) -->
+  <div class="hero-stripes">
+    <div class="stripe s1"></div>
+    <div class="stripe s2"></div>
+    <div class="stripe s3"></div>
   </div>
 
-  <!-- HERO -->
-  <header class="hero" id="home">
-    <div class="hero-bg">
-      <div class="hero-grid"></div>
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge animate-fade-up" style="--delay:0.1s">
+      <i class="ph ph-storefront"></i> Official Product Catalog
     </div>
-    <div class="hero-content">
-      <div class="hero-badge reveal">PRODUCT CATALOG 2025</div>
-      <h1 class="hero-title reveal delay-1">
-        <span class="hero-title-main">BUILD</span>
-        <span class="hero-title-accent">SMARTER.</span>
-        <span class="hero-title-main">BUILD</span>
-        <span class="hero-title-accent">BETTER.</span>
-      </h1>
-      <p class="hero-desc reveal delay-2">Premium hardware solutions for professionals and builders. From fasteners to power tools — everything you need, all in one place.</p>
-      <div class="hero-actions reveal delay-3">
-        <a href="#categories" class="btn btn-primary">Browse Catalog</a>
-        <a href="catalog.html" class="btn btn-outline">All Products</a>
-      </div>
-      <div class="hero-stats reveal delay-4">
-        <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Products</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">85+</span><span class="stat-label">Brands</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">12</span><span class="stat-label">Categories</span></div>
-      </div>
-    </div>
-    <div class="hero-visual reveal delay-2">
-      <div class="hero-card-stack">
-        <div class="hero-card hc-1">
-          <div class="hc-icon">🔧</div>
-          <div class="hc-label">Hand Tools</div>
-        </div>
-        <div class="hero-card hc-2">
-          <div class="hc-icon">⚡</div>
-          <div class="hc-label">Power Tools</div>
-        </div>
-        <div class="hero-card hc-3">
-          <div class="hc-icon">🔩</div>
-          <div class="hc-label">Fasteners</div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </header>
-
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span>HAND TOOLS</span><span class="dot">◆</span>
-      <span>POWER TOOLS</span><span class="dot">◆</span>
-      <span>FASTENERS</span><span class="dot">◆</span>
-      <span>ELECTRICAL</span><span class="dot">◆</span>
-      <span>PLUMBING</span><span class="dot">◆</span>
-      <span>SAFETY</span><span class="dot">◆</span>
-      <span>STORAGE</span><span class="dot">◆</span>
-      <span>MEASURING</span><span class="dot">◆</span>
-      <span>HAND TOOLS</span><span class="dot">◆</span>
-      <span>POWER TOOLS</span><span class="dot">◆</span>
-      <span>FASTENERS</span><span class="dot">◆</span>
-      <span>ELECTRICAL</span><span class="dot">◆</span>
-      <span>PLUMBING</span><span class="dot">◆</span>
-      <span>SAFETY</span><span class="dot">◆</span>
-      <span>STORAGE</span><span class="dot">◆</span>
-      <span>MEASURING</span><span class="dot">◆</span>
+    <h1 class="hero-title animate-fade-up" style="--delay:0.25s">
+      Where Smart<br /><span class="accent">Builds Begin</span>
+    </h1>
+    <p class="hero-sub animate-fade-up" style="--delay:0.4s">
+      Premium tiles, panels, parquet &amp; more — browse our catalog and inquire directly.
+    </p>
+    <div class="hero-actions animate-fade-up" style="--delay:0.55s">
+      <a href="#products" class="btn-primary">
+        Browse Products <i class="ph ph-arrow-right"></i>
+      </a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
     </div>
   </div>
 
-  <!-- CATEGORIES -->
-  <section class="categories" id="categories">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag reveal">SHOP BY CATEGORY</div>
-        <h2 class="section-title reveal delay-1">Everything You <br><em>Need to Build</em></h2>
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ========================================================
+     MARQUEE TICKER
+     ======================================================== -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Tiles</span><span class="sep">-</span>
+    <span>UV Marble Sheets</span><span class="sep">-</span>
+    <span>Ceiling Panel</span><span class="sep">-</span>
+    <span>Parquet</span><span class="sep">-</span>
+    <span>PVC Wall Panel</span><span class="sep">-</span>
+    <span>Tiles</span><span class="sep">-</span>
+    <span>UV Marble Sheets</span><span class="sep">-</span>
+    <span>Ceiling Panel</span><span class="sep">-</span>
+    <span>Parquet</span><span class="sep">-</span>
+    <span>PVC Wall Panel</span><span class="sep">-</span>
+    <span>Tiles</span><span class="sep">-</span>
+    <span>UV Marble Sheets</span><span class="sep">-</span>
+  </div>
+</div>
+
+<!-- ========================================================
+     CATEGORIES SECTION
+     ======================================================== -->
+<section id="categories" class="section categories-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What We Offer</span>
+      <h2 class="section-title">Product <span class="accent">Categories</span></h2>
+      <p class="section-desc">Click any category to filter products below</p>
+    </div>
+
+    <div class="categories-grid">
+
+      <!-- ── CATEGORY CARD 1: TILES ────────────────────── -->
+      <!-- Drop zone: drag image to the card to set category thumbnail -->
+      <div class="cat-card" data-category="tiles" onclick="filterCategory('tiles')">
+        <div class="cat-img-wrap">
+  <img src="img/tiles catalog/1.jpg" alt="Tiles">
+</div>
+        <div class="cat-info">
+          <h3>Tiles</h3>
+          <p>Floor &amp; wall tiles for every style</p>
+          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+        </div>
       </div>
 
-      <div class="cat-grid">
+      <!-- ── CATEGORY CARD 2: UV MARBLE SHEETS ─────────── -->
+      <div class="cat-card" data-category="uv-marble" onclick="filterCategory('uv-marble')">
+        <div class="cat-img-wrap drop-zone" data-target="cat-uv-marble">
+          <img src="img/uv marble sheets catalog/1marble.jpg" alt="UV Marble Sheets">
+          </div>
+            
+        <div class="cat-info">
+          <h3>UV Marble Sheets</h3>
+          <p>Elegant marble-finish UV panels</p>
+          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+        </div>
+      </div>
 
-        <a href="category.html?cat=hand-tools" class="cat-card cat-large reveal">
-          <div class="cat-bg" style="--hue:82"></div>
-          <div class="cat-icon-wrap">
-            <div class="cat-icon">🔧</div>
-          </div>
-          <div class="cat-info">
-            <h3>Hand Tools</h3>
-            <p>Hammers, wrenches, screwdrivers, pliers, and more professional-grade hand tools.</p>
-            <span class="cat-count">480+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+      <!-- ── CATEGORY CARD 3: CEILING PANEL ────────────── -->
+      <div class="cat-card" data-category="ceiling" onclick="filterCategory('ceiling')">
+        <div class="cat-img-wrap drop-zone" data-target="cat-ceiling">
+         <img src="img/ceiling panel/1ceiling.jpg" alt="Ceiling Panel">
+          
+        </div>
+        <div class="cat-info">
+          <h3>Ceiling Panel</h3>
+          <p>Lightweight &amp; stylish ceiling solutions</p>
+          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+        </div>
+      </div>
 
-        <a href="category.html?cat=power-tools" class="cat-card cat-large reveal delay-1">
-          <div class="cat-bg dark"></div>
-          <div class="cat-icon-wrap">
-            <div class="cat-icon">⚡</div>
-          </div>
-          <div class="cat-info">
-            <h3>Power Tools</h3>
-            <p>Drills, saws, grinders, and more high-performance power equipment.</p>
-            <span class="cat-count">320+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+      <!-- ── CATEGORY CARD 4: PARQUET ───────────────────── -->
+      <div class="cat-card" data-category="parquet" onclick="filterCategory('parquet')">
+        <div class="cat-img-wrap drop-zone" data-target="cat-parquet">
+          <img src="img/parquet/1parquet.jpg" alt="Parquet">
 
-        <a href="category.html?cat=fasteners" class="cat-card reveal delay-2">
-          <div class="cat-icon">🔩</div>
-          <div class="cat-info">
-            <h3>Fasteners</h3>
-            <p>Bolts, nuts, screws & anchors</p>
-            <span class="cat-count">600+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+        </div>
+        <div class="cat-info">
+          <h3>Parquet</h3>
+          <p>Natural wood flooring &amp; laminates</p>
+          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+        </div>
+      </div>
 
-        <a href="category.html?cat=electrical" class="cat-card reveal delay-3">
-          <div class="cat-icon">💡</div>
-          <div class="cat-info">
-            <h3>Electrical</h3>
-            <p>Wiring, breakers & outlets</p>
-            <span class="cat-count">280+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+      <!-- ── CATEGORY CARD 5: PVC WALL PANEL ───────────── -->
+      <div class="cat-card" data-category="pvc-wall" onclick="filterCategory('pvc-wall')">
+        <div class="cat-img-wrap drop-zone" data-target="cat-pvc-wall">
+         <img src="img/pvc wall panel/1wallpanel.jpg" alt="Parquet">
+ 
+        </div>
+        <div class="cat-info">
+          <h3>PVC Wall Panel</h3>
+          <p>Durable &amp; water-resistant wall panels</p>
+          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+        </div>
+      </div>
 
-        <a href="category.html?cat=plumbing" class="cat-card reveal delay-1">
-          <div class="cat-icon">🚿</div>
-          <div class="cat-info">
-            <h3>Plumbing</h3>
-            <p>Pipes, fittings & valves</p>
-            <span class="cat-count">190+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+    </div><!-- /categories-grid -->
+  </div>
+</section>
 
-        <a href="category.html?cat=safety" class="cat-card reveal delay-2">
-          <div class="cat-icon">🦺</div>
-          <div class="cat-info">
-            <h3>Safety</h3>
-            <p>PPE, helmets & visibility gear</p>
-            <span class="cat-count">150+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+<!-- ========================================================
+     PRODUCTS SECTION
+     Drag & drop images directly onto product cards to set photos.
+     To add more products: copy one <div class="prod-card"> block.
+     ======================================================== -->
+<section id="products" class="section products-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Browse &amp; Inquire</span>
+      <h2 class="section-title">Our <span class="accent">Products</span></h2>
+      <p class="section-desc">Elevate your living space.</p>
+    </div>
 
-        <a href="category.html?cat=storage" class="cat-card reveal delay-3">
-          <div class="cat-icon">📦</div>
-          <div class="cat-info">
-            <h3>Storage</h3>
-            <p>Toolboxes, shelving & cabinets</p>
-            <span class="cat-count">120+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+    <!-- Filter buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+      <button class="filter-btn" onclick="filterCategory('tiles')">Tiles</button>
+      <button class="filter-btn" onclick="filterCategory('uv-marble')">UV Marble</button>
+      <button class="filter-btn" onclick="filterCategory('ceiling')">Ceiling Panel</button>
+      <button class="filter-btn" onclick="filterCategory('parquet')">Parquet</button>
+      <button class="filter-btn" onclick="filterCategory('pvc-wall')">PVC Wall Panel</button>
+    </div>
 
-        <a href="category.html?cat=measuring" class="cat-card reveal delay-4">
-          <div class="cat-icon">📐</div>
-          <div class="cat-info">
-            <h3>Measuring</h3>
-            <p>Levels, tapes & squares</p>
-            <span class="cat-count">210+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+    <!-- PRODUCTS GRID -->
+    <div class="products-grid" id="productsGrid">
 
-        <a href="category.html?cat=adhesives" class="cat-card reveal delay-1">
-          <div class="cat-icon">🧴</div>
-          <div class="cat-info">
-            <h3>Adhesives</h3>
-            <p>Glues, sealants & tapes</p>
-            <span class="cat-count">95+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+      <!-- ══════════════════════════════════════════════════
+           HOW TO ADD PRODUCTS:
+           1. Copy one prod-card block below
+           2. Change data-category to match: tiles | uv-marble | ceiling | parquet | pvc-wall
+           3. Update product name and description
+           4. Run in browser and drag your photo onto the card
+           ══════════════════════════════════════════════════ -->
 
-        <a href="category.html?cat=paint" class="cat-card reveal delay-2">
-          <div class="cat-icon">🎨</div>
-          <div class="cat-info">
-            <h3>Paint & Finish</h3>
-            <p>Primers, paints & coatings</p>
-            <span class="cat-count">170+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+      <!-- --- TILES --- -->
+<div class="prod-card" data-category="tiles">
 
-        <a href="category.html?cat=landscaping" class="cat-card reveal delay-3">
-          <div class="cat-icon">🌿</div>
-          <div class="cat-info">
-            <h3>Landscaping</h3>
-            <p>Garden tools & outdoor gear</p>
-            <span class="cat-count">130+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+ <!-- --- TILES 1 --- -->
 
-        <a href="category.html?cat=welding" class="cat-card reveal delay-4">
-          <div class="cat-icon">🔥</div>
-          <div class="cat-info">
-            <h3>Welding</h3>
-            <p>Welders, rods & protection</p>
-            <span class="cat-count">80+ Products</span>
-          </div>
-          <div class="cat-arrow">→</div>
-          <div class="cat-hover-bar"></div>
-        </a>
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/2.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
 
+  <div class="prod-info">
+    <h4 class="prod-name">PLAIN WHITE </h4>
+    <p class="prod-desc">600x1200mm 600x600mm 300x300mm | Glossy, Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+ <!-- --- TILES 2 --- -->
+
+   <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/3.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name">NATURAL GOLDEN BLUE R1</h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+ <!-- --- TILES 3 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/4.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name">AURORA GREY-1</h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 5 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/5.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name">ARBESCATO BROWN R1</h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 6 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/6.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name">SUNVERDE AQUA-1</h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 7 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/7.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name">AEDEA</h4>
+    <p class="prod-desc">600x600mm 300x600mm| Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 8 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/8.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name">AEDEA-1</h4>
+    <p class="prod-desc">600x1200mm| Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 9 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/9.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> ONYX ROOSVELT ICE </h4>
+    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 10 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/10.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> ONYX ROOSVELT GREY </h4>
+    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 11 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/11.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> ANTHRACITE CREMA  </h4>
+    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 12 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/12.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> ANTHRACITE IVORY  </h4>
+    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 13 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/13.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> MEGNITE GREY </h4>
+    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 14 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/14.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> OAK WOOD CAMEL  </h4>
+    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 15 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/15.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> OSLO GRIS </h4>
+    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 16 --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/16.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> CENTO BIANCO </h4>
+    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 17  --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/17.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> ORENTA NATURAL</h4>
+    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 18  --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/18.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> SIRRIZO PEARL </h4>
+    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 19  --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/19.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> ECHO BLUE </h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+<!-- --- TILES 20  --- -->
+
+       <div class="prod-card" data-category="tiles">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/tiles catalog/20.jpg" alt="Floor Tiles">
+    <div class="prod-badge">Tiles</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> DALIM GREY </h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+    <a class="btn-inquire"
+       href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+       target="_blank">
+       <i class="ph ph-chat-circle-dots"></i> Inquire
+    </a>
+  </div>
+
+</div>
+
+
+
+
+
+      <!-- ── UV MARBLE SHEETS 1  ────────────────────────────── -->
+
+          <div class="prod-card" data-category="uv-marble">
+
+  <div class="prod-img-wrap">
+    <img class="prod-img" src="img/uv marble sheets catalog/1marble.jpg" alt="Floor Tiles">
+    <div class="prod-badge">UV MARBLE SHEETS</div>
+  </div>
+
+  <div class="prod-info">
+    <h4 class="prod-name"> DALIM GREY </h4>
+    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
+
+
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20UV%20Marble%20Carrara%20White."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card" data-category="uv-marble">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="UV Marble Sheet Dark" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">UV Marble</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">UV Marble Sheet – Black Gold</h4>
+          <p class="prod-desc">1220×2440 mm | High Gloss | UV Coated</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20UV%20Marble%20Black%20Gold."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <!-- ── CEILING PANEL ───────────────────────────────── -->
+      <div class="prod-card" data-category="ceiling">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="PVC Ceiling Panel" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">Ceiling</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">PVC Ceiling Panel – Classic White</h4>
+          <p class="prod-desc">25cm width | 3m length | Lightweight</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20PVC%20Ceiling%20Panel%20Classic%20White."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card" data-category="ceiling">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="Ceiling Panel Design" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">Ceiling</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">Ceiling Panel – Wood Design</h4>
+          <p class="prod-desc">25cm width | 3m length | Easy Install</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Ceiling%20Panel%20Wood%20Design."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <!-- ── PARQUET ─────────────────────────────────────── -->
+      <div class="prod-card" data-category="parquet">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="Laminate Parquet" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">Parquet</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">Laminate Parquet – Oak Natural</h4>
+          <p class="prod-desc">12mm | AC4 Rating | Click Lock System</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Laminate%20Parquet%20Oak%20Natural."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card" data-category="parquet">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="Engineered Wood" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">Parquet</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">Parquet – Walnut Dark</h4>
+          <p class="prod-desc">8mm | AC3 Rating | Water Resistant</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Parquet%20Walnut%20Dark."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <!-- ── PVC WALL PANEL ──────────────────────────────── -->
+      <div class="prod-card" data-category="pvc-wall">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="PVC Wall Panel" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">PVC Wall</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">PVC Wall Panel – Marble Print</h4>
+          <p class="prod-desc">2.9m | Moisture-proof | Easy Clean</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20PVC%20Wall%20Panel%20Marble%20Print."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+      <div class="prod-card" data-category="pvc-wall">
+        <div class="prod-img-wrap drop-zone-prod">
+          <img class="prod-img" src="" alt="PVC Wall Panel Wood" style="display:none;" />
+          <div class="prod-placeholder">
+            <i class="ph ph-image"></i>
+            <span>Drop photo here</span>
+          </div>
+          <div class="prod-badge">PVC Wall</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">PVC Wall Panel – Wood Grain</h4>
+          <p class="prod-desc">2.9m | UV Stable | Fire Retardant</p>
+          <a class="btn-inquire"
+             href="https://wa.me/639XXXXXXXXX?text=Hi!%20I%27d%20like%20to%20inquire%20about%20PVC%20Wall%20Panel%20Wood%20Grain."
+             target="_blank">
+            <i class="ph ph-chat-circle-dots"></i> Inquire
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /products-grid -->
+  </div>
+</section>
+
+<!-- ========================================================
+     ABOUT SECTION
+     ======================================================== -->
+<section id="about" class="section about-section">
+  <div class="container about-grid">
+    <div class="about-img-col">
+      <!-- Store image visual – drop a photo here or it shows a styled placeholder -->
+      <div class="about-img-box drop-zone" data-target="aboutImg">
+        <img id="aboutImg" src="" alt="MAZI Hardware Store" style="display:none;" />
+        <div class="cat-placeholder">
+          <i class="ph ph-storefront"></i>
+          <span>Drop store photo</span>
+        </div>
+      </div>
+      <div class="about-accent-block">
+        <span class="accent-num">5+</span>
+        <span>Years of<br />Excellence</span>
       </div>
     </div>
-  </section>
-
-  <!-- FEATURED PRODUCTS -->
-  <section class="featured" id="featured">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag reveal">TOP PICKS</div>
-        <h2 class="section-title reveal delay-1">Featured <em>Products</em></h2>
-      </div>
-
-      <div class="featured-filter reveal delay-2">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="tools">Tools</button>
-        <button class="filter-btn" data-filter="fasteners">Fasteners</button>
-        <button class="filter-btn" data-filter="safety">Safety</button>
-      </div>
-
-      <div class="products-grid">
-
-        <div class="product-card reveal" data-cat="tools">
-          <div class="product-badge">Best Seller</div>
-          <div class="product-image">
-            <div class="product-img-placeholder">🔧</div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">Hand Tools</span>
-            <h4 class="product-name">Pro Combination Wrench Set</h4>
-            <p class="product-sku">SKU: MZ-HT-0041</p>
-            <div class="product-footer">
-              <span class="product-price">₱1,250</span>
-              <a href="category.html?cat=hand-tools" class="product-btn">View</a>
-            </div>
+    <div class="about-text-col">
+      <span class="section-tag">Who We Are</span>
+      <h2 class="section-title">Your Trusted <span class="accent">Hardware Partner</span></h2>
+      <p>
+        MAZI Hardware is your one-stop destination for premium building materials and home improvement products.
+        We carry a wide range of tiles, wall panels, flooring solutions, and more — all carefully selected for quality and durability.
+      </p>
+      <p>
+        Whether you're renovating your home or working on a commercial project, our team is ready to help you find
+        the right materials at the right price. Browse our catalog and send us a message to inquire!
+      </p>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <i class="ph-fill ph-medal"></i>
+          <div>
+            <strong>Premium Quality</strong>
+            <span>Only the best brands</span>
           </div>
         </div>
-
-        <div class="product-card reveal delay-1" data-cat="tools">
-          <div class="product-badge new">New</div>
-          <div class="product-image">
-            <div class="product-img-placeholder">⚡</div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">Power Tools</span>
-            <h4 class="product-name">18V Brushless Drill Driver</h4>
-            <p class="product-sku">SKU: MZ-PT-0112</p>
-            <div class="product-footer">
-              <span class="product-price">₱4,800</span>
-              <a href="category.html?cat=power-tools" class="product-btn">View</a>
-            </div>
+        <div class="highlight-item">
+          <i class="ph-fill ph-chats"></i>
+          <div>
+            <strong>Fast Response</strong>
+            <span>WhatsApp &amp; Viber</span>
           </div>
         </div>
-
-        <div class="product-card reveal delay-2" data-cat="fasteners">
-          <div class="product-image">
-            <div class="product-img-placeholder">🔩</div>
+        <div class="highlight-item">
+          <i class="ph-fill ph-truck"></i>
+          <div>
+            <strong>Wide Selection</strong>
+            <span>Tiles, panels, flooring &amp; more</span>
           </div>
-          <div class="product-info">
-            <span class="product-category">Fasteners</span>
-            <h4 class="product-name">Hex Bolt Assortment Kit 250pc</h4>
-            <p class="product-sku">SKU: MZ-FA-0023</p>
-            <div class="product-footer">
-              <span class="product-price">₱680</span>
-              <a href="category.html?cat=fasteners" class="product-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal delay-3" data-cat="safety">
-          <div class="product-badge sale">Sale</div>
-          <div class="product-image">
-            <div class="product-img-placeholder">🦺</div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">Safety</span>
-            <h4 class="product-name">Hi-Vis Safety Vest Class 2</h4>
-            <p class="product-sku">SKU: MZ-SF-0078</p>
-            <div class="product-footer">
-              <span class="product-price">₱320</span>
-              <a href="category.html?cat=safety" class="product-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal delay-1" data-cat="tools">
-          <div class="product-image">
-            <div class="product-img-placeholder">📐</div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">Measuring</span>
-            <h4 class="product-name">Digital Laser Distance Meter</h4>
-            <p class="product-sku">SKU: MZ-ME-0055</p>
-            <div class="product-footer">
-              <span class="product-price">₱2,100</span>
-              <a href="category.html?cat=measuring" class="product-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal delay-2" data-cat="tools">
-          <div class="product-badge">Best Seller</div>
-          <div class="product-image">
-            <div class="product-img-placeholder">🔨</div>
-          </div>
-          <div class="product-info">
-            <span class="product-category">Hand Tools</span>
-            <h4 class="product-name">Fiberglass Claw Hammer 16oz</h4>
-            <p class="product-sku">SKU: MZ-HT-0009</p>
-            <div class="product-footer">
-              <span class="product-price">₱580</span>
-              <a href="category.html?cat=hand-tools" class="product-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner reveal">
-    <div class="cta-inner">
-      <div class="cta-text">
-        <div class="section-tag">BROWSE THE FULL CATALOG</div>
-        <h2>2,400+ Products <br>Ready to Ship</h2>
-        <p>From individual fasteners to bulk orders — Mazi Hardware has everything professionals need on the jobsite.</p>
-      </div>
-      <a href="catalog.html" class="btn btn-primary btn-lg">View Full Catalog →</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container about-grid">
-      <div class="about-text reveal">
-        <div class="section-tag">WHO WE ARE</div>
-        <h2 class="section-title">Built for the <em>Professionals</em></h2>
-        <p>Mazi Hardware has been the trusted partner of contractors, builders, and tradesmen for over two decades. We stock only the highest-quality products from world-leading brands — because your work deserves the best.</p>
-        <p>From a single screw to a complete tool kit, we supply it all with the expertise to back it up.</p>
-        <a href="#categories" class="btn btn-primary">Browse Our Products</a>
-      </div>
-      <div class="about-stats reveal delay-2">
-        <div class="astat">
-          <div class="astat-num">20+</div>
-          <div class="astat-label">Years in Business</div>
-        </div>
-        <div class="astat">
-          <div class="astat-num">85+</div>
-          <div class="astat-label">Trusted Brands</div>
-        </div>
-        <div class="astat">
-          <div class="astat-num">12,000+</div>
-          <div class="astat-label">Happy Customers</div>
-        </div>
-        <div class="astat">
-          <div class="astat-num">99%</div>
-          <div class="astat-label">Satisfaction Rate</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
-            <path d="M0 0L15 0L30 20L45 0L60 0L60 50L45 50L45 20L30 40L15 20L15 50L0 50Z" fill="#B4D334"/>
-          </svg>
-          <div class="nav-brand">
-            <span class="nav-brand-name">MAZI</span>
-            <span class="nav-brand-sub">HARDWARE</span>
-          </div>
+<!-- ========================================================
+     CONTACT SECTION
+     Update contact details below
+     ======================================================== -->
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Send Us a <span class="accent">Message</span></h2>
+      <p class="section-desc">Chat with us on WhatsApp or Viber — we respond fast!</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-icon"><i class="ph-fill ph-whatsapp-logo"></i></div>
+        <h3>WhatsApp</h3>
+        <p>Tap to start a chat — inquiry, pricing, availability.</p>
+        <!-- ⚠️ Update the number below -->
+        <a href="https://wa.me/639XXXXXXXXX?text=Hi%20MAZI%20Hardware!%20I'd%20like%20to%20inquire."
+           target="_blank" class="btn-contact-lg btn-whatsapp">
+          Chat on WhatsApp <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="contact-card contact-card-center">
+        <div class="contact-center-logo">
+          <!-- Logo appears here if uploaded -->
+          <span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
         </div>
-        <p>Your trusted source for premium hardware and building supplies.</p>
+        <p class="contact-tagline">Browse. Inquire. Build.</p>
+        <!-- ⚠️ Update address and hours below -->
+        <div class="contact-detail">
+          <i class="ph ph-map-pin"></i>
+          <span>Your Store Address Here, City</span>
+        </div>
+        <div class="contact-detail">
+          <i class="ph ph-clock"></i>
+          <span>Mon–Sat: 8AM–6PM</span>
+        </div>
+        <div class="contact-detail">
+          <i class="ph ph-envelope"></i>
+          <span>email@mazihardware.com</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4>Categories</h4>
-        <ul>
-          <li><a href="category.html?cat=hand-tools">Hand Tools</a></li>
-          <li><a href="category.html?cat=power-tools">Power Tools</a></li>
-          <li><a href="category.html?cat=fasteners">Fasteners</a></li>
-          <li><a href="category.html?cat=electrical">Electrical</a></li>
-          <li><a href="category.html?cat=safety">Safety</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>More</h4>
-        <ul>
-          <li><a href="catalog.html">Full Catalog</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Delivery Info</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p>📍 123 Hardware Ave, Makati City</p>
-        <p>📞 (02) 8888-1234</p>
-        <p>✉️ info@mazihardware.com</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Mazi Hardware. All rights reserved.</span>
-    </div>
-  </footer>
 
-  <script src="js/main.js"></script>
+      <div class="contact-card">
+        <div class="contact-icon viber-icon"><i class="ph-fill ph-phone"></i></div>
+        <h3>Viber</h3>
+        <p>Call or message us on Viber anytime during business hours.</p>
+        <!-- ⚠️ Update the number below -->
+        <a href="viber://chat?number=%2B639XXXXXXXXX"
+           class="btn-contact-lg btn-viber">
+          Open Viber <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     FOOTER
+     ======================================================== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
+      <p>Premium building materials &amp; home improvement solutions.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 MAZI Hardware. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to top button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="ph ph-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
 </body>
 </html>
