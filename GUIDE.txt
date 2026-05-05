@@ -1,0 +1,110 @@
+====================================================================
+  MAZI HARDWARE CATALOG WEBSITE — QUICK EDIT GUIDE
+====================================================================
+
+📁 FILES IN THIS FOLDER:
+  index.html  ← Main website file (open this in browser / VS Code)
+  style.css   ← All styling / colors / layout
+  script.js   ← All animations, drag & drop, filtering
+
+====================================================================
+  ⚡ HOW TO START
+====================================================================
+  1. Open the folder in VS Code
+  2. Install "Live Server" extension (right-click index.html → Open with Live Server)
+  3. Your browser will show the website with live reload on save
+
+====================================================================
+  📞 UPDATE CONTACT NUMBER (WhatsApp & Viber)
+====================================================================
+  Search for: 639XXXXXXXXX
+  Replace with: your actual number WITHOUT + sign (e.g., 639171234567)
+
+  In index.html, update these lines:
+  • href="https://wa.me/639XXXXXXXXX?text=..."  ← WhatsApp (3 places)
+  • href="viber://chat?number=%2B639XXXXXXXXX"  ← Viber (2 places)
+
+====================================================================
+  🖼️ DRAG & DROP IMAGES (in browser)
+====================================================================
+  When you open the website:
+  • LOGO        → Drag your logo PNG/JPG to the top-left nav area
+  • HERO BG     → Drag your store photo to the hero/banner area
+  • CATEGORY    → Drag image onto each category card
+  • PRODUCTS    → Drag product photo onto any product card
+  • ABOUT       → Drag store photo onto the about section image box
+
+  OR: Click any image zone to browse and pick a file
+
+  ⚠️ NOTE: Images reset when you refresh. To make images permanent,
+  save the src URLs into the HTML (or ask your developer).
+
+====================================================================
+  ✏️ EDIT PRODUCT NAME / DESCRIPTION
+====================================================================
+  In index.html, find:
+    <h4 class="prod-name">Floor Tiles – Series A</h4>
+    <p class="prod-desc">60×60 cm | Matte Finish | Indoor/Outdoor</p>
+
+  Change the text between the tags to your product details.
+
+====================================================================
+  ➕ ADD MORE PRODUCTS
+====================================================================
+  In index.html, inside <div class="products-grid">, copy this block:
+
+  <div class="prod-card" data-category="tiles">
+    <div class="prod-img-wrap drop-zone-prod">
+      <img class="prod-img" src="" alt="Product Name" style="display:none;" />
+      <div class="prod-placeholder">
+        <i class="ph ph-image"></i>
+        <span>Drop photo here</span>
+      </div>
+      <div class="prod-badge">Tiles</div>
+    </div>
+    <div class="prod-info">
+      <h4 class="prod-name">Your Product Name</h4>
+      <p class="prod-desc">Size | Finish | Details</p>
+      <a class="btn-inquire"
+         href="https://wa.me/639XXXXXXXXX?text=Hi!%20I'd%20like%20to%20inquire%20about%20Your%20Product."
+         target="_blank">
+        <i class="ph ph-chat-circle-dots"></i> Inquire
+      </a>
+    </div>
+  </div>
+
+  Change data-category to one of:
+    tiles | uv-marble | ceiling | parquet | pvc-wall
+
+====================================================================
+  🎨 CHANGE BRAND COLORS
+====================================================================
+  In style.css, at the top, update :root variables:
+    --green:     #B4D334   ← Primary green (brand color)
+    --black:     #010101   ← Near black
+    --gray-dk:   #666666   ← Dark gray text
+
+====================================================================
+  📍 UPDATE ADDRESS & HOURS
+====================================================================
+  In index.html, find the CONTACT SECTION and update:
+    <span>Your Store Address Here, City</span>
+    <span>Mon–Sat: 8AM–6PM</span>
+    <span>email@mazihardware.com</span>
+
+====================================================================
+  🌐 PUBLISH ONLINE
+====================================================================
+  Option 1: Netlify (free)
+    → Go to netlify.com → drag this folder to deploy
+  Option 2: GitHub Pages (free)
+    → Upload to GitHub repository → enable Pages
+  Option 3: Any web hosting (cPanel)
+    → Upload all 3 files to public_html folder
+
+====================================================================
+  Need help? Ask your developer to:
+  • Add a product image gallery/lightbox
+  • Connect a real form (Email / Formspree)
+  • Make images permanent (server upload)
+====================================================================
