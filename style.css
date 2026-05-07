@@ -1030,35 +1030,74 @@ img { max-width: 100%; display: block; }
 }
 
 /* =========================
-   MOBILE VIEW
+   MOBILE TAP ANIMATION
 ========================= */
+
+
+    /* =========================
+   MOBILE CLICK HIGHLIGHT
+========================= */
+
+
 
 @media (max-width: 768px){
 
+    /* DEFAULT STATE */
     .view-btn{
+        opacity: 0;
+        transform: translateX(30px);
+
+        transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    /* SHOW BUTTON */
+    .prod-card:active .view-btn,
+    .prod-card:focus-within .view-btn{
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
 
-        bottom: 12px;
-        right: 12px;
+        background: #B4D334;
+        color: #000;
 
-        padding: 10px 16px;
-
-        font-size: 12px;
-        gap: 6px;
+        box-shadow:
+        0 0 20px rgba(180,211,52,0.55),
+        0 12px 28px rgba(180,211,52,0.45);
     }
 
-    .view-btn i{
-        font-size: 15px;
+    /* ICON POP EFFECT */
+    .prod-card:active .view-btn i,
+    .prod-card:focus-within .view-btn i{
+        transform: scale(1.25) rotate(10deg);
     }
 
-    .prod-card{
-        border-radius: 18px;
+    /* IMAGE ZOOM */
+    .prod-card:active .prod-img,
+    .prod-card:focus-within .prod-img{
+        transform: scale(1.06);
+        filter: brightness(0.72);
     }
 
-    .prod-card:hover .prod-img{
-        transform: scale(1.03);
+    /* SHINE ANIMATION */
+    .prod-card:active .prod-img-wrap::before,
+    .prod-card:focus-within .prod-img-wrap::before{
+        left: 180%;
     }
+
+    /* CARD GLOW */
+    .prod-card:active,
+    .prod-card:focus-within{
+        box-shadow:
+        0 0 20px rgba(180,211,52,0.25),
+        0 20px 45px rgba(0,0,0,0.16);
+
+        transform: translateY(-5px);
+    }
+
+
 }
 
 .view-btn{
