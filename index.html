@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mazi Hardware – Product Catalog</title>
+  <title>Mazi – Catalog</title>
 
-    <!-- Favicon -->
-  
-<link rel="icon" type="image/png" href="img/favicon.png">
+
+
+  <!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="img/favicon.ico?v=2">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png?v=2">
-<link rel="icon" href="img/favicon.png?v=5">
+<link rel="shortcut icon" href="img/favicon.ico?v=2">
 
-  
+
   <link rel="stylesheet" href="style.css" />
   <!-- Google Fonts: Barlow Condensed (display) + Nunito Sans (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -120,7 +121,7 @@
     <span>PVC Wall Panel</span><span class="sep">-</span>
     <span>Tiles</span><span class="sep">-</span>
     <span>UV Marble Sheets</span><span class="sep">-</span>
-    <span>WPC Wall Panel</span><span class="sep">-</span>
+    <span>WPC WALL PANEL</span><span class="sep">-</span>
   </div>
 </div>
 
@@ -147,6 +148,7 @@
           <h3>Tiles</h3>
           <p>Floor &amp; wall tiles for every style</p>
           <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+          
         </div>
       </div>
 
@@ -205,7 +207,7 @@
       <!-- ── CATEGORY CARD 6: WPC WALL PANEL ───────────── -->
       <div class="cat-card" data-category="pvc-wall" onclick="filterCategory('pvc-wall')">
         <div class="cat-img-wrap drop-zone" data-target="cat-pvc-wall">
-         <img src="img/wpc/1wpc.jpg"" alt="WPC Wall Panel">
+         <img src="img/wpc/1wpc.jpg" alt="Parquet">
  
         </div>
         <div class="cat-info">
@@ -259,22 +261,46 @@
 
  <!-- --- TILES 1 --- -->
 
-  <div class="prod-img-wrap">
-    <img class="prod-img" src="img/tiles catalog/2.jpg" alt="Floor Tiles">
+<div class="prod-img-wrap">
+
+    <img class="prod-img"
+         src="img/tiles catalog/2.jpg"
+         alt="Floor Tiles">
+
     <div class="prod-badge">Tiles</div>
-  </div>
 
-  <div class="prod-info">
-    <h4 class="prod-name">PLAIN WHITE </h4>
-    <p class="prod-desc">600x1200mm 600x600mm 300x300mm | Glossy, Matte Finish | Indoor/Outdoor</p>
+    <button class="view-btn"
+        onclick="openModal('img/tiles catalog/2.jpg')">
 
-    <a class="btn-inquire"
-       href="https://wa.me/9788851?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
-       target="_blank">
-       <i class="ph ph-chat-circle-dots"></i> Inquire
-    </a>
-  </div>
+    <i class="ph ph-eye"></i>
+    View
 
+</button>
+
+</div>
+
+    <div class="prod-info">
+        <h4 class="prod-name">PLAIN WHITE</h4>
+
+        <p class="prod-desc">
+            600x1200mm 600x600mm 300x300mm |
+            Glossy, Matte Finish | Indoor/Outdoor
+        </p>
+
+        <a class="btn-inquire"
+           href="https://wa.me/9788851?text=Hi!%20I%27d%20like%20to%20inquire%20about%20Floor%20Tiles%20Series%20A."
+           target="_blank">
+           <i class="ph ph-chat-circle-dots"></i> Inquire
+        </a>
+    </div>
+
+</div>
+
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="image-modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+
+    <img class="modal-img" id="modalImage">
 </div>
 
  <!-- --- TILES 2 --- -->
@@ -284,7 +310,17 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/3.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+     <button class="view-btn"
+        onclick="openModal('img/tiles catalog/3.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
+  
 
   <div class="prod-info">
     <h4 class="prod-name">NATURAL GOLDEN BLUE R1</h4>
@@ -306,6 +342,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/4.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+     <button class="view-btn"
+        onclick="openModal('img/tiles catalog/4.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -328,6 +373,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/5.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+     <button class="view-btn"
+        onclick="openModal('img/tiles catalog/5.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -350,6 +402,14 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/6.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+     <button class="view-btn"
+        onclick="openModal('img/tiles catalog/6.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -372,6 +432,14 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/7.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+     
+    <button class="view-btn"
+        onclick="openModal('img/tiles catalog/7.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -394,6 +462,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/8.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/8.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -416,6 +491,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/9.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/9.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -438,6 +520,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/10.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/10.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -460,6 +549,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/11.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/11.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -482,6 +580,14 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/12.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/12.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -504,6 +610,14 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/13.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/13.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -526,6 +640,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/14.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/14.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -548,6 +669,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/15.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/15.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -570,6 +698,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/16.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/16.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -592,6 +729,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/17.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/17.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -614,6 +760,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/18.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/18.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -635,7 +790,13 @@
 
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/19.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
+    <div class="prod-badge">Tiles</div>   <button class="view-btn"
+        onclick="openModal('img/tiles catalog/19.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -658,6 +819,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/tiles catalog/20.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/tiles catalog/20.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -684,6 +854,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/2.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/2.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -706,6 +885,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/3.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+
+    <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/3.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -729,6 +917,14 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/4.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+    
+    <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/4.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -753,6 +949,14 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/5.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+    
+    <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/5.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -775,7 +979,15 @@
 
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/6.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
+    <div class="prod-badge">UV MARBLE SHEETS</div> 
+
+      <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/6.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -800,6 +1012,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/7.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/7.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -823,7 +1044,16 @@
 
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/8.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
+    <div class="prod-badge">UV MARBLE SHEETS</div> 
+
+      <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/8.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -848,6 +1078,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/9.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/9.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -872,6 +1111,13 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/uv marble sheets catalog/10.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
+      <button class="view-btn"
+        onclick="openModal('img/uv marble sheets catalog/10.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -896,6 +1142,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/2.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/ceiling panel/2.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -919,6 +1174,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/3.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
+   
+    <button class="view-btn"
+        onclick="openModal('img/ceiling panel/3.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -941,6 +1205,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/4.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/ceiling panel/4.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -963,6 +1236,15 @@
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/5.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/ceiling panel/5.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -984,10 +1266,19 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/2.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/parquet/2.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
-    <h4 class="prod-name"> PINEDWOOD </h4>
+    <h4 class="prod-name"> PINEWOOD </h4>
     <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
 
 
@@ -1006,6 +1297,15 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/3.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/parquet/3.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1028,6 +1328,13 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/4.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+       <button class="view-btn"
+        onclick="openModal('img/parquet/4.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
   </div>
 
   <div class="prod-info">
@@ -1050,6 +1357,15 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/5.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/parquet/5.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1072,6 +1388,15 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/6.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/parquet/6.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1094,6 +1419,15 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/7.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/parquet/7.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1116,6 +1450,15 @@
         <div class="prod-img-wrap">
     <img class="prod-img" src="img/parquet/8.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/parquet/8.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1140,6 +1483,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/pvc wall panel/2.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/pvc wall panel/2.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1161,6 +1513,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/pvc wall panel/3.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/pvc wall panel/3.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1182,6 +1543,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/pvc wall panel/4.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/pvc wall panel/4.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1203,6 +1573,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/pvc wall panel/5.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/pvc wall panel/5.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1226,6 +1605,16 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/2.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
+
+       <button class="view-btn"
+        onclick="openModal('img/wpc/2.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
+
   </div>
 
   <div class="prod-info">
@@ -1247,6 +1636,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/3.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/wpc/3.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1269,6 +1667,14 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/4.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
+      <button class="view-btn"
+        onclick="openModal('img/wpc/4.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1290,6 +1696,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/5.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/wpc/5.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1312,6 +1727,15 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/6.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/wpc/6.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
   </div>
 
   <div class="prod-info">
@@ -1334,6 +1758,16 @@
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/7.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
+
+      <button class="view-btn"
+        onclick="openModal('img/wpc/7.jpg')">
+
+    <i class="ph ph-eye"></i>
+    View
+
+</button>
+
+
   </div>
 
   <div class="prod-info">
@@ -1513,5 +1947,16 @@
 </button>
 
 <script src="script.js"></script>
+
+<script>
+function openModal(imgSrc){
+    document.getElementById("imageModal").style.display = "flex";
+    document.getElementById("modalImage").src = imgSrc;
+}
+
+function closeModal(){
+    document.getElementById("imageModal").style.display = "none";
+}
+</script>
 </body>
 </html>
