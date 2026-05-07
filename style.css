@@ -840,97 +840,13 @@ img { max-width: 100%; display: block; }
     transform: translateY(20px);
 }
 
-/* BUTTON SHOW ANIMATION */
-.prod-card:hover .view-btn{
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ICON */
-.view-btn i{
-    font-size: 18px;
-    transition: transform 0.4s ease;
-}
-
-/* ICON SPIN EFFECT */
-.view-btn:hover i{
-    transform: rotate(12deg) scale(1.2);
-}
-
-/* HOVER EFFECT */
-.view-btn:hover{
-    background: #B4D334;
-    color: #000;
-
-    transform: translateY(-4px) scale(1.06);
-
-    box-shadow:
-    0 12px 28px rgba(180,211,52,0.45);
-}
-
-/* CLICK EFFECT */
-.view-btn:active{
-    transform: scale(0.95);
-}
-
-/* GLOW ANIMATION */
-.view-btn::before{
-    content: "";
-    position: absolute;
-
-    top: -50%;
-    left: -120%;
-
-    width: 80px;
-    height: 220%;
-
-    background: rgba(255,255,255,0.45);
-
-    transform: rotate(25deg);
-
-    transition: 0.7s;
-}
-
-/* SHINE EFFECT */
-.view-btn:hover::before{
-    left: 150%;
-}
-
 /* =========================
-   IMAGE HOVER EFFECT
+   MODERN PRODUCT CARD
 ========================= */
-.prod-img-wrap{
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px 18px 0 0;
-}
 
-.prod-img{
-    width: 100%;
-    display: block;
-
-    transition:
-    transform 0.7s ease,
-    filter 0.7s ease;
-}
-
-/* IMAGE ZOOM + DARKEN */
-.prod-card:hover .prod-img{
-    transform: scale(1.08);
-    filter: brightness(0.75);
-
-}
-
-/* IMAGE ZOOM + DARKEN */
-.prod-card:hover .prod-img{
-    transform: scale(1.08);
-    filter: brightness(0.75);
-}
-
-/* =========================
-   MODERN CARD EFFECT
-========================= */
 .prod-card{
+    position: relative;
+
     background: #fff;
     border-radius: 24px;
     overflow: hidden;
@@ -947,7 +863,202 @@ img { max-width: 100%; display: block; }
     transform: translateY(-10px);
 
     box-shadow:
-    0 20px 40px rgba(0,0,0,0.14);
+    0 0 25px rgba(180,211,52,0.25),
+    0 20px 45px rgba(0,0,0,0.16);
+}
+
+/* =========================
+   IMAGE WRAP
+========================= */
+
+.prod-img-wrap{
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 18px 18px 0 0;
+}
+
+/* SHINE EFFECT */
+.prod-img-wrap::before{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -180%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        rgba(255,255,255,0.65),
+        rgba(255,255,255,0.15),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    z-index: 5;
+    pointer-events: none;
+
+    transition: 0.9s ease;
+}
+
+/* ACTIVATE SHINE */
+.prod-img-wrap:hover::before{
+    left: 180%;
+}
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.prod-img{
+    width: 100%;
+    display: block;
+
+    transition:
+    transform 0.7s ease,
+    filter 0.7s ease;
+}
+
+/* IMAGE ZOOM + DARKEN */
+.prod-card:hover .prod-img{
+    transform: scale(1.08);
+    filter: brightness(0.75);
+}
+
+/* =========================
+   MODERN VIEW BUTTON
+========================= */
+
+.view-btn{
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.25);
+
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* BUTTON SHOW */
+.prod-card:hover .view-btn{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ICON */
+.view-btn i{
+    font-size: 18px;
+    transition: transform 0.4s ease;
+}
+
+/* ICON ANIMATION */
+.view-btn:hover i{
+    transform: rotate(12deg) scale(1.2);
+}
+
+/* BUTTON HOVER */
+.view-btn:hover{
+    background: #B4D334;
+    color: #000;
+
+    transform: translateY(-4px) scale(1.06);
+
+    box-shadow:
+    0 12px 28px rgba(180,211,52,0.45);
+}
+
+/* BUTTON CLICK */
+.view-btn:active{
+    transform: scale(0.95);
+}
+
+/* BUTTON SHINE */
+.view-btn::before{
+    content: "";
+
+    position: absolute;
+    top: -50%;
+    left: -120%;
+
+    width: 80px;
+    height: 220%;
+
+    background: rgba(255,255,255,0.45);
+
+    transform: rotate(25deg);
+
+    transition: 0.7s;
+}
+
+/* BUTTON SHINE MOVE */
+.view-btn:hover::before{
+    left: 150%;
+}
+
+/* =========================
+   MOBILE VIEW
+========================= */
+
+@media (max-width: 768px){
+
+    .view-btn{
+        opacity: 1;
+        transform: translateY(0);
+
+        bottom: 12px;
+        right: 12px;
+
+        padding: 10px 16px;
+
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .view-btn i{
+        font-size: 15px;
+    }
+
+    .prod-card{
+        border-radius: 18px;
+    }
+
+    .prod-card:hover .prod-img{
+        transform: scale(1.03);
+    }
 }
 
 .view-btn{
