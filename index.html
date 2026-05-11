@@ -20,7 +20,378 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
+  
+<!-- ====================================== -->
+<!-- SMOOTH FLOATING LOADER -->
+<!-- ====================================== -->
 
+<div id="loader">
+
+  <!-- Background -->
+  <div class="bg-gradient"></div>
+
+  <!-- Glow -->
+  <div class="glow"></div>
+
+  <!-- Content -->
+  <div class="loader-content">
+
+    <!-- Logo -->
+    <img src="img/favicon.png" alt="Logo" class="loader-logo">
+
+    <!-- Loading -->
+    <p class="loading-text">
+      Loading<span>.</span><span>.</span><span>.</span>
+    </p>
+
+  </div>
+
+</div>
+
+<style>
+
+/* ====================================== */
+/* FULLSCREEN */
+/* ====================================== */
+
+#loader{
+  position: fixed;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f1115,
+      #181c22
+    );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  z-index: 999999;
+
+  will-change:
+    opacity,
+    transform;
+}
+
+/* ====================================== */
+/* BACKGROUND */
+/* ====================================== */
+
+.bg-gradient{
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(183,214,46,0.10),
+      transparent 60%
+    );
+}
+
+/* ====================================== */
+/* GLOW */
+/* ====================================== */
+
+.glow{
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(183,214,46,0.16);
+
+  filter: blur(100px);
+
+  animation:
+    glowPulse 6s ease-in-out infinite;
+
+  will-change:
+    transform;
+}
+
+/* ====================================== */
+/* CONTENT */
+/* ====================================== */
+
+.loader-content{
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ====================================== */
+/* LOGO */
+/* ====================================== */
+
+.loader-logo{
+
+  width: 160px;
+  max-width: 80vw;
+
+  object-fit: contain;
+
+  transform:
+    translateZ(0);
+
+  will-change:
+    transform,
+    opacity;
+
+  filter:
+    brightness(1.1)
+    contrast(1.1)
+    drop-shadow(0 0 25px rgba(183,214,46,0.45));
+
+  animation:
+    introSmooth 1s ease-out forwards,
+    floatingSmooth 3s ease-in-out infinite,
+    smoothZoom 1.8s cubic-bezier(.22,1,.36,1) forwards;
+
+  animation-delay:
+    0s,
+    1s,
+    5s;
+}
+
+/* ====================================== */
+/* TEXT */
+/* ====================================== */
+
+.loading-text{
+
+  margin-top: 24px;
+
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  letter-spacing: 6px;
+
+  opacity: 0.8;
+
+  animation:
+    textFade 2s ease-in-out infinite;
+}
+
+/* DOTS */
+
+.loading-text span{
+  animation:
+    dots 1.5s infinite;
+}
+
+.loading-text span:nth-child(2){
+  animation-delay: 0.2s;
+}
+
+.loading-text span:nth-child(3){
+  animation-delay: 0.4s;
+}
+
+.loading-text span:nth-child(4){
+  animation-delay: 0.6s;
+}
+
+/* ====================================== */
+/* INTRO */
+/* ====================================== */
+
+@keyframes introSmooth{
+
+  0%{
+    opacity: 0;
+
+    transform:
+      scale(0.7);
+
+    filter:
+      blur(6px);
+  }
+
+  100%{
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter:
+      blur(0px);
+  }
+
+}
+
+/* ====================================== */
+/* FLOAT */
+/* ====================================== */
+
+@keyframes floatingSmooth{
+
+  0%,100%{
+    transform:
+      translate3d(0,0,0);
+  }
+
+  50%{
+    transform:
+      translate3d(0,-14px,0);
+  }
+
+}
+
+/* ====================================== */
+/* SMOOTH ZOOM */
+/* ====================================== */
+
+/* ====================================== */
+/* PALITAN MO LANG YUNG */
+/* smoothZoom */
+/* ====================================== */
+
+@keyframes smoothZoom{
+
+  /* NORMAL */
+  0%{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+
+    opacity: 1;
+  }
+
+  /* SLIGHT POP */
+
+  30%{
+    transform:
+      translate3d(0,0,0)
+      scale(1.08);
+
+    opacity: 1;
+  }
+
+  /* COLLAPSE EFFECT */
+
+  100%{
+    transform:
+      translate3d(0,0,0)
+      scale(0);
+
+    opacity: 0;
+  }
+
+}
+/* ====================================== */
+/* GLOW */
+/* ====================================== */
+
+@keyframes glowPulse{
+
+  0%,100%{
+    transform:
+      scale(1);
+  }
+
+  50%{
+    transform:
+      scale(1.12);
+  }
+
+}
+
+/* ====================================== */
+/* TEXT */
+/* ====================================== */
+
+@keyframes textFade{
+
+  0%,100%{
+    opacity: 0.5;
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+}
+
+/* DOTS */
+
+@keyframes dots{
+
+  0%,20%{
+    opacity: 0.2;
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100%{
+    opacity: 0.2;
+  }
+
+}
+
+/* ====================================== */
+/* MOBILE */
+/* ====================================== */
+
+@media(max-width:768px){
+
+  .loader-logo{
+    width: 120px;
+  }
+
+  .loading-text{
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+  }
+
+}
+
+</style>
+
+<script>
+
+/* ====================================== */
+/* REMOVE LOADER */
+/* ====================================== */
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    const loader =
+      document.getElementById("loader");
+
+    loader.style.transition =
+      "opacity .4s ease";
+
+    loader.style.opacity = "0";
+
+    setTimeout(() => {
+
+      loader.remove();
+
+    }, 400);
+
+  }, 6500);
+
+});
+
+</script>
+  
 <!-- ========================================================
      NAVIGATION BAR
      To change phone number: update data-phone and href below
@@ -121,7 +492,7 @@
     <span>PVC Wall Panel</span><span class="sep">-</span>
     <span>Tiles</span><span class="sep">-</span>
     <span>UV Marble Sheets</span><span class="sep">-</span>
-    <span>WPC WALL PANEL</span><span class="sep">-</span>
+    <span>WPC Wall Panel</span><span class="sep">-</span>
   </div>
 </div>
 
@@ -166,7 +537,7 @@
       </div>
 
       <!-- ── CATEGORY CARD 3: CEILING PANEL ────────────── -->
-      <div class="cat-card" data-category="ceiling" onclick="filterCategory('ceiling')">
+<div class="cat-card" data-category="ceiling-panel"onclick="filterCategory('ceiling-panel')">
         <div class="cat-img-wrap drop-zone" data-target="cat-ceiling">
          <img src="img/ceiling panel/1ceiling.jpg" alt="Ceiling Panel">
           
@@ -199,20 +570,20 @@
         </div>
         <div class="cat-info">
           <h3>PVC Wall Panel</h3>
-          <p>Durable &amp; water-resistant wall panels</p>
+          <p>Durable &amp; stylish wall panels solutions</p>
           <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
         </div>
       </div>
 
       <!-- ── CATEGORY CARD 6: WPC WALL PANEL ───────────── -->
-      <div class="cat-card" data-category="pvc-wall" onclick="filterCategory('wpc-wall')">
-        <div class="cat-img-wrap drop-zone" data-target="cat-wpc-wall">
+      <div class="cat-card" data-category="pvc-wall" onclick="filterCategory('wpc')">
+        <div class="cat-img-wrap drop-zone" data-target="cat-wpc">
          <img src="img/wpc/1wpc.jpg" alt="WPC Wall Panel">
  
         </div>
         <div class="cat-info">
           <h3>WPC Wall Panel</h3>
-          <p>Durable &amp; water-resistant wall panels</p>
+          <p>Durable &amp; stylish wall panels solutions</p>
           <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
         </div>
       </div>
@@ -304,7 +675,7 @@
     <img class="modal-img" id="modalImage">
 </div>
 
- <!-- --- TILES 2 --- -->
+ <!-- --- TILES 3 --- -->
 
    <div class="prod-card" data-category="tiles">
 
