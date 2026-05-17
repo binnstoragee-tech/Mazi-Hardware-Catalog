@@ -399,36 +399,56 @@ window.addEventListener("load", () => {
 <nav id="navbar">
   <div class="nav-inner">
 
-    <div class="nav-logo">
-  <img src="img/logo.png" alt="MAZI Logo" class="nav-logo-img">
-</div>
+    <!-- LOGO -->
+    <a href="#home" class="nav-logo">
+      <img src="img/logo.png" alt="MAZI Hardware" class="nav-logo-img">
+    </a>
 
-    <!-- NAV LINKS -->
+    <!-- NAV LINKS (desktop center / mobile drawer) -->
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#home"       class="nav-link active">Home</a></li>
       <li><a href="#categories" class="nav-link">Categories</a></li>
-      <li><a href="#products" class="nav-link">Products</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#products"   class="nav-link">Products</a></li>
+      <li><a href="#about"      class="nav-link">About</a></li>
+      <li><a href="#contact"    class="nav-link">Contact</a></li>
+
+      <!-- CTA visible ONLY inside mobile drawer -->
+      <li class="nav-mobile-cta" aria-hidden="true">
+        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I'd%20like%20to%20inquire."
+           target="_blank" class="nav-cta-btn nav-cta-wa">
+          <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+        </a>
+        <a href="viber://chat?number=%2B9788851"
+           class="nav-cta-btn nav-cta-vb">
+          <i class="ph-fill ph-phone"></i> Viber
+        </a>
+      </li>
     </ul>
 
-    <!-- CONTACT BUTTONS -->
-    <!-- ⚠️ Replace 6399788851with your actual number (no + sign, no spaces) -->
-    <div class="nav-cta">
-      <a href="https://wa.me/9788851text=Hi%20MAZI%20Hardware!%20I'd%20like%20to%20inquire%20about%20your%20products."
-         target="_blank" class="btn-contact btn-whatsapp">
-        <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+    <!-- RIGHT SIDE: CTA (desktop only) + hamburger -->
+    <div class="nav-right">
+      <!-- WhatsApp icon-only pill -->
+      <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I'd%20like%20to%20inquire%20about%20your%20products."
+         target="_blank" class="nav-pill nav-pill-wa" aria-label="WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+        <span>WhatsApp</span>
       </a>
+      <!-- Viber icon-only pill -->
       <a href="viber://chat?number=%2B9788851"
-         class="btn-contact btn-viber">
-        <i class="ph-fill ph-phone"></i> Viber
+         class="nav-pill nav-pill-vb" aria-label="Viber">
+        <i class="ph-fill ph-phone"></i>
+        <span>Viber</span>
       </a>
+
+      <!-- Divider -->
+      <div class="nav-divider"></div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <!-- HAMBURGER for mobile -->
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
@@ -498,100 +518,80 @@ window.addEventListener("load", () => {
 
 <!-- ========================================================
      CATEGORIES SECTION
+     SIMPLE DESIGN / IMAGE ONLY / NO EFFECTS
      ======================================================== -->
 <section id="categories" class="section categories-section">
   <div class="container">
+
     <div class="section-header">
       <span class="section-tag">What We Offer</span>
       <h2 class="section-title">Product <span class="accent">Categories</span></h2>
-      <p class="section-desc">Click any category to filter products below</p>
+      <p class="section-desc">Browse our product categories</p>
     </div>
 
     <div class="categories-grid">
 
-      <!-- ── CATEGORY CARD 1: TILES ────────────────────── -->
-      <!-- Drop zone: drag image to the card to set category thumbnail -->
-      <div class="cat-card" data-category="tiles" onclick="filterCategory('tiles')">
-        <div class="cat-img-wrap">
-  <img src="img/tiles catalog/1.jpg" alt="Tiles">
-</div>
+      <!-- TILES -->
+      <div class="cat-card" onclick="filterCategory('tiles')">
+        <img src="img/tiles catalog/1.jpg" alt="Tiles" class="cat-image">
+
         <div class="cat-info">
           <h3>Tiles</h3>
-          <p>Floor &amp; wall tiles for every style</p>
-          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
-          
+          <p>Floor & wall tiles for every style</p>
         </div>
       </div>
 
-      <!-- ── CATEGORY CARD 2: UV MARBLE SHEETS ─────────── -->
-      <div class="cat-card" data-category="uv-marble" onclick="filterCategory('uv-marble')">
-        <div class="cat-img-wrap drop-zone" data-target="cat-uv-marble">
-          <img src="img/uv marble sheets catalog/1marble.jpg" alt="UV Marble Sheets">
-          </div>
-            
+      <!-- UV MARBLE -->
+      <div class="cat-card" onclick="filterCategory('uv-marble')">
+        <img src="img/uv marble sheets catalog/1marble.jpg" alt="UV Marble Sheets" class="cat-image">
+
         <div class="cat-info">
           <h3>UV Marble Sheets</h3>
           <p>Elegant marble-finish UV panels</p>
-          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
         </div>
       </div>
 
-      <!-- ── CATEGORY CARD 3: CEILING PANEL ────────────── -->
-<div class="cat-card" data-category="ceiling-panel"onclick="filterCategory('ceiling-panel')">
-        <div class="cat-img-wrap drop-zone" data-target="cat-ceiling">
-         <img src="img/ceiling panel/1ceiling.jpg" alt="Ceiling Panel">
-          
-        </div>
+      <!-- CEILING PANEL -->
+      <div class="cat-card" onclick="filterCategory('ceiling')">
+        <img src="img/ceiling panel/1ceiling.jpg" alt="Ceiling Panel" class="cat-image">
+
         <div class="cat-info">
           <h3>Ceiling Panel</h3>
-          <p>Lightweight &amp; stylish ceiling solutions</p>
-          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+          <p>Lightweight and stylish ceiling solutions</p>
         </div>
       </div>
 
-      <!-- ── CATEGORY CARD 4: PARQUET ───────────────────── -->
-      <div class="cat-card" data-category="parquet" onclick="filterCategory('parquet')">
-        <div class="cat-img-wrap drop-zone" data-target="cat-parquet">
-          <img src="img/parquet/1parquet.jpg" alt="Parquet">
+      <!-- PARQUET -->
+      <div class="cat-card" onclick="filterCategory('parquet')">
+        <img src="img/parquet/1parquet.jpg" alt="Parquet" class="cat-image">
 
-        </div>
         <div class="cat-info">
           <h3>Parquet</h3>
-          <p>Natural wood flooring &amp; laminates</p>
-          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+          <p>Natural wood flooring and laminates</p>
         </div>
       </div>
 
-      <!-- ── CATEGORY CARD 5: PVC WALL PANEL ───────────── -->
-      <div class="cat-card" data-category="pvc-wall" onclick="filterCategory('pvc-wall')">
-        <div class="cat-img-wrap drop-zone" data-target="cat-pvc-wall">
-         <img src="img/pvc wall panel/1wallpanel.jpg" alt="PVC Wall Panel">
- 
-        </div>
+      <!-- PVC WALL PANEL -->
+      <div class="cat-card" onclick="filterCategory('pvc-wall')">
+        <img src="img/pvc wall panel/1wallpanel.jpg" alt="PVC Wall Panel" class="cat-image">
         <div class="cat-info">
           <h3>PVC Wall Panel</h3>
-          <p>Durable &amp; stylish wall panels solutions</p>
-          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+          <p>Durable and stylish wall panels</p>
         </div>
       </div>
 
-      <!-- ── CATEGORY CARD 6: WPC WALL PANEL ───────────── -->
-      <div class="cat-card" data-category="pvc-wall" onclick="filterCategory('wpc')">
-        <div class="cat-img-wrap drop-zone" data-target="cat-wpc">
-         <img src="img/wpc/1wpc.jpg" alt="WPC Wall Panel">
- 
-        </div>
+      <!-- WPC WALL PANEL -->
+      <div class="cat-card" onclick="filterCategory('wpc')">
+        <img src="img/wpc/1wpc.jpg" alt="WPC Wall Panel" class="cat-image">
         <div class="cat-info">
           <h3>WPC Wall Panel</h3>
-          <p>Durable &amp; stylish wall panels solutions</p>
-          <span class="cat-arrow"><i class="ph ph-arrow-right"></i></span>
+          <p>Premium wood-plastic composite panels</p>
         </div>
       </div>
 
     </div><!-- /categories-grid -->
-  </div>
+  </div><!-- /container -->
 </section>
-
 <!-- ========================================================
      PRODUCTS SECTION
      Drag & drop images directly onto product cards to set photos.
@@ -607,13 +607,13 @@ window.addEventListener("load", () => {
 
     <!-- Filter buttons -->
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterCategory('all')">All</button>
-      <button class="filter-btn" onclick="filterCategory('tiles')">Tiles</button>
-      <button class="filter-btn" onclick="filterCategory('uv-marble')">UV Marble</button>
-      <button class="filter-btn" onclick="filterCategory('ceiling')">Ceiling Panel</button>
-      <button class="filter-btn" onclick="filterCategory('parquet')">Parquet</button>
-      <button class="filter-btn" onclick="filterCategory('pvc-wall')">PVC Wall Panel</button>
-      <button class="filter-btn" onclick="filterCategory('wpc-wall')">WPC Wall Panel</button>
+      <button class="filter-btn active" data-filter="all" onclick="filterCategory('all')">All</button>
+      <button class="filter-btn" data-filter="tiles" onclick="filterCategory('tiles')">Tiles</button>
+      <button class="filter-btn" data-filter="uv-marble" onclick="filterCategory('uv-marble')">UV Marble</button>
+      <button class="filter-btn" data-filter="ceiling" onclick="filterCategory('ceiling')">Ceiling Panel</button>
+      <button class="filter-btn" data-filter="parquet" onclick="filterCategory('parquet')">Parquet</button>
+      <button class="filter-btn" data-filter="pvc-wall" onclick="filterCategory('pvc-wall')">PVC Wall Panel</button>
+      <button class="filter-btn" data-filter="wpc" onclick="filterCategory('wpc')">WPC Wall Panel</button>
     </div>
 
     <!-- PRODUCTS GRID -->
@@ -1541,7 +1541,7 @@ window.addEventListener("load", () => {
 
         <!-- ── CEILING PANEL 3 ───────────────────────────────── -->
      
-       <div class="prod-card" data-category="ceiling">
+     <div class="prod-card" data-category="ceiling">
 
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/3.jpg" alt="Uv Marble Sheets">
@@ -1572,7 +1572,7 @@ window.addEventListener("load", () => {
 
   <!-- ── CEILING PANEL 4 ───────────────────────────────── -->
      
-       <div class="prod-card" data-category="ceiling">
+      <div class="prod-card" data-category="ceiling">
 
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/4.jpg" alt="Uv Marble Sheets">
@@ -1603,7 +1603,7 @@ window.addEventListener("load", () => {
       
   <!-- ── CEILING PANEL 5 ───────────────────────────────── -->
      
-       <div class="prod-card" data-category="ceiling">
+     <div class="prod-card" data-category="ceiling">
 
   <div class="prod-img-wrap">
     <img class="prod-img" src="img/ceiling panel/5.jpg" alt="Uv Marble Sheets">
@@ -1972,8 +1972,7 @@ window.addEventListener("load", () => {
 
 
       <!-- ── WPC WALL PANEL 2 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc-wall">
-       
+      <div class="prod-card" data-category="wpc">
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/2.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
@@ -2003,7 +2002,7 @@ window.addEventListener("load", () => {
       </div>
 
       <!-- ── WPC WALL PANEL 3 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc-wall">
+       <div class="prod-card" data-category="wpc">
        
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/3.jpg" alt="Parquet">
@@ -2034,7 +2033,7 @@ window.addEventListener("load", () => {
 
 
        <!-- ── WPC WALL PANEL 4 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc-wall">
+     <div class="prod-card" data-category="wpc">
        
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/4.jpg" alt="Parquet">
@@ -2063,7 +2062,7 @@ window.addEventListener("load", () => {
       </div>
 
        <!-- ── WPC WALL PANEL 5 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc-wall">
+        <div class="prod-card" data-category="wpc">
        
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/5.jpg" alt="Parquet">
@@ -2094,7 +2093,7 @@ window.addEventListener("load", () => {
 
 
          <!-- ── WPC WALL PANEL 6 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc-wall">
+      <div class="prod-card" data-category="wpc">
        
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/6.jpg" alt="Parquet">
@@ -2125,7 +2124,7 @@ window.addEventListener("load", () => {
 
 
          <!-- ── WPC WALL PANEL 7 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc-wall">
+       <div class="prod-card" data-category="wpc">
        
          <div class="prod-img-wrap">
     <img class="prod-img" src="img/wpc/7.jpg" alt="Parquet">
