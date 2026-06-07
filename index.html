@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home &ndash; MAZI Hardware</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png?v=2">
+  <link rel="shortcut icon" href="img/favicon.ico?v=2">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo.png" alt="MAZI Hardware" class="nav-logo-img">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="categories.html" class="nav-link">Categories</a></li>
+      <li><a href="products.html" class="nav-link">Products</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li class="nav-mobile-cta" aria-hidden="true">
+        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa">
+          <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+        </a>
+        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb">
+          <i class="ph-fill ph-phone"></i> Viber
+        </a>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-pill nav-pill-wa" aria-label="WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i><span>WhatsApp</span>
+      </a>
+      <a href="viber://chat?number=%2B9788851" class="nav-pill nav-pill-vb" aria-label="Viber">
+        <i class="ph-fill ph-phone"></i><span>Viber</span>
+      </a>
+      <div class="nav-divider"></div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========================================================
+     HERO SECTION
+     Background: drag & drop store image into the hero zone
+     ======================================================== -->
+<section id="home" class="hero">
+
+
+ 
+    <!-- If no image dropped, shows the gradient background -->
+   <div class="hero-bg"></div>
+
+  <!-- Decorative animated stripes (brand identity) -->
+  <div class="hero-stripes">
+    <div class="stripe s1"></div>
+    <div class="stripe s2"></div>
+    <div class="stripe s3"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge animate-fade-up" style="--delay:0.1s">
+      <i class="ph ph-storefront"></i> Home Improvement Product Catalog
+    </div>
+    <h1 class="hero-title animate-fade-up" style="--delay:0.25s">
+      Where Smart<br /><span class="accent">Builds Begin</span>
+    </h1>
+    <p class="hero-sub animate-fade-up" style="--delay:0.4s">
+      Premium tiles, panels, parquet &amp; more <br> browse our catalog and inquire directly.
+    </p>
+    <div class="hero-actions animate-fade-up" style="--delay:0.55s">
+      <a href="categories.html" class="btn-primary">
+        Browse Products <i class="ph ph-arrow-right"></i>
+      </a>
+      <a href="contact.html" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ========================================================
+     MARQUEE TICKER
+     ======================================================== -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Tiles</span><span class="sep">-</span>
+    <span>UV Marble Sheets</span><span class="sep">-</span>
+    <span>Ceiling Panel</span><span class="sep">-</span>
+    <span>Parquet</span><span class="sep">-</span>
+    <span>PVC Wall Panel</span><span class="sep">-</span>
+    <span>Tiles</span><span class="sep">-</span>
+    <span>UV Marble Sheets</span><span class="sep">-</span>
+    <span>Ceiling Panel</span><span class="sep">-</span>
+    <span>Parquet</span><span class="sep">-</span>
+    <span>PVC Wall Panel</span><span class="sep">-</span>
+    <span>Tiles</span><span class="sep">-</span>
+    <span>UV Marble Sheets</span><span class="sep">-</span>
+    <span>WPC Wall Panel</span><span class="sep">-</span>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
+      <p>Premium building materials &amp; home improvement solutions.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 MAZI Hardware. All rights reserved.</p>
+  </div>
+</footer>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="ph ph-arrow-up"></i>
+</button>
+<script src="script.js"></script>
+<script>
+function openModal(imgSrc){
+    const modal = document.getElementById("imageModal");
+    const img   = document.getElementById("modalImage");
+    img.src = imgSrc;
+    modal.style.display = "flex";
+    modal.offsetHeight;
+    modal.classList.add("modal-open");
+    modal.classList.remove("modal-closing");
+    modal.onclick = function(e){ if(e.target === modal) closeModal(); };
+}
+function closeModal(){
+    const modal = document.getElementById("imageModal");
+    modal.classList.add("modal-closing");
+    modal.classList.remove("modal-open");
+    setTimeout(() => {
+        modal.style.display = "none";
+        modal.classList.remove("modal-closing");
+    }, 380);
+}
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
+</script>
+</body>
+</html>
