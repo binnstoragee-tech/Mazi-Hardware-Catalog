@@ -46,6 +46,40 @@ body {
   color: var(--black);
   overflow-x: hidden;
   line-height: 1.6;
+  /* Prevent flash of invisible text during font load */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent layout shift before fonts load — fallback fonts match metrics */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Prevent flash — body fades in once fonts are ready */
+body {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+html.fonts-loaded body {
+  opacity: 1;
+}
+
+/* Fallback: show body after 1.5s even if fonts never fire */
+@keyframes bodyReveal {
+  to { opacity: 1; }
+}
+body {
+  animation: bodyReveal 0s 1.5s forwards;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -870,6 +904,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(5, 1fr);
   gap: 14px;
   min-height: 400px;
+  align-items: start;
 }
 
 /* Product card */
@@ -880,6 +915,8 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--card-shadow);
   border: 2px solid var(--gray-lt);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .prod-card:hover {
@@ -1464,10 +1501,11 @@ img { max-width: 100%; display: block; }
 
 /* Product info */
 .prod-info {
-  padding: 8px 10px;
+  padding: 8px 10px 14px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-height: 72px;
 }
 
 .prod-name {
@@ -1517,7 +1555,7 @@ img { max-width: 100%; display: block; }
 .about-section { background: var(--bg-section); }
 
 .about-grid {
-  
+  display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 64px;
   align-items: center;
@@ -2052,6 +2090,7 @@ img { max-width: 100%; display: block; }
   .about-grid      { grid-template-columns: 1fr; }
   .about-text-col  { padding-right: 0; }
   .about-accent-block { right: 0; bottom: -16px; }
+  .about-img-box   { max-height: 320px; aspect-ratio: unset; height: 320px; }
   .filter-bar      { gap: 8px; }
   .filter-btn      { font-size: 0.78rem; padding: 6px 14px; }
   .footer-inner    { flex-direction: column; align-items: flex-start; }
@@ -2205,6 +2244,9 @@ img { max-width: 100%; display: block; }
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: calc(var(--nav-h) + 160px);
+  display: flex;
+  align-items: center;
 }
 
 .page-hero::before {
@@ -2456,75 +2498,177 @@ img { max-width: 100%; display: block; }
 
 
 /* ================================================================
-   CATEGORIES – LANDSCAPE SCROLL CARDS
+   CATEGORIES – PREMIUM ANIMATED GRID
    ================================================================ */
+
+/* ── KEYFRAMES ─────────────────────────────────────────────── */
+@keyframes cardReveal {
+  0%   { opacity: 0; transform: translateY(48px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(220%) skewX(-12deg); }
+}
+
+@keyframes greenLineDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes badgePop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
 
 /* ── SECTION WRAPPER ───────────────────────────────────────── */
 .cat-scroll-section {
-  background: #0a0a0a;
-  padding-bottom: 80px;
+  background: #0d0f0a;
+  padding: 72px 0 96px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ── STICKY HEADER ─────────────────────────────────────────── */
-.cat-scroll-header {
-  text-align: center;
-  padding: 96px 24px 64px;
+/* Subtle grid texture */
+.cat-scroll-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(180,211,52,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180,211,52,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.cat-scroll-header .section-tag {
-  color: var(--green);
-  background: rgba(180,211,52,0.12);
-  border: 1px solid rgba(180,211,52,0.22);
+/* Ambient glow top-center */
+.cat-scroll-section::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(180,211,52,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.cat-scroll-header .section-title { color: #fff; }
-
-.cat-scroll-header .section-desc  { color: rgba(255,255,255,0.4); }
-
-/* ── CARDS STACK ───────────────────────────────────────────── */
+/* ── GRID ──────────────────────────────────────────────────── */
 .cat-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── LANDSCAPE CARD ────────────────────────────────────────── */
+/* ── CARD — scroll-reveal base state ──────────────────────── */
 .lscard {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 70vh;           /* full landscape proportion */
-  min-height: 420px;
-  max-height: 600px;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
-  background: #111;
+  background: #141610;
+  border-radius: 18px;
+  border: 1px solid rgba(180,211,52,0.10);
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.45),
+    0 0 0 0 rgba(180,211,52,0);
+  transition:
+    transform 0.45s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.45s cubic-bezier(0.22,1,0.36,1),
+    border-color 0.35s ease;
+
+  /* Scroll reveal — JS adds .lscard-visible */
+  opacity: 0;
+  transform: translateY(52px) scale(0.97);
 }
 
-/* Separator line between cards */
-.lscard-line {
+/* Triggered by JS IntersectionObserver */
+.lscard.lscard-visible {
+  animation: cardReveal 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+/* Stagger delays via nth-child */
+.lscard:nth-child(1) { animation-delay: 0.05s; }
+.lscard:nth-child(2) { animation-delay: 0.15s; }
+.lscard:nth-child(3) { animation-delay: 0.25s; }
+.lscard:nth-child(4) { animation-delay: 0.12s; }
+.lscard:nth-child(5) { animation-delay: 0.22s; }
+.lscard:nth-child(6) { animation-delay: 0.32s; }
+
+.lscard:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(180,211,52,0.35),
+    0 0 40px rgba(180,211,52,0.08);
+  border-color: rgba(180,211,52,0.45);
+}
+
+/* ── SHIMMER SWEEP on hover ────────────────────────────────── */
+.lscard::after {
+  content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
+  top: 0; left: 0;
+  width: 50%;
+  height: 100%;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(180,211,52,0.3) 20%,
-    rgba(180,211,52,0.5) 50%,
-    rgba(180,211,52,0.3) 80%,
+    rgba(255,255,255,0.06) 50%,
     transparent 100%
   );
-  z-index: 10;
+  transform: translateX(-100%) skewX(-12deg);
+  z-index: 20;
+  pointer-events: none;
+  border-radius: inherit;
 }
 
-/* ── IMAGE ─────────────────────────────────────────────────── */
-.lscard-img-wrap {
+.lscard:hover::after {
+  animation: shimmerSweep 0.75s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+/* Separator line — hidden in grid mode */
+.lscard-line { display: none; }
+
+/* ── GREEN BOTTOM LINE — draws on hover ────────────────────── */
+.lscard::before {
+  content: '';
   position: absolute;
-  inset: -10% 0;          /* extra space for zoom/parallax travel */
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--green);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  z-index: 15;
+  border-radius: 0 0 18px 18px;
+}
+
+.lscard:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── IMAGE WRAP ────────────────────────────────────────────── */
+.lscard-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 210px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .lscard-img {
@@ -2535,7 +2679,13 @@ img { max-width: 100%; display: block; }
   display: block;
   transform-origin: center center;
   will-change: transform;
-  transition: none;   /* rAF handles all movement — no CSS transition */
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  filter: brightness(0.88) saturate(0.9);
+}
+
+.lscard:hover .lscard-img {
+  transform: scale(1.1);
+  filter: brightness(1) saturate(1.05);
 }
 
 /* ── GRADIENT OVERLAY ──────────────────────────────────────── */
@@ -2544,175 +2694,209 @@ img { max-width: 100%; display: block; }
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background:
-    linear-gradient(to right,  rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.0) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.0)  60%, rgba(0,0,0,0.5) 100%);
-  transition: background 0.5s ease;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.45) 100%
+  );
+  transition: opacity 0.45s ease;
 }
 
 .lscard:hover .lscard-overlay {
-  background:
-    linear-gradient(to right,  rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.05) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.0)  60%, rgba(0,0,0,0.6)  100%);
+  opacity: 0.7;
 }
 
-/* ── CONTENT ───────────────────────────────────────────────── */
-.lscard-content {
+/* ── NUMBER BADGE ──────────────────────────────────────────── */
+.lscard-num {
   position: absolute;
-  inset: 0;
-  z-index: 3;
+  top: 14px;
+  left: 16px;
+  z-index: 5;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #000;
+  background: var(--green);
+  padding: 4px 11px;
+  border-radius: 100px;
+  line-height: 1.4;
+
+  /* Animate in with card */
+  animation: badgePop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.4s both;
+  opacity: 0;
+}
+
+.lscard.lscard-visible .lscard-num {
+  opacity: 1;
+}
+
+/* ── CONTENT BLOCK ─────────────────────────────────────────── */
+.lscard-content {
+  position: static;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 64px;
-  /* JS controls opacity + translateY on scroll */
-  will-change: opacity, transform;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+  background: transparent;
+  transition: background 0.35s ease;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.lscard:hover .lscard-content {
+  background: rgba(180,211,52,0.04);
 }
 
 .lscard-left {
   display: flex;
-  align-items: center;
-  gap: 32px;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
 }
 
-/* Number */
-.lscard-num {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  color: rgba(180,211,52,0.18);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  flex-shrink: 0;
-  transition: color 0.4s ease;
-}
-
-.lscard:hover .lscard-num {
-  color: rgba(180,211,52,0.45);
-}
-
-/* Title + desc */
 .lscard-text {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .lscard-title {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3.8rem);
-  color: #fff;
+  font-weight: 800;
+  font-size: 1.18rem;
+  color: rgba(255,255,255,0.92);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
   margin: 0;
   transition: color 0.3s ease;
 }
 
-.lscard:hover .lscard-title { color: var(--green); }
+.lscard:hover .lscard-title {
+  color: var(--green);
+}
 
 .lscard-desc {
   font-family: var(--font-body);
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
-  color: rgba(255,255,255,0.55);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.42);
   margin: 0;
+  line-height: 1.55;
   transition: color 0.3s ease;
-  max-width: 320px;
 }
 
-.lscard:hover .lscard-desc { color: rgba(255,255,255,0.85); }
+.lscard:hover .lscard-desc {
+  color: rgba(255,255,255,0.62);
+}
 
-/* CTA Button */
+/* ── CTA ROW ───────────────────────────────────────────────── */
 .lscard-cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 800;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #000;
   background: var(--green);
-  padding: 14px 28px;
+  padding: 9px 20px;
   border-radius: 100px;
-  flex-shrink: 0;
+  margin-top: 16px;
+  align-self: flex-start;
   opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.35s ease, transform 0.35s ease,
-              box-shadow 0.3s ease;
-  box-shadow: 0 0 0 rgba(180,211,52,0);
+  transform: translateY(10px);
+  transition:
+    opacity 0.35s cubic-bezier(0.22,1,0.36,1),
+    transform 0.35s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.35s ease,
+    background 0.25s ease;
+  box-shadow: none;
 }
 
 .lscard:hover .lscard-cta {
   opacity: 1;
-  transform: translateX(0);
-  box-shadow: 0 8px 32px rgba(180,211,52,0.4);
+  transform: translateY(0);
+  box-shadow: 0 8px 28px rgba(180,211,52,0.5);
+}
+
+.lscard-cta:hover {
+  background: var(--green-light);
 }
 
 .lscard-cta i {
-  font-size: 16px;
-  transition: transform 0.3s ease;
+  font-size: 13px;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
 }
 
-.lscard:hover .lscard-cta i { transform: translateX(4px); }
-
-/* ── PROGRESS BAR (left edge accent) ──────────────────────── */
-.lscard::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 0%;
-  background: var(--green);
-  z-index: 10;
-  transition: height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.lscard:hover .lscard-cta i {
+  transform: translateX(4px);
 }
-
-.lscard:hover::before { height: 100%; }
 
 /* ── RESPONSIVE ────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .lscard {
-    height: 55vw;
-    min-height: 280px;
-    max-height: 380px;
+@media (max-width: 900px) {
+  .cat-stack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
+}
 
-  .lscard-content {
-    padding: 0 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding-bottom: 28px;
+@media (max-width: 540px) {
+  .cat-stack {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 16px;
   }
-
-  .lscard-left { gap: 16px; }
-
-  .lscard-num  { font-size: 2.8rem; }
-  .lscard-title { font-size: 1.8rem; }
-  .lscard-desc  { font-size: 0.82rem; }
-
-  .lscard-cta {
-    opacity: 1;
-    transform: translateX(0);
-    margin-top: 14px;
-    padding: 10px 20px;
-    font-size: 0.8rem;
-  }
-
-  /* On mobile overlay is darker so text reads on any image */
-  .lscard-overlay {
-    background:
-      linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.82) 100%) !important;
-  }
+  .lscard-img-wrap { height: 190px; }
+  .cat-scroll-section { padding: 44px 0 60px; }
 }
 
 @media (max-width: 480px) {
-  .lscard { min-height: 240px; }
-  .lscard-num { display: none; }
-  .cat-scroll-header { padding: 72px 20px 48px; }
+  .lscard-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* Touch devices — always show CTA */
+@media (hover: none) {
+  .lscard-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .lscard:hover {
+    transform: none;
+  }
+}
+
+
+/* ================================================================
+   PAGE TRANSITION — iOS FADE + SLIDE
+   ================================================================ */
+
+/* EXIT — content fades and slides up slightly before navigate */
+body.pt-exit {
+  opacity: 0;
+  transform: translateY(12px) scale(0.99);
+  transition: opacity 0.28s cubic-bezier(0.4,0,1,1),
+              transform 0.28s cubic-bezier(0.4,0,1,1);
+  pointer-events: none;
+}
+
+/* ENTER — content starts slightly below and fades in */
+body.pt-enter {
+  opacity: 0;
+  transform: translateY(18px) scale(0.99);
+  transition: none;
+}
+
+body.pt-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.38s cubic-bezier(0,0,0.2,1),
+              transform 0.38s cubic-bezier(0,0,0.2,1);
+}
+
+#page-transition { display: none; }
 

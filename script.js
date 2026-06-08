@@ -2,6 +2,60 @@
    MAZI HARDWARE – script.js
    ================================================================ */
 
+/* ── FONT LOAD — prevent flash/invisible text ───────────────────── */
+(function () {
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      document.documentElement.classList.add('fonts-loaded');
+    });
+  } else {
+    document.documentElement.classList.add('fonts-loaded');
+  }
+})();
+
+
+/* ══════════════════════════════════════════════════════════════════
+   PAGE TRANSITION — iOS FADE + SLIDE
+   ══════════════════════════════════════════════════════════════════ */
+(function () {
+
+  const overlay = document.createElement('div');
+  overlay.id = 'page-transition';
+  document.body.appendChild(overlay);
+
+  /* Page load — fade + slide content in */
+  window.addEventListener('pageshow', function () {
+    document.body.classList.add('pt-enter');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('pt-enter-active');
+        setTimeout(() => {
+          document.body.classList.remove('pt-enter', 'pt-enter-active');
+        }, 420);
+      });
+    });
+  });
+
+  /* Link click — fade + slide content out, then navigate */
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href
+      || href.startsWith('http')
+      || href.startsWith('mailto')
+      || href.startsWith('tel')
+      || href.startsWith('viber')
+      || href.startsWith('#')
+      || link.target === '_blank'
+    ) return;
+    e.preventDefault();
+    document.body.classList.add('pt-exit');
+    setTimeout(() => { window.location.href = href; }, 320);
+  });
+
+})();
+
 /* ── HAMBURGER / MOBILE NAV ─────────────────────────────────────── */
 (function () {
   const hamburger = document.getElementById('hamburger');
