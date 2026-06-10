@@ -24,8 +24,20 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="categories.html" class="nav-link">Categories</a></li>
-      <li><a href="products.html" class="nav-link active">Products</a></li>
+      <li class="nav-has-dropdown">
+        <a href="categories.html" class="nav-link nav-link-noclick">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
+        <div class="nav-dropdown">
+          <a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
+          <a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
+          <a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
+          <a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
+          <a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
+          <a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
+          <a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
+          <a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
+          <a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </li>
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li class="nav-mobile-cta" aria-hidden="true">
@@ -53,30 +65,51 @@
 </nav>
 
 
-<!-- PAGE HERO BANNER -->
-<div class="page-hero">
-  <div class="container">
-    <span class="section-tag">MAZI Hardware</span>
-    <h1 class="page-hero-title">Our <span class="accent">Products</span></h1>
+<!-- ========================================================
+     CATEGORY LANDING BANNER (shown when ?cat= param is set)
+     ======================================================== -->
+<div class="cat-landing-banner" id="catLandingBanner" style="display:none;">
+  <div class="cat-landing-bg" id="catLandingBg"></div>
+  <div class="cat-landing-overlay"></div>
+  <div class="container cat-landing-inner">
+    <div class="cat-landing-icon" id="catLandingIcon"></div>
+    <div class="cat-landing-text">
+      <span class="cat-landing-eyebrow" id="catLandingEyebrow">MAZI Hardware</span>
+      <h1 class="cat-landing-title" id="catLandingTitle"></h1>
+      <p class="cat-landing-desc" id="catLandingDesc"></p>
+      <div class="cat-landing-subs" id="catLandingSubs"></div>
+    </div>
   </div>
 </div>
 
 <!-- ========================================================
      PRODUCTS SECTION
-     Drag & drop images directly onto product cards to set photos.
-     To add more products: copy one <div class="prod-card"> block.
      ======================================================== -->
 <section id="products" class="section products-section">
   <div class="container">
-    <!-- Filter buttons -->
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all" onclick="filterCategory('all')">All</button>
-      <button class="filter-btn" data-filter="tiles" onclick="filterCategory('tiles')">Tiles</button>
-      <button class="filter-btn" data-filter="uv-marble" onclick="filterCategory('uv-marble')">UV Marble</button>
-      <button class="filter-btn" data-filter="ceiling" onclick="filterCategory('ceiling')">Ceiling Panel</button>
-      <button class="filter-btn" data-filter="parquet" onclick="filterCategory('parquet')">Parquet</button>
-      <button class="filter-btn" data-filter="pvc-wall" onclick="filterCategory('pvc-wall')">PVC Wall Panel</button>
-      <button class="filter-btn" data-filter="wpc" onclick="filterCategory('wpc')">WPC Wall Panel</button>
+
+    <!-- SECTION HEADING (shown when no cat filter) -->
+    <div class="prod-section-head" id="prodSectionHead">
+      <h1 class="prod-section-title">Our <span class="accent">Products</span></h1>
+      <p class="prod-section-sub">Browse our full catalog &mdash; filter by category below</p>
+    </div>
+
+    <!-- CATEGORY LABEL -->
+    <div class="pf-label" id="pfLabel">
+      <i class="ph-fill ph-house"></i> Home Improvement
+    </div>
+
+    <!-- FILTER PILLS -->
+    <div class="pf-bar" id="filterBar">
+      <div class="pf-track">
+        <button class="pf-pill active" data-filter="all" onclick="filterCategory('all')">All</button>
+        <button class="pf-pill" data-filter="tiles" onclick="filterCategory('tiles')">Tiles</button>
+        <button class="pf-pill" data-filter="uv-marble" onclick="filterCategory('uv-marble')">UV Marble</button>
+        <button class="pf-pill" data-filter="ceiling" onclick="filterCategory('ceiling')">Ceiling Panel</button>
+        <button class="pf-pill" data-filter="parquet" onclick="filterCategory('parquet')">Parquet</button>
+        <button class="pf-pill" data-filter="pvc-wall" onclick="filterCategory('pvc-wall')">PVC Wall Panel</button>
+        <button class="pf-pill" data-filter="wpc" onclick="filterCategory('wpc')">WPC Wall Panel</button>
+      </div>
     </div>
 
     <!-- PRODUCTS GRID -->
@@ -1298,23 +1331,80 @@
   <img class="modal-img" id="modalImage">
 </div>
 <script>
+/* ── CATEGORY META ────────────────────────────────────────────── */
+const CAT_META = {
+  'tiles':       { label:'Tiles',           icon:'ph-fill ph-grid-four',     eyebrow:'Home Improvement',  desc:'Glossy & matte floor and wall tiles in various sizes for indoor and outdoor use.', subs:['Glossy','Matte','Indoor','Outdoor','600×600mm','600×1200mm','300×600mm'], bg:'img/tiles catalog/3.jpg' },
+  'uv-marble':   { label:'UV Marble Sheets', icon:'ph-fill ph-squares-four',  eyebrow:'Home Improvement',  desc:'Premium UV marble sheets with a high-gloss finish — ideal for feature walls and interiors.', subs:['Glossy','Matte','4ft × 9.5ft','3mm Thickness'], bg:'img/uv marble sheets catalog/2.jpg' },
+  'ceiling':     { label:'Ceiling Panels',   icon:'ph-fill ph-layout',        eyebrow:'Home Improvement',  desc:'Decorative PVC ceiling panels in printing and laminated finishes for any room.', subs:['Printing','Laminated','Glossy White','300×8mm profile'], bg:'img/ceiling panel/2.jpg' },
+  'parquet':     { label:'Parquet',           icon:'ph-fill ph-wood',          eyebrow:'Home Improvement',  desc:'Engineered wood parquet flooring with natural oak finishes and easy-click installation.', subs:['Click System','183×1220mm','4.5+1mm','Various Colors'], bg:'img/parquet/2.jpg' },
+  'pvc-wall':    { label:'PVC Wall Panels',   icon:'ph-fill ph-stack',         eyebrow:'Home Improvement',  desc:'Lightweight PVC wall panels — easy to install and available in a wide range of styles.', subs:['2ft Width','9.5ft Length','3mm Thickness'], bg:'img/pvc wall panel/2.jpg' },
+  'wpc':         { label:'WPC Wall Panels',   icon:'ph-fill ph-rows',          eyebrow:'Home Improvement',  desc:'Durable wood-plastic composite wall panels with a natural wood texture finish.', subs:['WPC-150×23mm','9.5ft Length','Various Colors'], bg:'img/wpc/2.jpg' },
+  'home-improvement': { label:'Home Improvement', icon:'ph-fill ph-house',     eyebrow:'Most Popular',      desc:'Everything you need to transform your interior — tiles, panels, flooring, and more.', subs:['Tiles','UV Marble','Ceiling Panel','Parquet','PVC Wall Panel','WPC Wall Panel'], bg:'home/wpc.jpeg' },
+  'pvc-pipes':   { label:'PVC Pipes',         icon:'ph-fill ph-pipe',          eyebrow:'Category',          desc:'Pressure, drainage and conduit pipes with all fittings for your plumbing needs.', subs:['Pressure Pipes','Drainage','Conduit','Fittings'], bg:'home/pvc.jpeg' },
+  'gutter':      { label:'Gutter',            icon:'ph-fill ph-funnel',        eyebrow:'Category',          desc:'Half-round and box gutters, downpipes and brackets for complete rainwater management.', subs:['Half-Round','Box Gutters','Downpipes','Clips'], bg:'home/ceiling.jpeg' },
+  'steel-bar':   { label:'Steel Bar',         icon:'ph-fill ph-minus-square',  eyebrow:'Category',          desc:'Rebars, round bars, flat bars and hollow sections for structural construction.', subs:['Rebars','Round Bars','Flat Bars','Hollow Sections'], bg:'home/marble.jpeg' },
+  'electrical':  { label:'Electrical',        icon:'ph-fill ph-lightning',     eyebrow:'Category',          desc:'Cables, switches, breakers, LED lights and electrical panels for every project.', subs:['Cables','Switches','Breakers','LED Lights'], bg:'home/parquet.jpeg' },
+  'sanitaryware':{ label:'Sanitaryware',      icon:'ph-fill ph-toilet',        eyebrow:'Category',          desc:'Toilets, basins, showers, faucets and bathtubs from trusted brands.', subs:['Toilets','Basins','Showers','Faucets'], bg:'home/tiles.jpeg' },
+  'power-tools': { label:'Power Tools',       icon:'ph-fill ph-wrench',        eyebrow:'Category',          desc:'Drills, grinders, saws, hammers and sanders for professional and DIY use.', subs:['Drills','Grinders','Saws','Sanders'], bg:'home/wpc.jpeg' },
+  'plumbing':    { label:'Plumbing',          icon:'ph-fill ph-drop',          eyebrow:'Category',          desc:'Valves, pipe fittings, tanks, pumps and hoses for complete plumbing installations.', subs:['Valves','Fittings','Tanks','Pumps'], bg:'home/pvc.jpeg' },
+};
+
+const HOME_IMPROVEMENT_CATS = ['tiles', 'uv-marble', 'ceiling', 'parquet', 'pvc-wall', 'wpc'];
+
+function showCatBanner(cat) {
+  const banner = document.getElementById('catLandingBanner');
+  const head   = document.getElementById('prodSectionHead');
+  const meta   = CAT_META[cat];
+  if (!meta) return;
+
+  document.getElementById('catLandingBg').style.backgroundImage = `url('${meta.bg}')`;
+  document.getElementById('catLandingIcon').innerHTML  = `<i class="${meta.icon}"></i>`;
+  document.getElementById('catLandingEyebrow').textContent = meta.eyebrow;
+  document.getElementById('catLandingTitle').innerHTML = meta.label;
+  document.getElementById('catLandingDesc').textContent = meta.desc;
+  document.getElementById('catLandingSubs').innerHTML  = meta.subs.map(s => `<span>${s}</span>`).join('');
+
+  banner.style.display = '';
+  head.style.display   = 'none';
+  document.getElementById('products').classList.add('has-banner');
+}
+
+function hideCatBanner() {
+  document.getElementById('catLandingBanner').style.display = 'none';
+  document.getElementById('prodSectionHead').style.display  = '';
+  document.getElementById('products').classList.remove('has-banner');
+}
+
 function filterCategory(cat) {
-  // Update active button
-  document.querySelectorAll('.filter-btn').forEach(btn => {
+  document.querySelectorAll('.pf-pill').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.filter === cat);
   });
 
-  // Show/hide cards
-  document.querySelectorAll('.prod-card').forEach(card => {
-    if (cat === 'all' || card.dataset.category === cat) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
+  if (cat !== 'all') showCatBanner(cat);
+  else hideCatBanner();
+
+  const grid  = document.getElementById('productsGrid');
+  const cards = grid.querySelectorAll('.prod-card');
+
+  cards.forEach(card => card.classList.add('pf-hiding'));
+
+  setTimeout(() => {
+    cards.forEach(card => {
+      const cardCat = card.dataset.category;
+      let show = false;
+      if (cat === 'all') show = true;
+      else if (cat === 'home-improvement') show = HOME_IMPROVEMENT_CATS.includes(cardCat);
+      else show = cardCat === cat;
+
+      card.style.display = show ? '' : 'none';
+      card.classList.remove('pf-hiding');
+      if (show) card.classList.add('pf-showing');
+    });
+    setTimeout(() => cards.forEach(c => c.classList.remove('pf-showing')), 400);
+  }, 180);
 }
 
-// Handle URL param (e.g. products.html?cat=tiles)
+// Handle URL param
 (function(){
   const p = new URLSearchParams(window.location.search).get('cat');
   if (p) {

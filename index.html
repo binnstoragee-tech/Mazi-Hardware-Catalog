@@ -21,8 +21,20 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="nav-link active">Home</a></li>
-      <li><a href="categories.html" class="nav-link">Categories</a></li>
-      <li><a href="products.html" class="nav-link">Products</a></li>
+      <li class="nav-has-dropdown">
+        <a href="categories.html" class="nav-link nav-link-noclick">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
+        <div class="nav-dropdown">
+          <a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
+          <a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
+          <a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
+          <a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
+          <a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
+          <a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
+          <a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
+          <a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
+          <a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </li>
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li class="nav-mobile-cta" aria-hidden="true">
@@ -50,94 +62,950 @@
 </nav>
 
 <!-- ========================================================
-     HERO SECTION
-     Background: drag & drop store image into the hero zone
+     HERO SECTION — PREMIUM 3D CAROUSEL
      ======================================================== -->
-<section id="home" class="hero">
+<section id="home" class="hero hero--3d">
 
-
- 
-    <!-- If no image dropped, shows the gradient background -->
-   <div class="hero-bg"></div>
-
-  <!-- Decorative animated stripes (brand identity) -->
-  <div class="hero-stripes">
-    <div class="stripe s1"></div>
-    <div class="stripe s2"></div>
-    <div class="stripe s3"></div>
+  <!-- Cinematic BG: slides crossfade with active card -->
+  <div class="hero3d-cinebg" id="hero3dBg">
+    <div class="hero3d-bg-slide active" style="background-image:url('home/wpc.jpeg')"></div>
+    <div class="hero3d-bg-slide" style="background-image:url('home/pvc.jpeg')"></div>
+    <div class="hero3d-bg-slide" style="background-image:url('home/tiles.jpeg')"></div>
+    <div class="hero3d-bg-slide" style="background-image:url('home/marble.jpeg')"></div>
+    <div class="hero3d-bg-slide" style="background-image:url('home/parquet.jpeg')"></div>
+    <div class="hero3d-bg-slide" style="background-image:url('home/ceiling.jpeg')"></div>
   </div>
+  <div class="hero3d-cineoverlay"></div>
+  <!-- Vignette edges -->
+  <div class="hero3d-vignette"></div>
 
-  <div class="hero-content">
-    <div class="hero-badge animate-fade-up" style="--delay:0.1s">
-      <i class="ph ph-storefront"></i> Home Improvement Product Catalog
-    </div>
-    <h1 class="hero-title animate-fade-up" style="--delay:0.25s">
-      Where Smart<br /><span class="accent">Builds Begin</span>
+  <!-- Left: copy -->
+  <!-- JS data binding elements (hidden) -->
+  <div class="hero3d-copy" aria-hidden="true" style="display:none;">
+    <h1 class="hero3d-title" id="hero3dTitle">
+      <span class="hero3d-title-line1" id="hero3dLine1">Premium</span>
+      <span class="hero3d-title-line2 hero3d-accent" id="hero3dLine2">Home Improvement</span>
     </h1>
-    <p class="hero-sub animate-fade-up" style="--delay:0.4s">
-      Premium tiles, panels, parquet &amp; more <br> browse our catalog and inquire directly.
-    </p>
-    <div class="hero-actions animate-fade-up" style="--delay:0.55s">
-      <a href="categories.html" class="btn-primary">
-        Browse Products <i class="ph ph-arrow-right"></i>
-      </a>
-      <a href="contact.html" class="btn-ghost">Get in Touch</a>
+    <p class="hero3d-sub" id="hero3dSub"></p>
+    <a href="products.html" class="hero3d-cta" id="hero3dCtaLink">Browse Products</a>
+    <span id="hero3dCur">01</span>
+  </div>
+
+  <!-- Right: 3D carousel -->
+  <div class="hero3d-stage" id="hero3dStage">
+    <div class="hero3d-scene" id="hero3dScene">
+      <div class="hero3d-carousel" id="hero3dCarousel">
+
+        <div class="hero3d-card"
+          data-index="0"
+          data-label="WPC Wall Panel"
+          data-line1="Premium"
+          data-line2="Home Improvement"
+          data-sub="Tiles, panels, flooring &amp; more — everything for your interior"
+          data-href="products.html"
+          data-img="home/wpc.jpeg">
+          <div class="hero3d-card-img" style="background-image:url('home/wpc.jpeg')"></div>
+          <div class="hero3d-card-overlay">
+            <div class="hero3d-card-meta">
+              <span class="hero3d-card-tag">Home Improvement</span>
+              <span class="hero3d-card-label">WPC Wall Panel</span>
+            </div>
+            <button class="hero3d-card-view" aria-label="View image"><i class="ph ph-arrows-out"></i></button>
+          </div>
+        </div>
+
+        <div class="hero3d-card"
+          data-index="1"
+          data-label="PVC Wall Panel"
+          data-line1="PVC"
+          data-line2="Wall Panel"
+          data-sub="Premium PVC wall panels for elegant, durable interiors"
+          data-href="products.html?cat=pvc-wall"
+          data-img="home/pvc.jpeg">
+          <div class="hero3d-card-img" style="background-image:url('home/pvc.jpeg')"></div>
+          <div class="hero3d-card-overlay">
+            <div class="hero3d-card-meta">
+              <span class="hero3d-card-tag">Wall Panels</span>
+              <span class="hero3d-card-label">PVC Wall Panel</span>
+            </div>
+            <button class="hero3d-card-view" aria-label="View image"><i class="ph ph-arrows-out"></i></button>
+          </div>
+        </div>
+
+        <div class="hero3d-card"
+          data-index="2"
+          data-label="Tiles"
+          data-line1="Premium"
+          data-line2="Tiles"
+          data-sub="Floor, wall &amp; decorative tiles in every size and finish"
+          data-href="products.html?cat=tiles"
+          data-img="home/tiles.jpeg">
+          <div class="hero3d-card-img" style="background-image:url('home/tiles.jpeg')"></div>
+          <div class="hero3d-card-overlay">
+            <div class="hero3d-card-meta">
+              <span class="hero3d-card-tag">Flooring</span>
+              <span class="hero3d-card-label">Tiles</span>
+            </div>
+            <button class="hero3d-card-view" aria-label="View image"><i class="ph ph-arrows-out"></i></button>
+          </div>
+        </div>
+
+        <div class="hero3d-card"
+          data-index="3"
+          data-label="UV Marble"
+          data-line1="UV"
+          data-line2="Marble Panels"
+          data-sub="High-gloss UV marble finish panels for a luxury look"
+          data-href="products.html?cat=uv-marble"
+          data-img="home/marble.jpeg">
+          <div class="hero3d-card-img" style="background-image:url('home/marble.jpeg')"></div>
+          <div class="hero3d-card-overlay">
+            <div class="hero3d-card-meta">
+              <span class="hero3d-card-tag">Wall Panels</span>
+              <span class="hero3d-card-label">UV Marble</span>
+            </div>
+            <button class="hero3d-card-view" aria-label="View image"><i class="ph ph-arrows-out"></i></button>
+          </div>
+        </div>
+
+        <div class="hero3d-card"
+          data-index="4"
+          data-label="Parquet"
+          data-line1="Parquet"
+          data-line2="Flooring"
+          data-sub="Engineered wood &amp; LVT flooring for every space"
+          data-href="products.html?cat=parquet"
+          data-img="home/parquet.jpeg">
+          <div class="hero3d-card-img" style="background-image:url('home/parquet.jpeg')"></div>
+          <div class="hero3d-card-overlay">
+            <div class="hero3d-card-meta">
+              <span class="hero3d-card-tag">Flooring</span>
+              <span class="hero3d-card-label">Parquet</span>
+            </div>
+            <button class="hero3d-card-view" aria-label="View image"><i class="ph ph-arrows-out"></i></button>
+          </div>
+        </div>
+
+        <div class="hero3d-card"
+          data-index="5"
+          data-label="Ceiling Panel"
+          data-line1="Ceiling"
+          data-line2="Panels"
+          data-sub="PVC &amp; gypsum ceiling systems for clean, modern interiors"
+          data-href="products.html?cat=ceiling"
+          data-img="home/ceiling.jpeg">
+          <div class="hero3d-card-img" style="background-image:url('home/ceiling.jpeg')"></div>
+          <div class="hero3d-card-overlay">
+            <div class="hero3d-card-meta">
+              <span class="hero3d-card-tag">Ceiling</span>
+              <span class="hero3d-card-label">Ceiling Panel</span>
+            </div>
+            <button class="hero3d-card-view" aria-label="View image"><i class="ph ph-arrows-out"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="hero3d-controls">
+      <button class="hero3d-btn" id="hero3dPrev" aria-label="Previous"><i class="ph ph-caret-left"></i></button>
+      <div class="hero3d-dots" id="hero3dDots"></div>
+      <button class="hero3d-btn" id="hero3dNext" aria-label="Next"><i class="ph ph-caret-right"></i></button>
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="scroll-indicator">
+  <!-- Progress bar -->
+  <div class="hero3d-progress"><div class="hero3d-progress-bar" id="hero3dBar"></div></div>
+
+</section>
+
+<!-- Image lightbox modal -->
+<div class="hero3d-modal" id="hero3dModal">
+  <div class="hero3d-modal-inner">
+    <button class="hero3d-modal-close" id="hero3dModalClose"><i class="ph ph-x"></i></button>
+    <img class="hero3d-modal-img" id="hero3dModalImg" src="" alt="">
+    <div class="hero3d-modal-caption" id="hero3dModalCaption"></div>
+  </div>
+</div>
+
+<style>
+/* ════════════════════════════════════════════════════════════
+   PREMIUM 3D HERO
+   ════════════════════════════════════════════════════════════ */
+
+/* -- Base shell -- */
+.hero--3d {
+  position: relative;
+  min-height: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 0 120px 0;
+  overflow: hidden;
+  background: #060c07;
+}
+
+/* white fade removed */
+
+/* -- Cinematic BG: crossfading slides -- */
+.hero3d-cinebg {
+  position: absolute;
+  inset: -5% -2%;
+  z-index: 0;
+}
+.hero3d-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  transform: scale(1.0);
+  animation: cinebreathe 14s ease-in-out infinite alternate;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.hero3d-bg-slide.active {
+  opacity: 1;
+}
+@keyframes cinebreathe {
+  0%   { transform: scale(1.04) translateY(0px); }
+  100% { transform: scale(1.08) translateY(-10px); }
+}
+.hero3d-cineoverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(4,10,6,0.7) 0%, rgba(4,10,6,0.35) 40%, rgba(4,10,6,0.8) 100%);
+  z-index: 1;
+}
+.hero3d-vignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 120px rgba(0,0,0,0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* -- Copy block -- */
+.hero3d-copy {
+  position: relative;
+  z-index: 3;
+  flex: 0 1 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-right: 40px;
+}
+
+.hero3d-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #c8f564;
+}
+.hero3d-eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: #c8f564;
+  flex-shrink: 0;
+}
+
+.hero3d-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  display: flex;
+  flex-direction: column;
+}
+.hero3d-title-line1 {
+  font-size: clamp(52px, 6.5vw, 90px);
+  color: #fff;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.hero3d-title-line2 {
+  font-size: clamp(52px, 6.5vw, 90px);
+  color: #c8f564;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+}
+.hero3d-title.is-changing .hero3d-title-line1,
+.hero3d-title.is-changing .hero3d-title-line2 {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.hero3d-sub {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.7;
+  max-width: 360px;
+  transition: opacity 0.35s ease;
+}
+.hero3d-sub.is-changing { opacity: 0; }
+
+.hero3d-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero3d-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #c8f564;
+  color: #060c07;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 28px rgba(200,245,100,0.22);
+}
+.hero3d-cta:hover {
+  background: #d9ff7a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(200,245,100,0.32);
+}
+.hero3d-cta i { font-size: 17px; transition: transform 0.2s; }
+.hero3d-cta:hover i { transform: translateX(4px); }
+
+.hero3d-cta-ghost {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.hero3d-cta-ghost:hover { color: #c8f564; border-color: #c8f564; }
+
+.hero3d-counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.hero3d-counter-cur {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #c8f564;
+  letter-spacing: 1px;
+  min-width: 20px;
+  transition: opacity 0.3s;
+}
+.hero3d-counter-sep {
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+.hero3d-counter-total {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+
+/* -- Stage -- */
+.hero3d-stage {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  overflow: visible;
+}
+
+/* Yellow-green ground glow under carousel */
+.hero3d-stage::before {
+  content: '';
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 80px;
+  background: radial-gradient(ellipse at center, rgba(200,245,100,0.18) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(8px);
+}
+.hero3d-scene {
+  width: 420px;
+  max-width: 100%;
+  height: 290px;
+  perspective: 900px;
+  perspective-origin: 50% 42%;
+  overflow: visible;
+}
+.hero3d-carousel {
+  width: 160px;
+  height: 230px;
+  position: relative;
+  transform-style: preserve-3d;
+  margin: 28px auto 0;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: visible;
+}
+
+/* -- Cards -- */
+.hero3d-card {
+  position: absolute;
+  width: 160px;
+  height: 230px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid rgba(200,245,100,0.12);
+  backface-visibility: hidden;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.hero3d-card-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.7s ease;
+}
+.hero3d-card:hover .hero3d-card-img { transform: scale(1.07); }
+.hero3d-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(4,10,6,0.88) 0%, rgba(4,10,6,0.2) 55%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 20px 18px;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+  overflow: hidden;
+}
+.hero3d-card:hover .hero3d-card-overlay { opacity: 1; }
+.hero3d-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hero3d-card-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c8f564;
+}
+.hero3d-card-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.hero3d-card-view {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200,245,100,0.5);
+  background: rgba(200,245,100,0.1);
+  color: #c8f564;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+.hero3d-card:hover .hero3d-card-view,
+.hero3d-card.is-active .hero3d-card-view {
+  opacity: 1;
+  transform: scale(1);
+}
+.hero3d-card-view:hover { background: rgba(200,245,100,0.25); }
+.hero3d-card.is-active {
+  border-color: rgba(200,245,100,0.55);
+  box-shadow:
+    0 0 0 1px rgba(200,245,100,0.25),
+    0 40px 100px rgba(0,0,0,0.8),
+    0 0 60px rgba(200,245,100,0.1);
+}
+
+/* -- Controls -- */
+.hero3d-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+.hero3d-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+  backdrop-filter: blur(12px);
+}
+.hero3d-btn:hover {
+  border-color: #c8f564;
+  background: rgba(200,245,100,0.1);
+  color: #c8f564;
+  transform: scale(1.08);
+}
+.hero3d-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.hero3d-dot {
+  height: 5px;
+  width: 5px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.22);
+  cursor: pointer;
+  transition: background 0.3s, width 0.35s;
+}
+.hero3d-dot.active {
+  background: #c8f564;
+  width: 22px;
+}
+
+/* -- Progress bar -- */
+.hero3d-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  z-index: 6;
+}
+.hero3d-progress-bar {
+  height: 100%;
+  background: #c8f564;
+  width: 0%;
+  transition: width linear;
+}
+
+/* -- Lightbox Modal -- */
+.hero3d-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.hero3d-modal.open { display: flex; opacity: 1; }
+.hero3d-modal-inner {
+  position: relative;
+  max-width: 860px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transform: scale(0.92);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.hero3d-modal.open .hero3d-modal-inner { transform: scale(1); }
+.hero3d-modal-img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.hero3d-modal-caption {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.hero3d-modal-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hero3d-modal-close:hover { background: rgba(200,245,100,0.2); color: #c8f564; }
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .hero--3d {
+    padding: 110px 0 90px;
+  }
+  .hero3d-scene {
+    width: 100%;
+    height: 290px;
+    perspective: 880px;
+    perspective-origin: 50% 40%;
+  }
+  /* margin-top(28) + card(230) + shadow(20) = 278 → 290 ✓ */
+  .hero3d-carousel { width: 160px; height: 230px; margin-top: 28px; }
+  .hero3d-card { width: 160px; height: 230px; }
+}
+
+@media (max-width: 680px) {
+  .hero--3d { padding: 90px 0 100px; min-height: unset; }
+  .hero3d-stage { gap: 10px; margin-top: 85px; }
+  .hero3d-scene {
+    width: 100%;
+    height: 220px;
+    perspective: 680px;
+    perspective-origin: 50% 38%;
+  }
+  .hero3d-carousel { width: 100px; height: 148px; margin-top: 18px; }
+  .hero3d-card { width: 100px; height: 148px; border-radius: 9px; }
+  .hero3d-card-overlay { padding: 10px 8px; }
+  .hero3d-card-label { font-size: 11px; }
+  .hero3d-card-tag { font-size: 7px; }
+  .hero3d-card-view { width: 18px; height: 18px; font-size: 8px; }
+  .hero3d-controls { gap: 8px; padding-bottom: 0; margin-top: -45px; }
+  .hero3d-btn { width: 32px; height: 32px; font-size: 13px; }
+}
+
+@media (max-width: 400px) {
+  .hero--3d { padding: 86px 0 90px; min-height: unset; }
+  .hero3d-stage { gap: 10px; margin-top: 78px; }
+  .hero3d-scene {
+    width: 100%;
+    height: 200px;
+    perspective: 620px;
+  }
+  .hero3d-carousel { width: 88px; height: 132px; margin-top: 16px; }
+  .hero3d-card { width: 88px; height: 132px; border-radius: 8px; }
+  .hero3d-card-overlay { padding: 8px 6px; }
+  .hero3d-card-label { font-size: 10px; }
+  .hero3d-card-tag { font-size: 6px; }
+  .hero3d-card-view { width: 16px; height: 16px; font-size: 7px; }
+  .hero3d-controls { gap: 6px; padding-bottom: 0; margin-top: -45px; }
+  .hero3d-btn { width: 30px; height: 30px; font-size: 12px; }
+}
+
+/* na simple — no skeletons */
+.na-coming-soon { background: var(--bg-light); min-height: unset !important; overflow: visible !important; }
+.na-overlay-msg { position: static !important; inset: unset !important; background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; padding: 56px 28px 60px !important; }
+</style>
+
+<script>
+(function() {
+  const N = 6;
+  const AUTO_INTERVAL = 4200;
+
+  const carousel  = document.getElementById('hero3dCarousel');
+  const scene     = document.getElementById('hero3dScene');
+  const cards     = Array.from(carousel.querySelectorAll('.hero3d-card'));
+  const line1El   = document.getElementById('hero3dLine1');
+  const line2El   = document.getElementById('hero3dLine2');
+  const titleEl   = document.getElementById('hero3dTitle');
+  const subEl     = document.getElementById('hero3dSub');
+  const ctaLink   = document.getElementById('hero3dCtaLink');
+  const curEl     = document.getElementById('hero3dCur');
+  const dotsWrap  = document.getElementById('hero3dDots');
+  const barEl     = document.getElementById('hero3dBar');
+  const modal     = document.getElementById('hero3dModal');
+  const modalImg  = document.getElementById('hero3dModalImg');
+  const modalCap  = document.getElementById('hero3dModalCaption');
+  const modalClose= document.getElementById('hero3dModalClose');
+
+  const bgSlides = Array.from(document.querySelectorAll('.hero3d-bg-slide'));
+  let current = 0;
+  let autoTimer = null;
+  let barTimer  = null;
+  let isAnim    = false;
+
+  /* dots */
+  const dots = cards.map((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'hero3d-dot' + (i===0 ? ' active' : '');
+    d.addEventListener('click', () => { goTo(i); resetAuto(); });
+    dotsWrap.appendChild(d);
+    return d;
+  });
+
+  function cardRadius() {
+    const w = cards[0].offsetWidth || 270;
+    // base formula: w / (2 * tan(π/N))
+    // add extra padding so side cards are clearly visible
+    // scale extra with card width so it works on all screen sizes
+    const base = Math.round(w / (2 * Math.tan(Math.PI / N)));
+    const isMobile = window.innerWidth <= 680;
+    const extra = Math.round(w * (isMobile ? 0.16 : 0.42));
+    return base + extra;
+  }
+
+  function layout() {
+    const r = cardRadius();
+    cards.forEach((c, i) => {
+      const a = (360/N) * i;
+      c.style.transform = `rotateY(${a}deg) translateZ(${r}px)`;
+    });
+  }
+
+  function animateCopy(idx) {
+    const c = cards[idx];
+    titleEl.classList.add('is-changing');
+    subEl.classList.add('is-changing');
+    setTimeout(() => {
+      line1El.textContent = c.dataset.line1 || '';
+      line2El.textContent = c.dataset.line2 || '';
+      subEl.innerHTML     = c.dataset.sub   || '';
+      if (ctaLink) ctaLink.href = c.dataset.href || '#';
+      curEl.textContent   = String(idx+1).padStart(2,'0');
+      titleEl.classList.remove('is-changing');
+      subEl.classList.remove('is-changing');
+    }, 320);
+  }
+
+  function goTo(idx) {
+    if (isAnim) return;
+    isAnim = true;
+    cards[current].classList.remove('is-active');
+    dots[current].classList.remove('active');
+    current = ((idx % N) + N) % N;
+    carousel.style.transform = `rotateY(${-(360/N)*current}deg)`;
+    cards[current].classList.add('is-active');
+    dots[current].classList.add('active');
+    /* switch background */
+    bgSlides.forEach((s, i) => s.classList.toggle('active', i === current));
+    animateCopy(current);
+    setTimeout(() => { isAnim = false; }, 900);
+  }
+
+  function next() { goTo(current+1); }
+  function prev() { goTo(current-1); }
+
+  /* progress bar */
+  function startBar() {
+    clearTimeout(barTimer);
+    barEl.style.transition = 'none';
+    barEl.style.width = '0%';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        barEl.style.transition = `width ${AUTO_INTERVAL}ms linear`;
+        barEl.style.width = '100%';
+      });
+    });
+  }
+
+  function startAuto() {
+    clearInterval(autoTimer);
+    startBar();
+    autoTimer = setInterval(() => { next(); startBar(); }, AUTO_INTERVAL);
+  }
+  function resetAuto() { startAuto(); }
+
+  /* lightbox */
+  function openLightbox(card) {
+    modalImg.src = card.dataset.img || '';
+    modalCap.textContent = card.dataset.label || '';
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => modal.classList.add('open'));
+  }
+  function closeLightbox() {
+    modal.classList.remove('open');
+    setTimeout(() => { modal.style.display = 'none'; }, 320);
+  }
+
+  cards.forEach(card => {
+    /* click view button */
+    card.querySelector('.hero3d-card-view').addEventListener('click', e => {
+      e.stopPropagation();
+      openLightbox(card);
+    });
+    /* click card = go to it */
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.dataset.index);
+      if (idx !== current) { goTo(idx); resetAuto(); }
+    });
+  });
+
+  modalClose.addEventListener('click', closeLightbox);
+  modal.addEventListener('click', e => { if (e.target === modal) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeLightbox(); });
+
+  /* swipe */
+  let sx = 0;
+  document.getElementById('hero3dStage').addEventListener('pointerdown', e => { sx = e.clientX; });
+  document.getElementById('hero3dStage').addEventListener('pointerup', e => {
+    const dx = e.clientX - sx;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetAuto(); }
+  });
+
+  document.getElementById('hero3dPrev').addEventListener('click', () => { prev(); resetAuto(); });
+  document.getElementById('hero3dNext').addEventListener('click', () => { next(); resetAuto(); });
+
+  window.addEventListener('resize', layout);
+
+  /* init */
+  layout();
+  cards[0].classList.add('is-active');
+  startAuto();
+})();
+</script>
+
+<!-- ========================================================
+     NEW ARRIVALS SECTION — COMING SOON
+     ======================================================== -->
+<section class="section home-arrivals-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">New <span class="accent">Arrivals</span></h2>
+      <p class="section-desc">Fresh stock just in — be the first to get the latest products.</p>
+    </div>
+
+    <!-- COMING SOON DISPLAY -->
+    <div class="na-coming-soon">
+
+      <!-- Frosted overlay message -->
+      <div class="na-overlay-msg">
+        <div class="na-badge-new">
+          <span class="na-badge-dot"></span>
+          NEW STOCK
+        </div>
+        <div class="na-msg-icon">
+          <i class="ph-fill ph-package"></i>
+          <div class="na-msg-rings">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <h3 class="na-msg-title">New Arrivals Coming Soon…</h3>
+        <p class="na-msg-desc">We're preparing fresh new products for you. Join our Viber community to be the first to know when they drop!</p>
+        <a href="https://invite.viber.com/?g2=AQAOsqIHWsWeUFJiWCRvzaAXHA1gww68RE5eot33m843cTV8IsP9hqEhyg%2F1On3Q" target="_blank" class="na-msg-btn">
+          <i class="ph-fill ph-users"></i> Join Viber Community
+        </a>
+      </div>
+
+    </div>
 
   </div>
 </section>
 
 <!-- ========================================================
-     MARQUEE TICKER — ICON + LABEL
+     EXCLUSIVE BRANDS SECTION
      ======================================================== -->
-<div class="ticker-wrap">
-  <div class="ticker ticker-icon">
+<section class="section home-brands-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Premium Selection</span>
+      <h2 class="section-title">Exclusive <span class="accent">Brands</span></h2>
+      <p class="section-desc">We are the official distributor of these premium brands in the Maldives.</p>
+    </div>
 
-    <span class="tick-item"><i class="ph-fill ph-squares-four"></i><span class="tick-label">Tiles</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-pipe"></i><span class="tick-label">PVC Pipes</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-funnel"></i><span class="tick-label">Gutter</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-minus-square"></i><span class="tick-label">Steel Bar</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-house"></i><span class="tick-label">Home Improvement</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-lightning"></i><span class="tick-label">Electrical</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-toilet"></i><span class="tick-label">Sanitaryware</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-wrench"></i><span class="tick-label">Power Tools</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-drop"></i><span class="tick-label">Plumbing</span></span>
-    <span class="tick-sep">—</span>
+    <div class="brand-cards-grid">
 
-    <!-- Duplicate for seamless loop -->
-    <span class="tick-item"><i class="ph-fill ph-squares-four"></i><span class="tick-label">Tiles</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-pipe"></i><span class="tick-label">PVC Pipes</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-funnel"></i><span class="tick-label">Gutter</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-minus-square"></i><span class="tick-label">Steel Bar</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-house"></i><span class="tick-label">Home Improvement</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-lightning"></i><span class="tick-label">Electrical</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-toilet"></i><span class="tick-label">Sanitaryware</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-wrench"></i><span class="tick-label">Power Tools</span></span>
-    <span class="tick-sep">—</span>
-    <span class="tick-item"><i class="ph-fill ph-drop"></i><span class="tick-label">Plumbing</span></span>
-    <span class="tick-sep">—</span>
+      <!-- AQUA STAR -->
+      <div class="brand-card">
+        
+        <div class="brand-logo-wrap">
+          <img src="img/exclusive brands/aqua star.png" alt="Aqua Star" class="brand-logo" />
+        </div>
+        <div class="brand-card-body">
+          <h3 class="brand-name">Aqua Star</h3>
+          <p class="brand-desc">Protect your home with Aqua Star the ultimate heavy-duty gutter system.</p>
+        </div>
+      </div>
 
+      <!-- EZ BOND -->
+      <div class="brand-card">
+
+        <div class="brand-logo-wrap">
+          <img src="img/exclusive brands/ez bond.png" alt="EZ Bond" class="brand-logo" />
+        </div>
+        <div class="brand-card-body">
+          <h3 class="brand-name">EZ Bond</h3>
+          <p class="brand-desc">High-strength adhesives and construction bonding solutions trusted by professionals.</p>
+        </div>
+      </div>
+
+      <!-- GFLOOR -->
+      <div class="brand-card">
+       
+        <div class="brand-logo-wrap">
+          <img src="img/exclusive brands/gfloor.png" alt="GFloor" class="brand-logo" />
+        </div>
+        <div class="brand-card-body">
+          <h3 class="brand-name">GFloor</h3>
+          <p class="brand-desc">Durable vinyl, parquet and LVT flooring with stunning finishes for every space.</p>
+        </div>
+      </div>
+
+      <!-- SUMOFIX -->
+      <div class="brand-card">
+        
+        <div class="brand-logo-wrap">
+          <img src="img/exclusive brands/sumofix.png" alt="Sumofix" class="brand-logo" />
+        </div>
+        <div class="brand-card-body">
+          <h3 class="brand-name">Sumofix</h3>
+          <p class="brand-desc">Stick it right with Sumofix the ultimate, industrial-grade tile adhesive.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="home-prod-footer">
+      <a href="categories.html" class="home-view-all-btn">Browse All Categories <i class="ph ph-arrow-right"></i></a>
+    </div>
   </div>
-</div>
+</section>
+
 
 
 <footer class="footer">
@@ -182,5 +1050,7 @@ function closeModal(){
 }
 document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
 </script>
+
+
 </body>
 </html>

@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -21,8 +20,20 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="categories.html" class="nav-link active">Categories</a></li>
-      <li><a href="products.html" class="nav-link">Products</a></li>
+      <li class="nav-has-dropdown">
+        <a href="categories.html" class="nav-link active nav-link-noclick">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
+        <div class="nav-dropdown">
+          <a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
+          <a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
+          <a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
+          <a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
+          <a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
+          <a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
+          <a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
+          <a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
+          <a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </li>
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li class="nav-mobile-cta" aria-hidden="true">
@@ -49,9 +60,6 @@
   </div>
 </nav>
 
-</div>
-
-
 <!-- PAGE HERO BANNER -->
 <div class="page-hero">
   <div class="container">
@@ -60,162 +68,175 @@
   </div>
 </div>
 
-
 <!-- ========================================================
-     CATEGORIES SECTION – FULL-WIDTH LANDSCAPE SCROLL
+     CATEGORIES — LANDSCAPE CARDS
      ======================================================== -->
-<section id="categories" class="cat-scroll-section">
+<section class="catgrid-section">
+  <div class="container">
 
-  <!-- LANDSCAPE CARDS STACK -->
-  <div class="cat-stack">
-
-    <!-- 01 TILES -->
-    <a class="lscard" id="cat-tiles" href="products.html?cat=tiles" data-index="01">
-      <div class="lscard-img-wrap">
-        <img src="img/tiles catalog/1.jpg" alt="Tiles" class="lscard-img">
+    <!-- ── HOME IMPROVEMENT (featured – full width) ─────────── -->
+    <a class="lcat-card lcat-card--featured" href="products.html">
+      <div class="lcat-img-wrap">
+        <img src="home/wpc.jpeg" alt="Home Improvement" class="lcat-img" />
+        <div class="lcat-overlay"></div>
       </div>
-      <div class="lscard-overlay"></div>
-      <div class="lscard-content">
-        <div class="lscard-left">
-          <span class="lscard-num">01</span>
-          <div class="lscard-text">
-            <h3 class="lscard-title">Tiles</h3>
-            <p class="lscard-desc">Floor &amp; wall tiles for every style</p>
+      <div class="lcat-body">
+        <div class="lcat-icon"><i class="ph-fill ph-house"></i></div>
+        <div class="lcat-text">
+          <span class="lcat-eyebrow">Most Popular</span>
+          <h2 class="lcat-name">Home Improvement</h2>
+          <p class="lcat-desc">Tiles, UV Marble, Ceiling Panels, Parquet, PVC &amp; WPC Wall Panels — everything for your interior</p>
+          <div class="lcat-subs">
+            <span>Tiles</span><span>UV Marble</span><span>Ceiling Panel</span><span>Parquet</span><span>PVC Wall Panel</span><span>WPC Wall Panel</span>
           </div>
         </div>
-        <div class="lscard-cta">
-          Browse Collection <i class="ph ph-arrow-right"></i>
-        </div>
+        <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
       </div>
-      <div class="lscard-line"></div>
     </a>
 
-    <!-- 02 UV MARBLE -->
-    <a class="lscard" id="cat-uv-marble" href="products.html?cat=uv-marble" data-index="02">
-      <div class="lscard-img-wrap">
-        <img src="img/uv marble sheets catalog/1marble.jpg" alt="UV Marble Sheets" class="lscard-img">
-      </div>
-      <div class="lscard-overlay"></div>
-      <div class="lscard-content">
-        <div class="lscard-left">
-          <span class="lscard-num">02</span>
-          <div class="lscard-text">
-            <h3 class="lscard-title">UV Marble Sheets</h3>
-            <p class="lscard-desc">Elegant marble-finish UV panels</p>
+    <!-- ── 2-col row ──────────────────────────────────────── -->
+    <div class="lcat-row">
+
+      <a class="lcat-card" href="pvc-pipes.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/pvc%20pipe%20and%20fittings.png" alt="PVC Pipes" class="lcat-img" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-pipe"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">PVC Pipes</h2>
+            <p class="lcat-desc">Pressure, drainage, conduit pipes &amp; all fittings</p>
+            <div class="lcat-subs">
+              <span>Pressure Pipes</span><span>Drainage</span><span>Conduit</span><span>Fittings</span>
+            </div>
           </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
         </div>
-        <div class="lscard-cta">
-          Browse Collection <i class="ph ph-arrow-right"></i>
-        </div>
-      </div>
-      <div class="lscard-line"></div>
-    </a>
+      </a>
 
-    <!-- 03 CEILING -->
-    <a class="lscard" id="cat-ceiling" href="products.html?cat=ceiling" data-index="03">
-      <div class="lscard-img-wrap">
-        <img src="img/ceiling panel/1ceiling.jpg" alt="Ceiling Panel" class="lscard-img">
-      </div>
-      <div class="lscard-overlay"></div>
-      <div class="lscard-content">
-        <div class="lscard-left">
-          <span class="lscard-num">03</span>
-          <div class="lscard-text">
-            <h3 class="lscard-title">Ceiling Panel</h3>
-            <p class="lscard-desc">Lightweight &amp; stylish ceiling solutions</p>
+      <a class="lcat-card" href="gutter.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/gutter.png" alt="Gutter" class="lcat-img" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-funnel"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">Gutter</h2>
+            <p class="lcat-desc">Half-round, box gutters, downpipes &amp; brackets</p>
+            <div class="lcat-subs">
+              <span>Half-Round</span><span>Box Gutters</span><span>Downpipes</span><span>Clips</span>
+            </div>
           </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
         </div>
-        <div class="lscard-cta">
-          Browse Collection <i class="ph ph-arrow-right"></i>
-        </div>
-      </div>
-      <div class="lscard-line"></div>
-    </a>
+      </a>
 
-    <!-- 04 PARQUET -->
-    <a class="lscard" id="cat-parquet" href="products.html?cat=parquet" data-index="04">
-      <div class="lscard-img-wrap">
-        <img src="img/parquet/1parquet.jpg" alt="Parquet" class="lscard-img">
-      </div>
-      <div class="lscard-overlay"></div>
-      <div class="lscard-content">
-        <div class="lscard-left">
-          <span class="lscard-num">04</span>
-          <div class="lscard-text">
-            <h3 class="lscard-title">Parquet</h3>
-            <p class="lscard-desc">Natural wood flooring &amp; laminates</p>
+    </div>
+
+    <!-- ── 3-col row ──────────────────────────────────────── -->
+    <div class="lcat-row lcat-row--3">
+
+      <a class="lcat-card" href="steel-bar.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/steel%20bar.png" alt="Steel Bar" class="lcat-img" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-minus-square"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">Steel Bar</h2>
+            <p class="lcat-desc">Rebars, round bars, flat bars &amp; hollow sections</p>
+            <div class="lcat-subs">
+              <span>Rebars</span><span>Round Bars</span><span>Flat Bars</span>
+            </div>
           </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
         </div>
-        <div class="lscard-cta">
-          Browse Collection <i class="ph ph-arrow-right"></i>
-        </div>
-      </div>
-      <div class="lscard-line"></div>
-    </a>
+      </a>
 
-    <!-- 05 PVC WALL -->
-    <a class="lscard" id="cat-pvc-wall" href="products.html?cat=pvc-wall" data-index="05">
-      <div class="lscard-img-wrap">
-        <img src="img/pvc wall panel/1wallpanel.jpg" alt="PVC Wall Panel" class="lscard-img">
-      </div>
-      <div class="lscard-overlay"></div>
-      <div class="lscard-content">
-        <div class="lscard-left">
-          <span class="lscard-num">05</span>
-          <div class="lscard-text">
-            <h3 class="lscard-title">PVC Wall Panel</h3>
-            <p class="lscard-desc">Durable &amp; stylish wall panels</p>
+      <a class="lcat-card" href="electrical.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/electrical.png" alt="Electrical" class="lcat-img" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-lightning"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">Electrical</h2>
+            <p class="lcat-desc">Wires, switches, breakers, LED lights &amp; panels</p>
+            <div class="lcat-subs">
+              <span>Cables</span><span>Switches</span><span>Breakers</span>
+            </div>
           </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
         </div>
-        <div class="lscard-cta">
-          Browse Collection <i class="ph ph-arrow-right"></i>
-        </div>
-      </div>
-      <div class="lscard-line"></div>
-    </a>
+      </a>
 
-    <!-- 06 WPC -->
-    <a class="lscard" id="cat-wpc" href="products.html?cat=wpc" data-index="06">
-      <div class="lscard-img-wrap">
-        <img src="img/wpc/1wpc.jpg" alt="WPC Wall Panel" class="lscard-img">
-      </div>
-      <div class="lscard-overlay"></div>
-      <div class="lscard-content">
-        <div class="lscard-left">
-          <span class="lscard-num">06</span>
-          <div class="lscard-text">
-            <h3 class="lscard-title">WPC Wall Panel</h3>
-            <p class="lscard-desc">Premium wood-plastic composite panels</p>
+      <a class="lcat-card" href="sanitaryware.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/sanitaryware.png" alt="Sanitaryware" class="lcat-img" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-toilet"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">Sanitaryware</h2>
+            <p class="lcat-desc">Toilets, basins, showers, faucets &amp; bathtubs</p>
+            <div class="lcat-subs">
+              <span>Toilets</span><span>Basins</span><span>Showers</span>
+            </div>
           </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
         </div>
-        <div class="lscard-cta">
-          Browse Collection <i class="ph ph-arrow-right"></i>
-        </div>
-      </div>
-      <!-- last card no line -->
-    </a>
+      </a>
 
-  </div><!-- /cat-stack -->
+    </div>
+
+    <!-- ── Bottom 2-col row ───────────────────────────────── -->
+    <div class="lcat-row">
+
+      <a class="lcat-card" href="power-tools.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/power%20tools.png" alt="Power Tools" class="lcat-img lcat-img--right" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-wrench"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">Power Tools</h2>
+            <p class="lcat-desc">Drills, grinders, saws, hammers &amp; sanders</p>
+            <div class="lcat-subs">
+              <span>Drills</span><span>Grinders</span><span>Saws</span><span>Sanders</span>
+            </div>
+          </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <a class="lcat-card" href="plumbing.html">
+        <div class="lcat-img-wrap">
+          <img src="categories/plumbing.png" alt="Plumbing" class="lcat-img" />
+          <div class="lcat-overlay"></div>
+        </div>
+        <div class="lcat-body">
+          <div class="lcat-icon"><i class="ph-fill ph-drop"></i></div>
+          <div class="lcat-text">
+            <h2 class="lcat-name">Plumbing</h2>
+            <p class="lcat-desc">Valves, pipe fittings, tanks, pumps &amp; hoses</p>
+            <div class="lcat-subs">
+              <span>Valves</span><span>Fittings</span><span>Tanks</span><span>Pumps</span>
+            </div>
+          </div>
+          <div class="lcat-cta">Browse <i class="ph ph-arrow-right"></i></div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
 </section>
-
-<script>
-/* ── CATEGORIES SCROLL REVEAL ───────────────────────────────── */
-(function () {
-  const cards = document.querySelectorAll('.lscard');
-  if (!cards.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('lscard-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  cards.forEach(card => observer.observe(card));
-})();
-</script>
 
 <footer class="footer">
   <div class="container footer-inner">
@@ -233,31 +254,13 @@
     <p class="footer-copy">&copy; 2026 MAZI Hardware. All rights reserved.</p>
   </div>
 </footer>
+
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <i class="ph ph-arrow-up"></i>
 </button>
+
 <script src="script.js"></script>
-<script>
-function openModal(imgSrc){
-    const modal = document.getElementById("imageModal");
-    const img   = document.getElementById("modalImage");
-    img.src = imgSrc;
-    modal.style.display = "flex";
-    modal.offsetHeight;
-    modal.classList.add("modal-open");
-    modal.classList.remove("modal-closing");
-    modal.onclick = function(e){ if(e.target === modal) closeModal(); };
-}
-function closeModal(){
-    const modal = document.getElementById("imageModal");
-    modal.classList.add("modal-closing");
-    modal.classList.remove("modal-open");
-    setTimeout(() => {
-        modal.style.display = "none";
-        modal.classList.remove("modal-closing");
-    }, 380);
-}
-document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
-</script>
+
+
 </body>
 </html>

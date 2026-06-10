@@ -156,3 +156,16 @@ function closeModal() {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+
+/* ── CATEGORIES LINK — not clickable on desktop ─────────────────── */
+(function () {
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('.nav-link-noclick');
+    if (!link) return;
+    if (window.innerWidth >= 901) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+})();
