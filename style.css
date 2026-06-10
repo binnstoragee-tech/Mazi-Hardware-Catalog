@@ -3731,6 +3731,37 @@ body.pt-enter-active {
   border-color: var(--green);
 }
 
+/* Filter bar inside hero banner */
+.pf-bar--banner {
+  margin-top: 20px;
+  margin-bottom: 0;
+  justify-content: flex-start;
+  animation: none;
+}
+
+.pf-bar--banner .pf-track {
+  background: rgba(0,0,0,0.35);
+  border-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pf-bar--banner .pf-pill {
+  color: rgba(255,255,255,0.85);
+}
+
+.pf-bar--banner .pf-pill:hover {
+  color: #fff;
+  background: rgba(180,211,52,0.18);
+  border-color: rgba(180,211,52,0.4);
+}
+
+.pf-bar--banner .pf-pill.active {
+  background: var(--green);
+  color: #000;
+  border-color: var(--green);
+}
+
 /* ── CARD FILTER ANIMATIONS ────────────────────────────────── */
 @keyframes pfCardIn {
   from {
