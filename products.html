@@ -81,7 +81,10 @@
         <span>Tiles</span><span>UV Marble</span><span>Ceiling Panel</span><span>Parquet</span><span>PVC Wall Panel</span><span>WPC Wall Panel</span>
       </div>
       <div class="pf-bar pf-bar--banner" id="filterBar">
-        <div class="pf-track">
+        <button class="pf-toggle" id="pfToggle" onclick="openCatDrawer()">
+          <i class="ph ph-funnel-simple"></i> Categories
+        </button>
+        <div class="pf-track" id="pfTrack">
           <button class="pf-pill active" data-filter="all" onclick="filterCategory('all')">All</button>
           <button class="pf-pill" data-filter="tiles" onclick="filterCategory('tiles')">Tiles</button>
           <button class="pf-pill" data-filter="uv-marble" onclick="filterCategory('uv-marble')">UV Marble</button>
@@ -95,11 +98,51 @@
   </div>
 </div>
 
+<!-- MOBILE CATEGORY SLIDE-IN DRAWER -->
+<div class="cat-drawer-overlay" id="catDrawerOverlay" onclick="closeCatDrawer()"></div>
+<div class="cat-drawer" id="catDrawer">
+  <div class="cat-drawer-head">
+    <img src="img/logo.png" alt="MAZI Hardware" class="cat-drawer-logo">
+    <button class="cat-drawer-close" onclick="closeCatDrawer()" aria-label="Close">
+      <i class="ph ph-x"></i>
+    </button>
+  </div>
+  <div class="cat-drawer-list" id="catDrawerList">
+    <button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all'); closeCatDrawer();"><span class="cdi-dot"></span>All Stock</button>
+    <button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles'); closeCatDrawer();"><span class="cdi-dot"></span>Tiles</button>
+    <button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble'); closeCatDrawer();"><span class="cdi-dot"></span>UV Marble</button>
+    <button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling'); closeCatDrawer();"><span class="cdi-dot"></span>Ceiling Panel</button>
+    <button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet'); closeCatDrawer();"><span class="cdi-dot"></span>Parquet</button>
+    <button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall'); closeCatDrawer();"><span class="cdi-dot"></span>PVC Wall Panel</button>
+    <button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc'); closeCatDrawer();"><span class="cdi-dot"></span>WPC Wall Panel</button>
+  </div>
+</div>
+
+<script>
+function openCatDrawer(){
+  document.getElementById('catDrawer').classList.add('open');
+  document.getElementById('catDrawerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCatDrawer(){
+  document.getElementById('catDrawer').classList.remove('open');
+  document.getElementById('catDrawerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+
 <!-- ========================================================
      PRODUCTS SECTION
      ======================================================== -->
 <section id="products" class="section products-section">
   <div class="container">
+
+    <!-- MOBILE-ONLY CATEGORIES TRIGGER (sits in the white area, not over the hero photo) -->
+    <div class="pf-bar pf-bar--mobile">
+      <button class="pf-toggle pf-toggle--mobile" onclick="openCatDrawer()">
+        <i class="ph ph-funnel-simple"></i> Categories
+      </button>
+    </div>
 
     <!-- PRODUCTS GRID -->
     <div class="products-grid" id="productsGrid">
@@ -117,7 +160,7 @@
 
  <!-- --- TILES 1 --- -->
 
-<div class="prod-img-wrap">
+<div class="prod-img-wrap" onclick="openModal('img/tiles catalog/2.jpg')">
 
     <img class="prod-img"
          src="img/tiles catalog/2.jpg"
@@ -125,15 +168,7 @@
 
     <div class="prod-badge">Tiles</div>
 
-    <button class="view-btn"
-        onclick="openModal('img/tiles catalog/2.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-</div>
+    </div>
 
     <div class="prod-info">
         <h4 class="prod-name">PLAIN WHITE</h4>
@@ -151,19 +186,11 @@
 
    <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/3.jpg')">
     <img class="prod-img" src="img/tiles catalog/3.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-     <button class="view-btn"
-        onclick="openModal('img/tiles catalog/3.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+     </div>
   
 
   <div class="prod-info">
@@ -177,19 +204,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/4.jpg')">
     <img class="prod-img" src="img/tiles catalog/4.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-     <button class="view-btn"
-        onclick="openModal('img/tiles catalog/4.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+     </div>
 
   <div class="prod-info">
     <h4 class="prod-name">AURORA GREY-1</h4>
@@ -202,17 +221,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/5.jpg')">
     <img class="prod-img" src="img/tiles catalog/5.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-     <button class="view-btn"
-        onclick="openModal('img/tiles catalog/5.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+     </div>
 
   <div class="prod-info">
     <h4 class="prod-name">ARBESCATO BROWN R1</h4>
@@ -225,18 +237,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/6.jpg')">
     <img class="prod-img" src="img/tiles catalog/6.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-     <button class="view-btn"
-        onclick="openModal('img/tiles catalog/6.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+     </div>
 
   <div class="prod-info">
     <h4 class="prod-name">SUNVERDE AQUA-1</h4>
@@ -249,18 +253,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/7.jpg')">
     <img class="prod-img" src="img/tiles catalog/7.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
      
-    <button class="view-btn"
-        onclick="openModal('img/tiles catalog/7.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+    </div>
 
   <div class="prod-info">
     <h4 class="prod-name">AEDEA</h4>
@@ -273,17 +270,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/8.jpg')">
     <img class="prod-img" src="img/tiles catalog/8.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/8.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name">AEDEA-1</h4>
@@ -296,17 +286,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/9.jpg')">
     <img class="prod-img" src="img/tiles catalog/9.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/9.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ONYX ROOSVELT ICE </h4>
@@ -319,17 +302,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/10.jpg')">
     <img class="prod-img" src="img/tiles catalog/10.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/10.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ONYX ROOSVELT GREY </h4>
@@ -342,19 +318,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/11.jpg')">
     <img class="prod-img" src="img/tiles catalog/11.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/11.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ANTHRACITE CREMA  </h4>
@@ -367,18 +335,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/12.jpg')">
     <img class="prod-img" src="img/tiles catalog/12.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/12.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ANTHRACITE IVORY  </h4>
@@ -391,18 +352,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/13.jpg')">
     <img class="prod-img" src="img/tiles catalog/13.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/13.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> MEGNITE GREY </h4>
@@ -415,17 +369,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/14.jpg')">
     <img class="prod-img" src="img/tiles catalog/14.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/14.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> OAK WOOD CAMEL  </h4>
@@ -438,17 +385,10 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/15.jpg')">
     <img class="prod-img" src="img/tiles catalog/15.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/15.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> OSLO GRIS </h4>
@@ -461,19 +401,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/16.jpg')">
     <img class="prod-img" src="img/tiles catalog/16.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/16.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> CENTO BIANCO </h4>
@@ -486,19 +418,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/17.jpg')">
     <img class="prod-img" src="img/tiles catalog/17.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/17.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ORENTA NATURAL</h4>
@@ -511,19 +435,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/18.jpg')">
     <img class="prod-img" src="img/tiles catalog/18.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/18.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> SIRRIZO PEARL </h4>
@@ -536,16 +452,9 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/19.jpg')">
     <img class="prod-img" src="img/tiles catalog/19.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>   <button class="view-btn"
-        onclick="openModal('img/tiles catalog/19.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+    <div class="prod-badge">Tiles</div>   </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ECHO BLUE </h4>
@@ -558,19 +467,11 @@
 
        <div class="prod-card" data-category="tiles">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/20.jpg')">
     <img class="prod-img" src="img/tiles catalog/20.jpg" alt="Floor Tiles">
     <div class="prod-badge">Tiles</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/tiles catalog/20.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> DALIM GREY </h4>
@@ -587,19 +488,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/2.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/2.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/2.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -611,19 +504,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/3.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/3.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
 
-    <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/3.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+    </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -636,18 +521,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/4.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/4.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
     
-    <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/4.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+    </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -661,18 +539,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/5.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/5.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
     
-    <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/5.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+    </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -685,18 +556,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/6.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/6.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div> 
 
-      <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/6.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -710,19 +574,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/7.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/7.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/7.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -736,19 +592,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/8.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/8.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div> 
 
-      <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/8.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> GLOSSY </h4>
@@ -762,19 +610,11 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/9.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/9.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/9.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> MATTE </h4>
@@ -788,17 +628,10 @@
 
           <div class="prod-card" data-category="uv-marble">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/10.jpg')">
     <img class="prod-img" src="img/uv marble sheets catalog/10.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">UV MARBLE SHEETS</div>
-      <button class="view-btn"
-        onclick="openModal('img/uv marble sheets catalog/10.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> MATTE </h4>
@@ -812,19 +645,11 @@
      
        <div class="prod-card" data-category="ceiling">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/2.jpg')">
     <img class="prod-img" src="img/ceiling panel/2.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/ceiling panel/2.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> DS-098 </h4>
@@ -837,19 +662,11 @@
      
      <div class="prod-card" data-category="ceiling">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/3.jpg')">
     <img class="prod-img" src="img/ceiling panel/3.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
    
-    <button class="view-btn"
-        onclick="openModal('img/ceiling panel/3.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+    </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> DS-217 </h4>
@@ -861,19 +678,11 @@
      
       <div class="prod-card" data-category="ceiling">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/4.jpg')">
     <img class="prod-img" src="img/ceiling panel/4.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/ceiling panel/4.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> DS-001 </h4>
@@ -885,19 +694,11 @@
      
      <div class="prod-card" data-category="ceiling">
 
-  <div class="prod-img-wrap">
+  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/5.jpg')">
     <img class="prod-img" src="img/ceiling panel/5.jpg" alt="Uv Marble Sheets">
     <div class="prod-badge">CEILING PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/ceiling panel/5.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> DS-002</h4>
@@ -908,19 +709,11 @@
       <!-- ── PARQUET 2 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/2.jpg')">
     <img class="prod-img" src="img/parquet/2.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/parquet/2.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> PINEWOOD </h4>
@@ -932,19 +725,11 @@
        <!-- ── PARQUET 3 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/3.jpg')">
     <img class="prod-img" src="img/parquet/3.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/parquet/3.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> SEIRRA OAK </h4>
@@ -956,17 +741,10 @@
        <!-- ── PARQUET 4 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/4.jpg')">
     <img class="prod-img" src="img/parquet/4.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
-       <button class="view-btn"
-        onclick="openModal('img/parquet/4.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ORANGE </h4>
@@ -978,19 +756,11 @@
        <!-- ── PARQUET 5 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/5.jpg')">
     <img class="prod-img" src="img/parquet/5.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/parquet/5.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> SILVER OAK </h4>
@@ -1002,19 +772,11 @@
   <!-- ── PARQUET 6 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/6.jpg')">
     <img class="prod-img" src="img/parquet/6.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/parquet/6.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> HAZELNUT </h4>
@@ -1026,19 +788,11 @@
 <!-- ── PARQUET 7 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/7.jpg')">
     <img class="prod-img" src="img/parquet/7.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/parquet/7.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> ALMOND WHITE </h4>
@@ -1050,19 +804,11 @@
       <!-- ── PARQUET 8 ─────────────────────────────────────── -->
       <div class="prod-card" data-category="parquet">
 
-        <div class="prod-img-wrap">
+        <div class="prod-img-wrap" onclick="openModal('img/parquet/8.jpg')">
     <img class="prod-img" src="img/parquet/8.jpg" alt="Parquet">
     <div class="prod-badge">Parquet</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/parquet/8.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> BLACK SESAME </h4>
@@ -1076,19 +822,11 @@
       <!-- ── PVC WALL PANEL 2 ──────────────────────────────── -->
       <div class="prod-card" data-category="pvc-wall">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/2.jpg')">
     <img class="prod-img" src="img/pvc wall panel/2.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/pvc wall panel/2.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> WALL PANEL </h4>
@@ -1099,19 +837,11 @@
    <!-- ── PVC WALL PANEL 3 ──────────────────────────────── -->
       <div class="prod-card" data-category="pvc-wall">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/3.jpg')">
     <img class="prod-img" src="img/pvc wall panel/3.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/pvc wall panel/3.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> WALL PANEL </h4>
@@ -1122,19 +852,11 @@
 <!-- ── PVC WALL PANEL 4 ──────────────────────────────── -->
       <div class="prod-card" data-category="pvc-wall">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/4.jpg')">
     <img class="prod-img" src="img/pvc wall panel/4.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/pvc wall panel/4.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> WALL PANEL </h4>
@@ -1145,19 +867,11 @@
 <!-- ── PVC WALL PANEL 5 ──────────────────────────────── -->
       <div class="prod-card" data-category="pvc-wall">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/5.jpg')">
     <img class="prod-img" src="img/pvc wall panel/5.jpg" alt="Parquet">
     <div class="prod-badge">PVC WALL PANEL</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/pvc wall panel/5.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> WALL PANEL </h4>
@@ -1169,20 +883,11 @@
 
       <!-- ── WPC WALL PANEL 2 ──────────────────────────────── -->
       <div class="prod-card" data-category="wpc">
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/wpc/2.jpg')">
     <img class="prod-img" src="img/wpc/2.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
 
-       <button class="view-btn"
-        onclick="openModal('img/wpc/2.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-
-  </div>
+       </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> B061 </h4>
@@ -1193,19 +898,11 @@
       <!-- ── WPC WALL PANEL 3 ──────────────────────────────── -->
        <div class="prod-card" data-category="wpc">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/wpc/3.jpg')">
     <img class="prod-img" src="img/wpc/3.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/wpc/3.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> P109 </h4>
@@ -1217,18 +914,10 @@
        <!-- ── WPC WALL PANEL 4 ──────────────────────────────── -->
      <div class="prod-card" data-category="wpc">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/wpc/4.jpg')">
     <img class="prod-img" src="img/wpc/4.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
-      <button class="view-btn"
-        onclick="openModal('img/wpc/4.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> P104 </h4>
@@ -1239,19 +928,11 @@
        <!-- ── WPC WALL PANEL 5 ──────────────────────────────── -->
         <div class="prod-card" data-category="wpc">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/wpc/5.jpg')">
     <img class="prod-img" src="img/wpc/5.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/wpc/5.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> M2055</h4>
@@ -1263,19 +944,11 @@
          <!-- ── WPC WALL PANEL 6 ──────────────────────────────── -->
       <div class="prod-card" data-category="wpc">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/wpc/6.jpg')">
     <img class="prod-img" src="img/wpc/6.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/wpc/6.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> M2055 </h4>
@@ -1287,20 +960,11 @@
          <!-- ── WPC WALL PANEL 7 ──────────────────────────────── -->
        <div class="prod-card" data-category="wpc">
        
-         <div class="prod-img-wrap">
+         <div class="prod-img-wrap" onclick="openModal('img/wpc/7.jpg')">
     <img class="prod-img" src="img/wpc/7.jpg" alt="Parquet">
     <div class="prod-badge">WPC WALL PANEL</div>
 
-      <button class="view-btn"
-        onclick="openModal('img/wpc/7.jpg')">
-
-    <i class="ph ph-eye"></i>
-    View
-
-</button>
-
-
-  </div>
+      </div>
 
   <div class="prod-info">
     <h4 class="prod-name"> P133 </h4>
@@ -1332,6 +996,9 @@ function filterCategory(cat) {
   document.querySelectorAll('.pf-pill').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.filter === cat);
   });
+  document.querySelectorAll('.cat-drawer-item').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === cat);
+  });
 
   const cards = document.querySelectorAll('.prod-card');
   cards.forEach(card => card.classList.add('pf-hiding'));
@@ -1345,6 +1012,9 @@ function filterCategory(cat) {
     });
     setTimeout(() => cards.forEach(c => c.classList.remove('pf-showing')), 400);
   }, 180);
+
+  // Close the mobile categories drawer after picking one
+  closeCatDrawer();
 }
 
 // Handle URL param

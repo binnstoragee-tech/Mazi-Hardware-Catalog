@@ -23,17 +23,31 @@
   overlay.id = 'page-transition';
   document.body.appendChild(overlay);
 
-  /* Page load — fade + slide content in */
+  /* Page load — fade + slide content in.
+     Also fires on browser back/forward (bfcache restore), where the
+     page can come back with the old "pt-exit" class still stuck on
+     <body> (opacity:0 + pointer-events:none) from before we navigated
+     away — that's what made the page look frozen/unclickable on back.
+     Always clear it first. */
   window.addEventListener('pageshow', function () {
+    document.body.classList.remove('pt-exit');
     document.body.classList.add('pt-enter');
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.body.classList.add('pt-enter-active');
         setTimeout(() => {
           document.body.classList.remove('pt-enter', 'pt-enter-active');
-        }, 420);
+        }, 720);
       });
     });
+  });
+
+  /* Extra safety net: clear pt-exit right before the page is cached
+     for bfcache, so even the instant before "pageshow" fires, the
+     page isn't left invisible/unclickable if something restores it
+     without pageshow running first. */
+  window.addEventListener('pagehide', function () {
+    document.body.classList.remove('pt-exit');
   });
 
   /* Link click — fade + slide content out, then navigate */
@@ -51,7 +65,7 @@
     ) return;
     e.preventDefault();
     document.body.classList.add('pt-exit');
-    setTimeout(() => { window.location.href = href; }, 320);
+    setTimeout(() => { window.location.href = href; }, 330);
   });
 
 })();
