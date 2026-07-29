@@ -1017,7 +1017,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(6, 1fr);
   gap: 12px;
   min-height: 400px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* =========================
@@ -1103,6 +1103,7 @@ img { max-width: 100%; display: block; }
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), opacity 0.4s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .prod-card:hover {
@@ -1571,7 +1572,7 @@ img { max-width: 100%; display: block; }
     background: rgba(0,0,0,0.92);
 }
 
-/* MODAL IMAGE — zoom in animation */
+/* MODAL IMAGE — smooth rise-up animation */
 .modal-img {
     max-height: min(85vh, 1050px);
     max-width: 90vw;
@@ -1580,54 +1581,55 @@ img { max-width: 100%; display: block; }
     object-fit: contain;
     border-radius: 16px;
     box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 0 2px rgba(180,211,52,0.25);
-    transform: scale(0.4);
+    transform: translateY(36px);
     opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
 }
 
 .image-modal.modal-open .modal-img {
-    transform: scale(1);
+    transform: translateY(0);
     opacity: 1;
 }
 
-/* Zoom-out on close */
+/* Settle back down on close (reverse of the rise-up entrance) */
 .image-modal.modal-closing .modal-img {
-    transform: scale(0.4);
+    transform: translateY(24px);
     opacity: 0;
 }
 
-/* CLOSE BUTTON */
+/* CLOSE BUTTON — pushed below the navbar so it never overlaps it */
 .close-modal {
     position: absolute;
-    top: 20px;
+    top: calc(var(--nav-h, 88px) + 22px);
     right: 32px;
     width: 44px;
     height: 44px;
+    padding: 0;
     background: rgba(255,255,255,0.1);
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 50%;
     color: #fff;
-    font-size: 26px;
-    font-weight: 300;
+    font-size: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
-    transition: background 0.2s, border-color 0.2s, transform 0.2s;
     opacity: 0;
-    transition: opacity 0.3s ease 0.15s, background 0.2s, transform 0.2s;
+    transform: translateY(14px);
+    transition: opacity 0.35s ease 0.1s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.1s, background 0.2s, border-color 0.2s;
 }
 
 .image-modal.modal-open .close-modal {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .close-modal:hover {
     background: var(--green);
     border-color: var(--green);
     color: var(--black);
-    transform: rotate(90deg) scale(1.1);
+    transform: scale(1.1);
 }
 
 @keyframes modalBgIn {
@@ -1643,11 +1645,11 @@ img { max-width: 100%; display: block; }
     }
 
     .close-modal {
-        top: 14px;
+        top: calc(var(--nav-h, 62px) + 16px);
         right: 14px;
         width: 38px;
         height: 38px;
-        font-size: 22px;
+        font-size: 17px;
     }
 }
 
@@ -1702,6 +1704,7 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   gap: 3px;
   min-height: 56px;
+  flex-grow: 1;
 }
 
 .prod-name {
@@ -1712,6 +1715,10 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.03em;
   color: var(--black);
   line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .prod-desc {
@@ -1719,6 +1726,12 @@ img { max-width: 100%; display: block; }
   color: var(--gray-dk);
   line-height: 1.5;
   margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Inquire button */
@@ -3976,52 +3989,53 @@ body.pt-enter-active {
   box-shadow: 0 6px 22px rgba(180,211,52,0.55);
 }
 
-/* Home Improvement pill — special styling when inactive */
-.pf-pill--group {
-  color: var(--green-dark);
-  border-color: rgba(180,211,52,0.25);
-  background: rgba(180,211,52,0.07);
+/* ── PILL FILTER (used inside the slide-in drawer's category list is
+   handled by .cat-drawer-item; .pf-pill itself is no longer used on
+   the page but kept here in case it's reused elsewhere) ── */
+.pf-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dk);
+  background: transparent;
+  border: 1.5px solid transparent;
+  padding: 8px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.18s cubic-bezier(0.34,1.56,0.64,1),
+    box-shadow 0.22s ease;
+  position: relative;
 }
 
-.pf-pill--group i {
-  font-size: 1em;
+.pf-pill:hover {
+  color: var(--black);
+  background: rgba(180,211,52,0.12);
+  border-color: rgba(180,211,52,0.3);
+  transform: translateY(-1px);
 }
 
-.pf-pill--group.active {
+/* Active state */
+.pf-pill.active {
   background: var(--green);
   color: #000;
   border-color: var(--green);
+  box-shadow: 0 4px 16px rgba(180,211,52,0.45);
+  transform: translateY(-1px);
 }
 
-/* Filter bar inside hero banner */
-.pf-bar--banner {
-  margin-top: 20px;
-  margin-bottom: 0;
-  justify-content: flex-start;
-  animation: none;
-}
-
-.pf-bar--banner .pf-track {
-  background: rgba(0,0,0,0.35);
-  border-color: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.pf-bar--banner .pf-pill {
-  color: rgba(255,255,255,0.85);
-}
-
-.pf-bar--banner .pf-pill:hover {
-  color: #fff;
-  background: rgba(180,211,52,0.18);
-  border-color: rgba(180,211,52,0.4);
-}
-
-.pf-bar--banner .pf-pill.active {
-  background: var(--green);
-  color: #000;
-  border-color: var(--green);
+.pf-pill.active:hover {
+  background: var(--green-light);
+  box-shadow: 0 6px 22px rgba(180,211,52,0.55);
 }
 
 /* ── CARD FILTER ANIMATIONS ────────────────────────────────── */
@@ -4058,74 +4072,18 @@ body.pt-enter-active {
 .prod-card.pf-showing:nth-child(8)  { animation-delay: 0.28s; }
 .prod-card.pf-showing:nth-child(n+9){ animation-delay: 0.30s; }
 
-/* ── RESPONSIVE ────────────────────────────────────────────── */
+/* ── FILTER TRIGGER BUTTON — same "Filter" button + slide-in drawer
+   on every screen size now (desktop and mobile both use this) ── */
 @media (max-width: 640px) {
-  .pf-track {
-    border-radius: 20px;
-    padding: 5px;
-    gap: 6px;
-  }
-  .pf-pill {
-    font-size: 0.72rem;
-    padding: 7px 13px;
-    letter-spacing: 0.07em;
-  }
   .prod-section-head {
     padding: 36px 0 28px;
   }
 }
 
-/* ── CATEGORIES TOGGLE (mobile) ───────────────────────────────
-   Desktop keeps the full pill row; mobile shows a single
-   "Categories" chip that opens a slide-in side drawer instead. ── */
-.pf-toggle {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.9);
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 100px;
-  padding: 9px 16px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-@media (max-width: 640px) {
-  .pf-toggle {
-    display: inline-flex;
-  }
-
-  .pf-track {
-    display: none !important;
-  }
-
-  /* Hide the toggle that lives inside the hero photo on mobile —
-     it now lives below in the white area instead. */
-  .cat-landing-inner .pf-toggle {
-    display: none !important;
-  }
-
-  .pf-bar--banner {
-    margin-top: 0;
-  }
-}
-
-/* ── MOBILE FILTER BAR (white area, above the product grid) ── */
 .pf-bar--mobile {
-  display: none;
-}
-
-@media (max-width: 640px) {
-  .pf-bar--mobile {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-  }
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .filter-trigger {
@@ -4252,6 +4210,10 @@ body.pt-enter-active {
   cursor: pointer;
 }
 
+.filter-acc-head--static {
+  cursor: default;
+}
+
 .filter-acc-chev {
   font-size: 15px;
   color: var(--gray-dk);
@@ -4325,13 +4287,6 @@ body.pt-enter-active {
   background: var(--green);
 }
 
-@media (min-width: 641px) {
-  .cat-drawer,
-  .cat-drawer-overlay {
-    display: none;
-  }
-}
-
 
 /* ================================================================
    CATEGORIES HOVER DROPDOWN — DESKTOP ONLY
@@ -4365,7 +4320,7 @@ body.pt-enter-active {
   transform: translateX(-50%) translateY(0px);
   min-width: 220px;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 10px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
   padding: 14px 8px 8px;
   opacity: 0;
@@ -4407,7 +4362,7 @@ body.pt-enter-active {
   align-items: center;
   gap: 10px;
   padding: 9px 12px;
-  border-radius: 8px;
+  border-radius: 0;
   text-decoration: none;
   color: #2a2a2a;
   font-size: 0.875rem;
@@ -4420,16 +4375,7 @@ body.pt-enter-active {
   background: #f4f8eb;
   color: #5c9c10;
 }
-.nav-dd-icon {
-  width: 28px; height: 28px;
-  border-radius: 7px;
-  background: #eef5de;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem; color: #6aaa1a;
-  flex-shrink: 0;
-  transition: background 0.13s;
-}
-.nav-dd-item:hover .nav-dd-icon { background: #ddf0a8; }
+.nav-dd-icon { display: none; }
 
 /* View All row */
 .nav-dd-footer {
@@ -4437,7 +4383,7 @@ body.pt-enter-active {
   padding: 9px 12px;
   margin-top: 4px;
   border-top: 1px solid #f0f0f0;
-  border-radius: 8px;
+  border-radius: 0;
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 700;
@@ -5625,6 +5571,7 @@ body.pt-enter-active {
 .prod-info {
   padding: 12px 14px 14px !important;
   gap: 4px !important;
+  flex-grow: 1 !important;
 }
 
 .prod-name {
@@ -6061,3 +6008,5 @@ body.pt-enter-active {
     transition: none !important;
   }
 }
+
+

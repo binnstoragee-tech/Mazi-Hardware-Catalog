@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details &ndash; MAZI Hardware</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png?v=2">
+  <link rel="shortcut icon" href="img/favicon.ico?v=2">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    /* ============================================================
+       PRODUCT DETAIL PAGE — scoped styles
+       (Move into style.css once approved)
+       ============================================================ */
+
+    /* #pdRoot had no top offset at all, so its content (title, the X
+       close button) started at y:0 and got hidden behind the fixed
+       navbar. Push it down below the navbar height. */
+    #pdRoot {
+      padding-top: calc(var(--nav-h, 88px) + 18px);
+    }
+
+    .pd-eyebrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .pd-close-btn {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--gray-lt);
+      background: #fff;
+      color: var(--black);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .pd-close-btn:hover { background: var(--black); color: #fff; border-color: var(--black); transform: rotate(90deg); }
+
+    .pd-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: flex-start;
+    }
+
+    /* ── Gallery ─────────────────────────────────────────── */
+    .pd-gallery { position: sticky; top: calc(var(--nav-h) + 20px); }
+    .pd-main-img-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-section);
+      border: 2px solid var(--gray-lt);
+      cursor: zoom-in;
+    }
+    .pd-main-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+    .pd-main-img-wrap:hover .pd-main-img { transform: scale(1.05); }
+
+    /* ── Info column ─────────────────────────────────────── */
+    .pd-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-weight: 800; font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--green-dark); margin-bottom: 10px;
+    }
+    .pd-title {
+      font-family: var(--font-display); font-weight: 900;
+      font-size: clamp(1.9rem, 3vw, 2.6rem); text-transform: uppercase;
+      line-height: 1.05; color: var(--black); margin-bottom: 8px;
+    }
+    .pd-sku { font-size: 0.8rem; color: var(--gray-dk); margin-bottom: 20px; }
+    .pd-divider { height: 1px; background: var(--gray-lt); margin: 20px 0; }
+
+    .pd-availability {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; font-weight: 700; color: var(--black); margin-bottom: 22px;
+    }
+    .pd-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(180,211,52,0.25); }
+
+    .pd-specs { list-style: none; margin-bottom: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .pd-specs li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.88rem; padding-bottom: 10px; border-bottom: 1px dashed var(--gray-lt);
+      color: var(--black);
+    }
+    .pd-specs li i { color: var(--green-dark); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+
+    .pd-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+
+    /* ── Accordion ───────────────────────────────────────── */
+    .pd-accordion { margin-top: 8px; border-top: 1px solid var(--gray-lt); }
+    .pd-acc-item { border-bottom: 1px solid var(--gray-lt); }
+    .pd-acc-head {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      background: none; border: none; padding: 16px 2px; cursor: pointer;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;
+      text-transform: uppercase; letter-spacing: 0.03em; color: var(--black);
+    }
+    .pd-acc-head i { transition: transform .25s ease; color: var(--gray-dk); }
+    .pd-acc-item.open .pd-acc-head i { transform: rotate(180deg); color: var(--green-dark); }
+    .pd-acc-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .pd-acc-item.open .pd-acc-panel { max-height: 300px; }
+    .pd-acc-panel-inner { padding: 0 2px 18px; font-size: 0.88rem; color: var(--gray-dk); line-height: 1.7; }
+
+    /* ── Recommended products ────────────────────────────── */
+    .pd-recommend { max-width: 1240px; margin: 0 auto; padding: 20px 24px 80px; }
+    .pd-recommend-title {
+      font-family: var(--font-display); font-weight: 900; font-size: 1.6rem;
+      text-transform: uppercase; text-align: center; margin: 40px 0 28px; color: var(--black);
+    }
+    .pd-recommend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    /* ── Not-found state ──────────────────────────────────── */
+    .pd-not-found {
+      max-width: 560px; margin: 80px auto; text-align: center; padding: 0 24px;
+    }
+    .pd-not-found h2 {
+      font-family: var(--font-display); font-weight: 900; font-size: 2rem;
+      text-transform: uppercase; color: var(--black); margin-bottom: 12px;
+    }
+    .pd-not-found p { color: var(--gray-dk); margin-bottom: 24px; }
+
+    @media (max-width: 900px) {
+      .pd-section { grid-template-columns: 1fr; gap: 28px; }
+      .pd-gallery { position: static; }
+      .pd-recommend-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo.png" alt="MAZI Hardware" class="nav-logo-img">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <a href="categories.html" class="nav-link nav-link-noclick">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
+        <div class="nav-dropdown">
+          <a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
+          <a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
+          <a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
+          <a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
+          <a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
+          <a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
+          <a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
+          <a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
+          <a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li class="nav-mobile-cta" aria-hidden="true">
+        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa" aria-label="WhatsApp">
+          <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb" aria-label="Viber">
+          <i class="ph-fill ph-phone"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61560211301367" target="_blank" class="nav-cta-btn nav-cta-fb" aria-label="Facebook">
+          <i class="ph-fill ph-facebook-logo"></i>
+        </a>
+        <a href="https://www.instagram.com/mazihardware/" target="_blank" class="nav-cta-btn nav-cta-ig" aria-label="Instagram">
+          <i class="ph-fill ph-instagram-logo"></i>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-pill nav-pill-wa" aria-label="WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i><span>WhatsApp</span>
+      </a>
+      <a href="viber://chat?number=%2B9788851" class="nav-pill nav-pill-vb" aria-label="Viber">
+        <i class="ph-fill ph-phone"></i><span>Viber</span>
+      </a>
+      <button class="nav-search-btn" id="searchTrigger" aria-label="Search">
+        <i class="ph ph-magnifying-glass"></i>
+      </button>
+      <div class="nav-divider"></div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="search-panel-head">
+      <div class="search-input-wrap">
+        <i class="ph ph-magnifying-glass search-input-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search products, categories..." autocomplete="off">
+      </div>
+      <button class="search-close-btn" id="searchClose" aria-label="Close search"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="search-panel-body" id="searchBody"></div>
+  </div>
+</div>
+
+<!-- Everything below is filled in by JS once products-data.js loads -->
+<div id="pdRoot"></div>
+
+<!-- IMAGE MODAL (zoom) -->
+<div id="imageModal" class="image-modal">
+  <button class="close-modal" onclick="closeModal()" aria-label="Close"><i class="ph ph-x"></i></button>
+  <img class="modal-img" id="modalImage">
+</div>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
+      <p>Premium building materials &amp; home improvement solutions.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 MAZI Hardware. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- FLOATING VIBER CHAT BUBBLE -->
+<a href="viber://chat?number=%2B9788851" class="viber-float" aria-label="Chat with us on Viber">
+  <span class="viber-float-ring"></span>
+  <span class="viber-float-ring delay"></span>
+  <span class="viber-float-btn">
+    <span class="viber-float-hand"><i class="ph-fill ph-hand-waving"></i></span>
+    <span class="viber-float-logo"><img src="img/viber-logo.png" alt="Viber"></span>
+  </span>
+</a>
+
+<script src="products-data.js"></script>
+<script src="script.js"></script>
+<script>
+function pdGoBack(){
+    window.history.back();
+}
+function openModal(imgSrc){
+    const modal = document.getElementById("imageModal");
+    const img   = document.getElementById("modalImage");
+    img.src = imgSrc;
+    modal.style.display = "flex";
+    modal.offsetHeight;
+    modal.classList.add("modal-open");
+    modal.classList.remove("modal-closing");
+    modal.onclick = function(e){ if(e.target === modal) closeModal(); };
+}
+function closeModal(){
+    const modal = document.getElementById("imageModal");
+    modal.classList.add("modal-closing");
+    modal.classList.remove("modal-open");
+    setTimeout(() => {
+        modal.style.display = "none";
+        modal.classList.remove("modal-closing");
+    }, 380);
+}
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeModal(); });
+
+function pdToggleAcc(btn){
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  item.parentElement.querySelectorAll('.pd-acc-item').forEach(i => i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// Escape helper for injecting text into HTML safely
+function pdEsc(str){
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+(function renderProductDetail(){
+  const root = document.getElementById('pdRoot');
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const product = (typeof PRODUCTS !== 'undefined') ? PRODUCTS[id] : null;
+
+  if (!product) {
+    root.innerHTML = `
+      <div class="pd-not-found">
+        <h2>Product Not Found</h2>
+        <p>Sorry, we couldn't find that product. It may have been removed or the link is incorrect.</p>
+        <a href="products.html" class="cs-back"><i class="ph ph-arrow-left"></i> Back to Products</a>
+      </div>
+    `;
+    document.title = "Product Not Found – MAZI Hardware";
+    return;
+  }
+
+  document.title = product.name + " – MAZI Hardware";
+
+  // Split description on "|" into individual spec bullets
+  const specParts = product.desc.split('|').map(s => s.trim()).filter(Boolean);
+  const specsHtml = specParts.map(s => `<li><i class="ph-fill ph-check-circle"></i><span>${pdEsc(s)}</span></li>`).join('');
+
+  const waMsg = encodeURIComponent(`Hi MAZI Hardware! I'd like to inquire about the ${product.name} (${product.categoryLabel}).`);
+
+  // Recommended products: next 4 products in the same category (wraps around), excluding current
+  const sameCat = PRODUCT_ORDER.filter(pid => PRODUCTS[pid].category === product.category && pid !== id);
+  const recommended = sameCat.slice(0, 4);
+
+  const recommendHtml = recommended.map(pid => {
+    const p = PRODUCTS[pid];
+    return `
+      <a class="prod-card" data-category="${p.category}" href="product-detail.html?id=${pid}">
+        <div class="prod-img-wrap">
+          <img class="prod-img" src="${p.image}" alt="${pdEsc(p.alt)}">
+          <div class="prod-badge">${pdEsc(p.badge)}</div>
+        </div>
+        <div class="prod-info">
+          <h4 class="prod-name">${pdEsc(p.name)}</h4>
+          <p class="prod-desc">${pdEsc(p.desc)}</p>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  root.innerHTML = `
+    <section class="pd-section">
+      <div class="pd-gallery">
+        <div class="pd-main-img-wrap" onclick="openModal('${product.image.replace(/'/g, "\\'")}')">
+          <img class="pd-main-img" src="${product.image}" alt="${pdEsc(product.alt)}">
+        </div>
+      </div>
+
+      <div class="pd-info">
+        <div class="pd-eyebrow-row">
+          <span class="pd-eyebrow"><i class="ph-fill ph-house"></i> ${pdEsc(product.categoryLabel)}</span>
+          <button class="pd-close-btn" onclick="pdGoBack()" aria-label="Close"><i class="ph ph-x"></i></button>
+        </div>
+        <h1 class="pd-title">${pdEsc(product.name)}</h1>
+        <p class="pd-sku">SKU: ${pdEsc(id.toUpperCase())}</p>
+
+        <div class="pd-availability">
+          <span class="pd-dot"></span> In Stock — Ready at Store
+        </div>
+
+        <ul class="pd-specs">${specsHtml}</ul>
+
+        <div class="pd-divider"></div>
+
+        <div class="pd-cta-row">
+          <a href="https://wa.me/9788851?text=${waMsg}" target="_blank" class="cs-btn cs-btn-wa">
+            <i class="ph-fill ph-whatsapp-logo"></i> Inquire on WhatsApp
+          </a>
+          <a href="viber://chat?number=%2B9788851" class="cs-btn cs-btn-vb">
+            <i class="ph-fill ph-phone"></i> Inquire on Viber
+          </a>
+        </div>
+
+        <div class="pd-accordion">
+          <div class="pd-acc-item open">
+            <button class="pd-acc-head" onclick="pdToggleAcc(this)">
+              Product Overview <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="pd-acc-panel">
+              <div class="pd-acc-panel-inner">
+                ${pdEsc(product.name)} from our ${pdEsc(product.categoryLabel)} collection. Message us with your quantity needed and we'll confirm current stock, pricing, and delivery timing.
+              </div>
+            </div>
+          </div>
+          <div class="pd-acc-item">
+            <button class="pd-acc-head" onclick="pdToggleAcc(this)">
+              Delivery &amp; Pickup <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="pd-acc-panel">
+              <div class="pd-acc-panel-inner">
+                Available for delivery within Male' and Hulhumale', or pickup at our store. Message us on WhatsApp or Viber to confirm stock and arrange delivery or pickup timing.
+              </div>
+            </div>
+          </div>
+          <div class="pd-acc-item">
+            <button class="pd-acc-head" onclick="pdToggleAcc(this)">
+              Care &amp; Maintenance <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="pd-acc-panel">
+              <div class="pd-acc-panel-inner">
+                Follow standard installation guidelines for this material. Clean with a soft damp cloth and mild detergent; avoid abrasive cleaners on finished surfaces.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${recommended.length ? `
+    <section class="pd-recommend">
+      <h2 class="pd-recommend-title">Recommended Products</h2>
+      <div class="pd-recommend-grid">${recommendHtml}</div>
+    </section>
+    ` : ''}
+  `;
+})();
+</script>
+</body>
+</html>

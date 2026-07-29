@@ -1,160 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products &ndash; MAZI Hardware</title>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png?v=2">
-  <link rel="shortcut icon" href="img/favicon.ico?v=2">
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products – MAZI Hardware</title>
+<link href="img/favicon.ico?v=2" rel="icon" type="image/x-icon"/>
+<link href="img/favicon.png?v=2" rel="icon" sizes="32x32" type="image/png"/>
+<link href="img/favicon.ico?v=2" rel="shortcut icon"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-
-
-
-
-
 <nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="img/logo.png" alt="MAZI Hardware" class="nav-logo-img">
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-has-dropdown">
-        <a href="categories.html" class="nav-link nav-link-noclick">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
-        <div class="nav-dropdown">
-          <a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
-          <a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
-          <a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
-          <a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
-          <a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
-          <a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
-          <a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
-          <a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
-          <a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
-        </div>
-      </li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
-      <li class="nav-mobile-cta" aria-hidden="true">
-        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa" aria-label="WhatsApp">
-          <i class="ph-fill ph-whatsapp-logo"></i>
-        </a>
-        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb" aria-label="Viber">
-          <i class="ph-fill ph-phone"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61560211301367" target="_blank" class="nav-cta-btn nav-cta-fb" aria-label="Facebook">
-          <i class="ph-fill ph-facebook-logo"></i>
-        </a>
-        <a href="https://www.instagram.com/mazihardware/" target="_blank" class="nav-cta-btn nav-cta-ig" aria-label="Instagram">
-          <i class="ph-fill ph-instagram-logo"></i>
-        </a>
-      </li>
-    </ul>
-    <div class="nav-right">
-      <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-pill nav-pill-wa" aria-label="WhatsApp">
-        <i class="ph-fill ph-whatsapp-logo"></i><span>WhatsApp</span>
-      </a>
-      <a href="viber://chat?number=%2B9788851" class="nav-pill nav-pill-vb" aria-label="Viber">
-        <i class="ph-fill ph-phone"></i><span>Viber</span>
-      </a>
-      <button class="nav-search-btn" id="searchTrigger" aria-label="Search">
-        <i class="ph ph-magnifying-glass"></i>
-      </button>
-      <div class="nav-divider"></div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
+<div class="nav-inner">
+<a class="nav-logo" href="index.html">
+<img alt="MAZI Hardware" class="nav-logo-img" src="img/logo.png"/>
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-has-dropdown">
+<a class="nav-link nav-link-noclick" href="categories.html">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
+<div class="nav-dropdown">
+<a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
+<a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
+<a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
+<a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
+<a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
+<a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
+<a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
+<a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
+<a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
+</div>
+</li>
+<li><a class="nav-link" href="about.html">About</a></li>
+<li><a class="nav-link" href="contact.html">Contact</a></li>
+<li aria-hidden="true" class="nav-mobile-cta">
+<a aria-label="WhatsApp" class="nav-cta-btn nav-cta-wa" href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank">
+<i class="ph-fill ph-whatsapp-logo"></i>
+</a>
+<a aria-label="Viber" class="nav-cta-btn nav-cta-vb" href="viber://chat?number=%2B9788851">
+<i class="ph-fill ph-phone"></i>
+</a>
+<a aria-label="Facebook" class="nav-cta-btn nav-cta-fb" href="https://www.facebook.com/profile.php?id=61560211301367" target="_blank">
+<i class="ph-fill ph-facebook-logo"></i>
+</a>
+<a aria-label="Instagram" class="nav-cta-btn nav-cta-ig" href="https://www.instagram.com/mazihardware/" target="_blank">
+<i class="ph-fill ph-instagram-logo"></i>
+</a>
+</li>
+</ul>
+<div class="nav-right">
+<a aria-label="WhatsApp" class="nav-pill nav-pill-wa" href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank">
+<i class="ph-fill ph-whatsapp-logo"></i><span>WhatsApp</span>
+</a>
+<a aria-label="Viber" class="nav-pill nav-pill-vb" href="viber://chat?number=%2B9788851">
+<i class="ph-fill ph-phone"></i><span>Viber</span>
+</a>
+<button aria-label="Search" class="nav-search-btn" id="searchTrigger">
+<i class="ph ph-magnifying-glass"></i>
+</button>
+<div class="nav-divider"></div>
+<button aria-expanded="false" aria-label="Toggle menu" class="hamburger" id="hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
 </nav>
-
 <!-- SEARCH OVERLAY -->
 <div class="search-overlay" id="searchOverlay">
-  <div class="search-panel">
-    <div class="search-panel-head">
-      <div class="search-input-wrap">
-        <i class="ph ph-magnifying-glass search-input-icon"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search products, categories..." autocomplete="off">
-      </div>
-      <button class="search-close-btn" id="searchClose" aria-label="Close search"><i class="ph ph-x"></i></button>
-    </div>
-    <div class="search-panel-body" id="searchBody"></div>
-  </div>
+<div class="search-panel">
+<div class="search-panel-head">
+<div class="search-input-wrap">
+<i class="ph ph-magnifying-glass search-input-icon"></i>
+<input autocomplete="off" class="search-input" id="searchInput" placeholder="Search products, categories..." type="text"/>
 </div>
-
-
-
+<button aria-label="Close search" class="search-close-btn" id="searchClose"><i class="ph ph-x"></i></button>
+</div>
+<div class="search-panel-body" id="searchBody"></div>
+</div>
+</div>
 <!-- ========================================================
      CATEGORY HERO BANNER — HOME IMPROVEMENT
      ======================================================== -->
 <div class="cat-landing-banner cat-landing-banner--page">
-  <div class="cat-landing-bg" style="background-image:url('home/wpc.jpeg')"></div>
-  <div class="cat-landing-overlay"></div>
-  <div class="container cat-landing-inner">
-    <div class="cat-landing-icon"><i class="ph-fill ph-house"></i></div>
-    <div class="cat-landing-text">
-     
-      <h1 class="cat-landing-title">Home Improvement</h1>
-      <p class="cat-landing-desc">Tiles, UV Marble, Ceiling Panels, Parquet, PVC &amp; WPC Wall Panels &mdash; everything for your interior.</p>
-      <div class="cat-landing-subs">
-        <span>Tiles</span><span>UV Marble</span><span>Ceiling Panel</span><span>Parquet</span><span>PVC Wall Panel</span><span>WPC Wall Panel</span>
-      </div>
-      <div class="pf-bar pf-bar--banner" id="filterBar">
-        <button class="pf-toggle" id="pfToggle" onclick="openCatDrawer()">
-          <i class="ph ph-faders-horizontal"></i> Filter
-        </button>
-        <div class="pf-track" id="pfTrack">
-          <button class="pf-pill active" data-filter="all" onclick="filterCategory('all')">All</button>
-          <button class="pf-pill" data-filter="tiles" onclick="filterCategory('tiles')">Tiles</button>
-          <button class="pf-pill" data-filter="uv-marble" onclick="filterCategory('uv-marble')">UV Marble</button>
-          <button class="pf-pill" data-filter="ceiling" onclick="filterCategory('ceiling')">Ceiling Panel</button>
-          <button class="pf-pill" data-filter="parquet" onclick="filterCategory('parquet')">Parquet</button>
-          <button class="pf-pill" data-filter="pvc-wall" onclick="filterCategory('pvc-wall')">PVC Wall Panel</button>
-          <button class="pf-pill" data-filter="wpc" onclick="filterCategory('wpc')">WPC Wall Panel</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="cat-landing-bg" style="background-image:url('home/wpc.jpeg')"></div>
+<div class="cat-landing-overlay"></div>
+<div class="container cat-landing-inner">
+<div class="cat-landing-icon"><i class="ph-fill ph-house"></i></div>
+<div class="cat-landing-text">
+<h1 class="cat-landing-title">Home Improvement</h1>
+<p class="cat-landing-desc">Tiles, UV Marble, Ceiling Panels, Parquet, PVC &amp; WPC Wall Panels — everything for your interior.</p>
+<div class="cat-landing-subs">
+<span>Tiles</span><span>UV Marble</span><span>Ceiling Panel</span><span>Parquet</span><span>PVC Wall Panel</span><span>WPC Wall Panel</span>
 </div>
-
+</div>
+</div>
+</div>
 <!-- MOBILE FILTER SLIDE-IN DRAWER -->
 <div class="cat-drawer-overlay" id="catDrawerOverlay" onclick="closeCatDrawer()"></div>
 <div class="cat-drawer" id="catDrawer">
-  <div class="cat-drawer-head">
-    <span class="cat-drawer-title">Filter</span>
-    <button class="cat-drawer-close" onclick="closeCatDrawer()" aria-label="Close">
-      <i class="ph ph-x"></i>
-    </button>
-  </div>
-
-  <div class="filter-drawer-body">
-    <div class="filter-accordion">
-      <button class="filter-acc-head" id="filterAccHead" onclick="toggleFilterAccordion()" aria-expanded="true">
-        Category
-        <i class="ph ph-caret-down filter-acc-chev"></i>
-      </button>
-      <div class="filter-acc-panel" id="filterAccPanel">
-        <div class="filter-acc-inner">
-          <div class="cat-drawer-list" id="catDrawerList">
-            <button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all'); closeCatDrawer();"><span class="cdi-dot"></span>All Stock</button>
-            <button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles'); closeCatDrawer();"><span class="cdi-dot"></span>Tiles</button>
-            <button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble'); closeCatDrawer();"><span class="cdi-dot"></span>UV Marble</button>
-            <button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling'); closeCatDrawer();"><span class="cdi-dot"></span>Ceiling Panel</button>
-            <button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet'); closeCatDrawer();"><span class="cdi-dot"></span>Parquet</button>
-            <button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall'); closeCatDrawer();"><span class="cdi-dot"></span>PVC Wall Panel</button>
-            <button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc'); closeCatDrawer();"><span class="cdi-dot"></span>WPC Wall Panel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="cat-drawer-head">
+<span class="cat-drawer-title">Filter</span>
+<button aria-label="Close" class="cat-drawer-close" onclick="closeCatDrawer()">
+<i class="ph ph-x"></i>
+</button>
 </div>
-
+<div class="filter-drawer-body">
+<div class="filter-accordion">
+<div class="filter-acc-head filter-acc-head--static" id="filterAccHead">
+        Category
+</div>
+<div class="filter-acc-panel" id="filterAccPanel">
+<div class="filter-acc-inner">
+<div class="cat-drawer-list" id="catDrawerList">
+<button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all'); closeCatDrawer();"><span class="cdi-dot"></span>All Stock</button>
+<button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles'); closeCatDrawer();"><span class="cdi-dot"></span>Tiles</button>
+<button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble'); closeCatDrawer();"><span class="cdi-dot"></span>UV Marble</button>
+<button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling'); closeCatDrawer();"><span class="cdi-dot"></span>Ceiling Panel</button>
+<button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet'); closeCatDrawer();"><span class="cdi-dot"></span>Parquet</button>
+<button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall'); closeCatDrawer();"><span class="cdi-dot"></span>PVC Wall Panel</button>
+<button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc'); closeCatDrawer();"><span class="cdi-dot"></span>WPC Wall Panel</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <script>
 function openCatDrawer(){
   document.getElementById('catDrawer').classList.add('open');
@@ -166,874 +138,139 @@ function closeCatDrawer(){
   document.getElementById('catDrawerOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-function toggleFilterAccordion(){
-  const head  = document.getElementById('filterAccHead');
-  const panel = document.getElementById('filterAccPanel');
-  const isOpen = head.getAttribute('aria-expanded') === 'true';
-  head.setAttribute('aria-expanded', String(!isOpen));
-  panel.classList.toggle('collapsed', isOpen);
-}
 </script>
-
 <!-- ========================================================
      PRODUCTS SECTION
      ======================================================== -->
-<section id="products" class="section products-section">
-  <div class="container">
-
-    <!-- MOBILE-ONLY FILTER TRIGGER (sits in the white area, not over the hero photo) -->
-    <div class="pf-bar pf-bar--mobile">
-      <button class="filter-trigger" onclick="openCatDrawer()">
-        <i class="ph ph-faders-horizontal"></i> Filter
+<section class="section products-section" id="products">
+<div class="container">
+<!-- FILTER TRIGGER — opens the slide-in category drawer (same on desktop & mobile) -->
+<div class="pf-bar pf-bar--mobile">
+<button class="filter-trigger" onclick="openCatDrawer()">
+<i class="ph ph-faders-horizontal"></i> Filter
       </button>
-    </div>
-
-    <!-- PRODUCTS GRID -->
-    <div class="products-grid" id="productsGrid">
-
-      <!-- ══════════════════════════════════════════════════
+</div>
+<!-- PRODUCTS GRID -->
+<div class="products-grid" id="productsGrid">
+<!-- ══════════════════════════════════════════════════
            HOW TO ADD PRODUCTS:
            1. Copy one prod-card block below
            2. Change data-category to match: tiles | uv-marble | ceiling | parquet | pvc-wall
            3. Update product name and description
            4. Run in browser and drag your photo onto the card
            ══════════════════════════════════════════════════ -->
-
-      <!-- --- TILES --- -->
-<div class="prod-card" data-category="tiles">
-
- <!-- --- TILES 1 --- -->
-
-<div class="prod-img-wrap" onclick="openModal('img/tiles catalog/2.jpg')">
-
-    <img class="prod-img"
-         src="img/tiles catalog/2.jpg"
-         alt="Floor Tiles">
-
-    <div class="prod-badge">Tiles</div>
-
-    </div>
-
-    <div class="prod-info">
-        <h4 class="prod-name">PLAIN WHITE</h4>
-
-        <p class="prod-desc">
-            600x1200mm 600x600mm 300x300mm |
-            Glossy, Matte Finish | Indoor/Outdoor
-        </p>
-        
-    </div>
-
-</div>
-
+<!-- --- TILES --- -->
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-2"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/2.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">PLAIN WHITE</h4><p class="prod-desc">600x1200mm 600x600mm 300x300mm | Glossy, Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 3 --- -->
-
-   <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/3.jpg')">
-    <img class="prod-img" src="img/tiles catalog/3.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-     </div>
-  
-
-  <div class="prod-info">
-    <h4 class="prod-name">NATURAL GOLDEN BLUE R1</h4>
-    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
- <!-- --- TILES 3 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/4.jpg')">
-    <img class="prod-img" src="img/tiles catalog/4.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-     </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name">AURORA GREY-1</h4>
-    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-3"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/3.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">NATURAL GOLDEN BLUE R1</h4><p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p></div></a>
+<!-- --- TILES 3 --- -->
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-4"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/4.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">AURORA GREY-1</h4><p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 5 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/5.jpg')">
-    <img class="prod-img" src="img/tiles catalog/5.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-     </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name">ARBESCATO BROWN R1</h4>
-    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-5"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/5.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ARBESCATO BROWN R1</h4><p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 6 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/6.jpg')">
-    <img class="prod-img" src="img/tiles catalog/6.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-     </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name">SUNVERDE AQUA-1</h4>
-    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-6"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/6.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">SUNVERDE AQUA-1</h4><p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 7 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/7.jpg')">
-    <img class="prod-img" src="img/tiles catalog/7.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-     
-    </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name">AEDEA</h4>
-    <p class="prod-desc">600x600mm 300x600mm| Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-7"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/7.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">AEDEA</h4><p class="prod-desc">600x600mm 300x600mm| Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 8 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/8.jpg')">
-    <img class="prod-img" src="img/tiles catalog/8.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name">AEDEA-1</h4>
-    <p class="prod-desc">600x1200mm| Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-8"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/8.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">AEDEA-1</h4><p class="prod-desc">600x1200mm| Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 9 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/9.jpg')">
-    <img class="prod-img" src="img/tiles catalog/9.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ONYX ROOSVELT ICE </h4>
-    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-9"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/9.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ONYX ROOSVELT ICE</h4><p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 10 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/10.jpg')">
-    <img class="prod-img" src="img/tiles catalog/10.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ONYX ROOSVELT GREY </h4>
-    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-10"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/10.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ONYX ROOSVELT GREY</h4><p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 11 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/11.jpg')">
-    <img class="prod-img" src="img/tiles catalog/11.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ANTHRACITE CREMA  </h4>
-    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-11"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/11.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ANTHRACITE CREMA</h4><p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 12 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/12.jpg')">
-    <img class="prod-img" src="img/tiles catalog/12.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ANTHRACITE IVORY  </h4>
-    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-12"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/12.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ANTHRACITE IVORY</h4><p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 13 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/13.jpg')">
-    <img class="prod-img" src="img/tiles catalog/13.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> MEGNITE GREY </h4>
-    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-13"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/13.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">MEGNITE GREY</h4><p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 14 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/14.jpg')">
-    <img class="prod-img" src="img/tiles catalog/14.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> OAK WOOD CAMEL  </h4>
-    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-14"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/14.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">OAK WOOD CAMEL</h4><p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 15 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/15.jpg')">
-    <img class="prod-img" src="img/tiles catalog/15.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> OSLO GRIS </h4>
-    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-15"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/15.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">OSLO GRIS</h4><p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 16 --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/16.jpg')">
-    <img class="prod-img" src="img/tiles catalog/16.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> CENTO BIANCO </h4>
-    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-16"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/16.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">CENTO BIANCO</h4><p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 17  --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/17.jpg')">
-    <img class="prod-img" src="img/tiles catalog/17.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ORENTA NATURAL</h4>
-    <p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-17"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/17.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ORENTA NATURAL</h4><p class="prod-desc">600x600mm| Matte Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 18  --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/18.jpg')">
-    <img class="prod-img" src="img/tiles catalog/18.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> SIRRIZO PEARL </h4>
-    <p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-18"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/18.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">SIRRIZO PEARL</h4><p class="prod-desc">600x600mm| Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 19  --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/19.jpg')">
-    <img class="prod-img" src="img/tiles catalog/19.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>   </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ECHO BLUE </h4>
-    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-19"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/19.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">ECHO BLUE</h4><p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p></div></a>
 <!-- --- TILES 20  --- -->
-
-       <div class="prod-card" data-category="tiles">
-
-  <div class="prod-img-wrap" onclick="openModal('img/tiles catalog/20.jpg')">
-    <img class="prod-img" src="img/tiles catalog/20.jpg" alt="Floor Tiles">
-    <div class="prod-badge">Tiles</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> DALIM GREY </h4>
-    <p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p>
-  </div>
-
-</div>
-
-
-
-
-
-      <!-- ── UV MARBLE SHEETS 1  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/2.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/2.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-      <!-- ── UV MARBLE SHEETS 3  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/3.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/3.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-
-    </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-
-        <!-- ── UV MARBLE SHEETS 4  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/4.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/4.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-    
-    </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-
-
-        <!-- ── UV MARBLE SHEETS 5  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/5.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/5.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-    
-    </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-    
-        <!-- ── UV MARBLE SHEETS 6  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/6.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/6.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div> 
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-
-      
-        <!-- ── UV MARBLE SHEETS 7  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/7.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/7.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-
-
-        <!-- ── UV MARBLE SHEETS 8  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/8.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/8.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div> 
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> GLOSSY </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-     
-
-
-       <!-- ── UV MARBLE SHEETS 9  ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/9.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/9.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> MATTE </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-
-
-         <!-- ── UV MARBLE SHEETS 10 ────────────────────────────── -->
-
-          <div class="prod-card" data-category="uv-marble">
-
-  <div class="prod-img-wrap" onclick="openModal('img/uv marble sheets catalog/10.jpg')">
-    <img class="prod-img" src="img/uv marble sheets catalog/10.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">UV MARBLE SHEETS</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> MATTE </h4>
-    <p class="prod-desc">4 ft Width | 9.5  ft Length | 3mm Thickness</p>
-        </div>
-      </div>
-
-
-
-      <!-- ── CEILING PANEL 2 ───────────────────────────────── -->
-     
-       <div class="prod-card" data-category="ceiling">
-
-  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/2.jpg')">
-    <img class="prod-img" src="img/ceiling panel/2.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">CEILING PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> DS-098 </h4>
-    <p class="prod-desc">Size: 300*8*5800mm printing glossy white</p>
-        </div>
-      </div>
-
-
-        <!-- ── CEILING PANEL 3 ───────────────────────────────── -->
-     
-     <div class="prod-card" data-category="ceiling">
-
-  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/3.jpg')">
-    <img class="prod-img" src="img/ceiling panel/3.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">CEILING PANEL</div>
-   
-    </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> DS-217 </h4>
-    <p class="prod-desc">Size: 300*8*5800mm laminated</p>
-        </div>
-      </div>
-
-  <!-- ── CEILING PANEL 4 ───────────────────────────────── -->
-     
-      <div class="prod-card" data-category="ceiling">
-
-  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/4.jpg')">
-    <img class="prod-img" src="img/ceiling panel/4.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">CEILING PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> DS-001 </h4>
-    <p class="prod-desc">Size: 300*8*5800mm printing</p>
-        </div>
-      </div>
-      
-  <!-- ── CEILING PANEL 5 ───────────────────────────────── -->
-     
-     <div class="prod-card" data-category="ceiling">
-
-  <div class="prod-img-wrap" onclick="openModal('img/ceiling panel/5.jpg')">
-    <img class="prod-img" src="img/ceiling panel/5.jpg" alt="Uv Marble Sheets">
-    <div class="prod-badge">CEILING PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> DS-002</h4>
-    <p class="prod-desc">Size: 300*8*5800mm printing</p>
-        </div>
-      </div>
-
-      <!-- ── PARQUET 2 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/2.jpg')">
-    <img class="prod-img" src="img/parquet/2.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> PINEWOOD </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-        
-
-       <!-- ── PARQUET 3 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/3.jpg')">
-    <img class="prod-img" src="img/parquet/3.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> SEIRRA OAK </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-      
-
-       <!-- ── PARQUET 4 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/4.jpg')">
-    <img class="prod-img" src="img/parquet/4.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ORANGE </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-
-
-       <!-- ── PARQUET 5 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/5.jpg')">
-    <img class="prod-img" src="img/parquet/5.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> SILVER OAK </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-
-
-  <!-- ── PARQUET 6 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/6.jpg')">
-    <img class="prod-img" src="img/parquet/6.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> HAZELNUT </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-
-
+<a class="prod-card" data-category="tiles" href="product-detail.html?id=tiles-20"><div class="prod-img-wrap"><img alt="Floor Tiles" class="prod-img" src="img/tiles catalog/20.jpg"/><div class="prod-badge">Tiles</div></div><div class="prod-info"><h4 class="prod-name">DALIM GREY</h4><p class="prod-desc">600x1200mm | Glossy Finish | Indoor/Outdoor</p></div></a>
+<!-- ── UV MARBLE SHEETS 1  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-2"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/2.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 3  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-3"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/3.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 4  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-4"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/4.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 5  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-5"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/5.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 6  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-6"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/6.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 7  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-7"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/7.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 8  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-8"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/8.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">GLOSSY</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 9  ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-9"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/9.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">MATTE</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── UV MARBLE SHEETS 10 ────────────────────────────── -->
+<a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-10"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/10.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">MATTE</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── CEILING PANEL 2 ───────────────────────────────── -->
+<a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-2"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/2.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-098</h4><p class="prod-desc">Size: 300*8*5800mm printing glossy white</p></div></a>
+<!-- ── CEILING PANEL 3 ───────────────────────────────── -->
+<a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-3"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/3.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-217</h4><p class="prod-desc">Size: 300*8*5800mm laminated</p></div></a>
+<!-- ── CEILING PANEL 4 ───────────────────────────────── -->
+<a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-4"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/4.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-001</h4><p class="prod-desc">Size: 300*8*5800mm printing</p></div></a>
+<!-- ── CEILING PANEL 5 ───────────────────────────────── -->
+<a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-5"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/5.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-002</h4><p class="prod-desc">Size: 300*8*5800mm printing</p></div></a>
+<!-- ── PARQUET 2 ─────────────────────────────────────── -->
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-2"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/2.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">PINEWOOD</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
+<!-- ── PARQUET 3 ─────────────────────────────────────── -->
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-3"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/3.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">SEIRRA OAK</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
+<!-- ── PARQUET 4 ─────────────────────────────────────── -->
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-4"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/4.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">ORANGE</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
+<!-- ── PARQUET 5 ─────────────────────────────────────── -->
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-5"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/5.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">SILVER OAK</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
+<!-- ── PARQUET 6 ─────────────────────────────────────── -->
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-6"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/6.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">HAZELNUT</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
 <!-- ── PARQUET 7 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/7.jpg')">
-    <img class="prod-img" src="img/parquet/7.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> ALMOND WHITE </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-
-
-      <!-- ── PARQUET 8 ─────────────────────────────────────── -->
-      <div class="prod-card" data-category="parquet">
-
-        <div class="prod-img-wrap" onclick="openModal('img/parquet/8.jpg')">
-    <img class="prod-img" src="img/parquet/8.jpg" alt="Parquet">
-    <div class="prod-badge">Parquet</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> BLACK SESAME </h4>
-    <p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm </p>
-        </div>
-      </div>
-
-
-
-
-      <!-- ── PVC WALL PANEL 2 ──────────────────────────────── -->
-      <div class="prod-card" data-category="pvc-wall">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/2.jpg')">
-    <img class="prod-img" src="img/pvc wall panel/2.jpg" alt="Parquet">
-    <div class="prod-badge">PVC WALL PANEL</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> WALL PANEL </h4>
-    <p class="prod-desc">2 ft Width | 9.5  ft Length | 3mm Thickness </p>
-        </div>
-      </div>
-
-   <!-- ── PVC WALL PANEL 3 ──────────────────────────────── -->
-      <div class="prod-card" data-category="pvc-wall">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/3.jpg')">
-    <img class="prod-img" src="img/pvc wall panel/3.jpg" alt="Parquet">
-    <div class="prod-badge">PVC WALL PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> WALL PANEL </h4>
-    <p class="prod-desc">2 ft Width | 9.5  ft Length | 3mm Thickness </p>
-        </div>
-      </div>
-      
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-7"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/7.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">ALMOND WHITE</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
+<!-- ── PARQUET 8 ─────────────────────────────────────── -->
+<a class="prod-card" data-category="parquet" href="product-detail.html?id=parquet-8"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/parquet/8.jpg"/><div class="prod-badge">Parquet</div></div><div class="prod-info"><h4 class="prod-name">BLACK SESAME</h4><p class="prod-desc">Size: 183 x 1220 x 4.5+ 1mm</p></div></a>
+<!-- ── PVC WALL PANEL 2 ──────────────────────────────── -->
+<a class="prod-card" data-category="pvc-wall" href="product-detail.html?id=pvc-wall-2"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/pvc wall panel/2.jpg"/><div class="prod-badge">PVC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">WALL PANEL</h4><p class="prod-desc">2 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── PVC WALL PANEL 3 ──────────────────────────────── -->
+<a class="prod-card" data-category="pvc-wall" href="product-detail.html?id=pvc-wall-3"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/pvc wall panel/3.jpg"/><div class="prod-badge">PVC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">WALL PANEL</h4><p class="prod-desc">2 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
 <!-- ── PVC WALL PANEL 4 ──────────────────────────────── -->
-      <div class="prod-card" data-category="pvc-wall">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/4.jpg')">
-    <img class="prod-img" src="img/pvc wall panel/4.jpg" alt="Parquet">
-    <div class="prod-badge">PVC WALL PANEL</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> WALL PANEL </h4>
-    <p class="prod-desc">2 ft Width | 9.5  ft Length | 3mm Thickness </p>
-        </div>
-      </div>
-
+<a class="prod-card" data-category="pvc-wall" href="product-detail.html?id=pvc-wall-4"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/pvc wall panel/4.jpg"/><div class="prod-badge">PVC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">WALL PANEL</h4><p class="prod-desc">2 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
 <!-- ── PVC WALL PANEL 5 ──────────────────────────────── -->
-      <div class="prod-card" data-category="pvc-wall">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/pvc wall panel/5.jpg')">
-    <img class="prod-img" src="img/pvc wall panel/5.jpg" alt="Parquet">
-    <div class="prod-badge">PVC WALL PANEL</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> WALL PANEL </h4>
-    <p class="prod-desc">2 ft Width | 9.5  ft Length | 3mm Thickness </p>
-        </div>
-      </div>
-
-
-
-      <!-- ── WPC WALL PANEL 2 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc">
-         <div class="prod-img-wrap" onclick="openModal('img/wpc/2.jpg')">
-    <img class="prod-img" src="img/wpc/2.jpg" alt="Parquet">
-    <div class="prod-badge">WPC WALL PANEL</div>
-
-       </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> B061 </h4>
-    <p class="prod-desc"> WPC-150 x 23mm x 9.5ft-0</p>
-        </div>
-      </div>
-
-      <!-- ── WPC WALL PANEL 3 ──────────────────────────────── -->
-       <div class="prod-card" data-category="wpc">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/wpc/3.jpg')">
-    <img class="prod-img" src="img/wpc/3.jpg" alt="Parquet">
-    <div class="prod-badge">WPC WALL PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> P109 </h4>
-    <p class="prod-desc"> WPC-150 x 23mm x 9.5ft-0</p>
-        </div>
-      </div>
-
-
-       <!-- ── WPC WALL PANEL 4 ──────────────────────────────── -->
-     <div class="prod-card" data-category="wpc">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/wpc/4.jpg')">
-    <img class="prod-img" src="img/wpc/4.jpg" alt="Parquet">
-    <div class="prod-badge">WPC WALL PANEL</div>
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> P104 </h4>
-    <p class="prod-desc"> WPC-150 x 23mm x 9.5ft-0</p>
-        </div>
-      </div>
-
-       <!-- ── WPC WALL PANEL 5 ──────────────────────────────── -->
-        <div class="prod-card" data-category="wpc">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/wpc/5.jpg')">
-    <img class="prod-img" src="img/wpc/5.jpg" alt="Parquet">
-    <div class="prod-badge">WPC WALL PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> M2055</h4>
-    <p class="prod-desc"> WPC-150 x 23mm x 9.5ft-0</p>
-        </div>
-      </div>
-
-
-         <!-- ── WPC WALL PANEL 6 ──────────────────────────────── -->
-      <div class="prod-card" data-category="wpc">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/wpc/6.jpg')">
-    <img class="prod-img" src="img/wpc/6.jpg" alt="Parquet">
-    <div class="prod-badge">WPC WALL PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> M2055 </h4>
-    <p class="prod-desc"> WPC-150 x 23mm x 9.5ft-0</p>
-        </div>
-      </div>
-
-
-         <!-- ── WPC WALL PANEL 7 ──────────────────────────────── -->
-       <div class="prod-card" data-category="wpc">
-       
-         <div class="prod-img-wrap" onclick="openModal('img/wpc/7.jpg')">
-    <img class="prod-img" src="img/wpc/7.jpg" alt="Parquet">
-    <div class="prod-badge">WPC WALL PANEL</div>
-
-      </div>
-
-  <div class="prod-info">
-    <h4 class="prod-name"> P133 </h4>
-    <p class="prod-desc"> WPC-150 x 23mm x 9.5ft-0</p>
-        </div>
-      </div>
-
+<a class="prod-card" data-category="pvc-wall" href="product-detail.html?id=pvc-wall-5"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/pvc wall panel/5.jpg"/><div class="prod-badge">PVC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">WALL PANEL</h4><p class="prod-desc">2 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
+<!-- ── WPC WALL PANEL 2 ──────────────────────────────── -->
+<a class="prod-card" data-category="wpc" href="product-detail.html?id=wpc-2"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/wpc/2.jpg"/><div class="prod-badge">WPC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">B061</h4><p class="prod-desc">WPC-150 x 23mm x 9.5ft-0</p></div></a>
+<!-- ── WPC WALL PANEL 3 ──────────────────────────────── -->
+<a class="prod-card" data-category="wpc" href="product-detail.html?id=wpc-3"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/wpc/3.jpg"/><div class="prod-badge">WPC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">P109</h4><p class="prod-desc">WPC-150 x 23mm x 9.5ft-0</p></div></a>
+<!-- ── WPC WALL PANEL 4 ──────────────────────────────── -->
+<a class="prod-card" data-category="wpc" href="product-detail.html?id=wpc-4"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/wpc/4.jpg"/><div class="prod-badge">WPC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">P104</h4><p class="prod-desc">WPC-150 x 23mm x 9.5ft-0</p></div></a>
+<!-- ── WPC WALL PANEL 5 ──────────────────────────────── -->
+<a class="prod-card" data-category="wpc" href="product-detail.html?id=wpc-5"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/wpc/5.jpg"/><div class="prod-badge">WPC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">M2055</h4><p class="prod-desc">WPC-150 x 23mm x 9.5ft-0</p></div></a>
+<!-- ── WPC WALL PANEL 6 ──────────────────────────────── -->
+<a class="prod-card" data-category="wpc" href="product-detail.html?id=wpc-6"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/wpc/6.jpg"/><div class="prod-badge">WPC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">M2055</h4><p class="prod-desc">WPC-150 x 23mm x 9.5ft-0</p></div></a>
+<!-- ── WPC WALL PANEL 7 ──────────────────────────────── -->
+<a class="prod-card" data-category="wpc" href="product-detail.html?id=wpc-7"><div class="prod-img-wrap"><img alt="Parquet" class="prod-img" src="img/wpc/7.jpg"/><div class="prod-badge">WPC WALL PANEL</div></div><div class="prod-info"><h4 class="prod-name">P133</h4><p class="prod-desc">WPC-150 x 23mm x 9.5ft-0</p></div></a>
 </div>
-
-<br>
-<br>
-      <div style="text-align: center; width: 100%; margin-top: 30px;">
-    <a href="categories.html" class="cs-back">
-        <i class="ph ph-arrow-left"></i> Back to All Categories
+<br/>
+<br/>
+<div style="text-align: center; width: 100%; margin-top: 30px;">
+<a class="cs-back" href="categories.html">
+<i class="ph ph-arrow-left"></i> Back to All Categories
     </a>
 </div>
-
-
-    </div><!-- /products-grid -->
-  </div>
+</div><!-- /products-grid -->
 </section>
 <!-- IMAGE MODAL -->
-<div id="imageModal" class="image-modal">
-  <span class="close-modal" onclick="closeModal()">&times;</span>
-  <img class="modal-img" id="modalImage">
+<div class="image-modal" id="imageModal">
+<span class="close-modal" onclick="closeModal()">×</span>
+<img class="modal-img" id="modalImage"/>
 </div>
 <script>
 function filterCategory(cat) {
@@ -1069,31 +306,30 @@ function filterCategory(cat) {
   }
 })();
 </script>
-
 <footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
-      <p>Premium building materials &amp; home improvement solutions.</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="categories.html">Categories</a>
-      <a href="products.html">Products</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 MAZI Hardware. All rights reserved.</p>
-  </div>
+<div class="container footer-inner">
+<div class="footer-brand">
+<span class="logo-text-nav">MAZI <span>HARDWARE</span></span>
+<p>Premium building materials &amp; home improvement solutions.</p>
+</div>
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="categories.html">Categories</a>
+<a href="products.html">Products</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<p class="footer-copy">© 2026 MAZI Hardware. All rights reserved.</p>
+</div>
 </footer>
 <!-- FLOATING VIBER CHAT BUBBLE -->
-<a href="viber://chat?number=%2B9788851" class="viber-float" aria-label="Chat with us on Viber">
-  <span class="viber-float-ring"></span>
-  <span class="viber-float-ring delay"></span>
-  <span class="viber-float-btn">
-    <span class="viber-float-hand"><i class="ph-fill ph-hand-waving"></i></span>
-    <span class="viber-float-logo"><img src="img/viber-logo.png" alt="Viber"></span>
-  </span>
+<a aria-label="Chat with us on Viber" class="viber-float" href="viber://chat?number=%2B9788851">
+<span class="viber-float-ring"></span>
+<span class="viber-float-ring delay"></span>
+<span class="viber-float-btn">
+<span class="viber-float-hand"><i class="ph-fill ph-hand-waving"></i></span>
+<span class="viber-float-logo"><img alt="Viber" src="img/viber-logo.png"/></span>
+</span>
 </a>
 <script src="script.js"></script>
 <script>

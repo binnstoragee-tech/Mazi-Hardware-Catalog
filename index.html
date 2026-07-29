@@ -478,7 +478,7 @@
   display: block;
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: #e4e6da;
 }
@@ -760,42 +760,42 @@
     <div class="na-grid" id="naGrid">
       <div class="na-card">
         <span class="na-card-badge">New</span>
-        <span class="na-card-img-wrap">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/6.jpg', 'New Product', 0)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/6.jpg" alt="New Product" loading="lazy">
         </span>
         <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
         <span class="na-card-badge">New</span>
-        <span class="na-card-img-wrap">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/7.jpg', 'New Product', 1)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/7.jpg" alt="New Product" loading="lazy">
         </span>
         <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
         <span class="na-card-badge">New</span>
-        <span class="na-card-img-wrap">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/8.jpg', 'New Product', 2)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/8.jpg" alt="New Product" loading="lazy">
         </span>
         <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
         <span class="na-card-badge">New</span>
-        <span class="na-card-img-wrap">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/9.jpg', 'New Product', 3)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/9.jpg" alt="New Product" loading="lazy">
         </span>
         <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
         <span class="na-card-badge">New</span>
-        <span class="na-card-img-wrap">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/10.jpg', 'New Product', 4)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/10.jpg" alt="New Product" loading="lazy">
         </span>
         <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
         <span class="na-card-badge">New</span>
-        <span class="na-card-img-wrap">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/11.jpg', 'New Product', 5)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/11.jpg" alt="New Product" loading="lazy">
         </span>
         <span class="na-card-name">Product Name</span>
@@ -912,6 +912,138 @@
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* ════════════════════════════════════════════════════════════
+   IMAGE VIEWER — professional product lightbox
+   zoom (scroll / pinch / double-click) + drag-pan + prev/next
+   ════════════════════════════════════════════════════════════ */
+.iv-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8,8,10,0.97);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.iv-modal.iv-open { opacity: 1; }
+
+.iv-modal::before,
+.iv-modal::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 110px;
+  pointer-events: none;
+  z-index: 1;
+}
+.iv-modal::before { top: 0; background: linear-gradient(rgba(0,0,0,0.45), transparent); }
+.iv-modal::after  { bottom: 0; background: linear-gradient(transparent, rgba(0,0,0,0.45)); }
+
+.iv-stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.iv-img {
+  max-width: 88vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+  transition: opacity 0.2s ease;
+}
+.iv-img.iv-img-switching { opacity: 0; }
+
+@media (max-width: 600px) {
+  .iv-img { max-width: 94vw; max-height: 72vh; }
+}
+
+.iv-close {
+  position: absolute;
+  top: calc(var(--nav-h, 88px) + 22px);
+  right: 20px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: background 0.2s ease, opacity 0.35s ease 0.1s, transform 0.4s cubic-bezier(0.22,1,0.36,1) 0.1s;
+}
+.iv-modal.iv-open .iv-close { opacity: 1; transform: translateY(0); }
+.iv-close:hover { background: #ff4d4d; transform: scale(1.08); }
+
+.iv-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0.75;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+.iv-nav-btn:hover { background: var(--green); color: var(--black); opacity: 1; transform: translateY(-50%) scale(1.08); }
+.iv-nav-prev { left: 20px; }
+.iv-nav-next { right: 20px; }
+.iv-nav-btn.iv-nav-hidden { display: none; }
+
+.iv-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+.iv-counter { font-weight: 700; color: #fff; }
+
+@media (max-width: 600px) {
+  .iv-close { top: calc(var(--nav-h, 62px) + 16px); right: 14px; width: 38px; height: 38px; font-size: 1rem; }
+  .iv-nav-btn { width: 40px; height: 40px; font-size: 1.05rem; }
+  .iv-nav-prev { left: 8px; }
+  .iv-nav-next { right: 8px; }
+  .iv-footer { bottom: 14px; font-size: 0.72rem; }
 }
 </style>
 
@@ -1031,6 +1163,173 @@
     <span class="viber-float-logo"><img src="img/viber-logo.png" alt="Viber"></span>
   </span>
 </a>
+<!-- IMAGE VIEWER MODAL — professional product lightbox -->
+<div id="imgViewerModal" class="iv-modal">
+  <button class="iv-close" onclick="closeImageViewer()" aria-label="Close"><i class="ph ph-x"></i></button>
+  <button class="iv-nav-btn iv-nav-prev" id="ivPrevBtn" onclick="ivPrev()" aria-label="Previous product"><i class="ph ph-caret-left"></i></button>
+  <div class="iv-stage" id="ivStage">
+    <img id="ivImg" class="iv-img" src="" alt="" draggable="false">
+  </div>
+  <button class="iv-nav-btn iv-nav-next" id="ivNextBtn" onclick="ivNext()" aria-label="Next product"><i class="ph ph-caret-right"></i></button>
+  <div class="iv-footer">
+    <span class="iv-counter" id="ivCounter"></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  const modal = document.getElementById('imgViewerModal');
+  const stage = document.getElementById('ivStage');
+  const img   = document.getElementById('ivImg');
+  const prevBtn = document.getElementById('ivPrevBtn');
+  const nextBtn = document.getElementById('ivNextBtn');
+  const counter = document.getElementById('ivCounter');
+
+  let scale = 1, posX = 0, posY = 0;
+  let dragging = false, startX = 0, startY = 0;
+  const pointers = new Map();
+  let lastPinchDist = null;
+  let ivIndex = -1;
+
+  // Build the list of navigable products from the New Arrivals grid
+  function getIvItems(){
+    return Array.from(document.querySelectorAll('#naGrid .na-card-img-wrap img')).map(im => ({
+      src: im.getAttribute('src'),
+      alt: im.getAttribute('alt')
+    }));
+  }
+
+  function updateNav(){
+    const items = getIvItems();
+    const multi = ivIndex > -1 && items.length > 1;
+    prevBtn.classList.toggle('iv-nav-hidden', !multi);
+    nextBtn.classList.toggle('iv-nav-hidden', !multi);
+    counter.style.display = multi ? '' : 'none';
+    if (multi) counter.textContent = (ivIndex + 1) + ' / ' + items.length;
+  }
+
+  function applyTransform(){
+    img.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+    img.style.cursor = scale > 1 ? 'grab' : 'zoom-in';
+  }
+
+  function setZoom(newScale){
+    scale = Math.min(4, Math.max(1, newScale));
+    if (scale === 1) { posX = 0; posY = 0; }
+    applyTransform();
+  }
+
+  function setImage(src, alt){
+    img.classList.add('iv-img-switching');
+    window.setTimeout(() => {
+      img.src = src;
+      img.alt = alt || '';
+      scale = 1; posX = 0; posY = 0;
+      applyTransform();
+      img.classList.remove('iv-img-switching');
+    }, 130);
+  }
+
+  function showItemAt(idx){
+    const items = getIvItems();
+    if (!items.length) return;
+    ivIndex = (idx + items.length) % items.length;
+    setImage(items[ivIndex].src, items[ivIndex].alt);
+    updateNav();
+  }
+
+  window.openImageViewer = function(src, alt, index){
+    const items = getIvItems();
+    if (typeof index === 'number' && items[index]) {
+      ivIndex = index;
+      img.src = items[index].src;
+      img.alt = items[index].alt || '';
+    } else {
+      ivIndex = -1;
+      img.src = src;
+      img.alt = alt || '';
+    }
+    scale = 1; posX = 0; posY = 0;
+    applyTransform();
+    updateNav();
+    modal.style.display = 'flex';
+    modal.offsetHeight;
+    modal.classList.add('iv-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeImageViewer = function(){
+    modal.classList.remove('iv-open');
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 280);
+  };
+
+  window.ivPrev = function(){ if (ivIndex > -1) showItemAt(ivIndex - 1); };
+  window.ivNext = function(){ if (ivIndex > -1) showItemAt(ivIndex + 1); };
+
+  img.addEventListener('dblclick', () => setZoom(scale > 1 ? 1 : 2));
+
+  stage.addEventListener('wheel', e => {
+    e.preventDefault();
+    setZoom(+(scale + (e.deltaY < 0 ? 0.25 : -0.25)).toFixed(2));
+  }, { passive: false });
+
+  img.addEventListener('pointerdown', e => {
+    img.setPointerCapture(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 1 && scale > 1) {
+      dragging = true;
+      startX = e.clientX - posX;
+      startY = e.clientY - posY;
+      img.style.cursor = 'grabbing';
+    }
+    if (pointers.size === 2) {
+      dragging = false;
+      const pts = Array.from(pointers.values());
+      lastPinchDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+    }
+  });
+
+  img.addEventListener('pointermove', e => {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.size === 2) {
+      const pts = Array.from(pointers.values());
+      const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      if (lastPinchDist) setZoom(+(scale + (dist - lastPinchDist) * 0.01).toFixed(2));
+      lastPinchDist = dist;
+      return;
+    }
+
+    if (dragging) {
+      posX = e.clientX - startX;
+      posY = e.clientY - startY;
+      applyTransform();
+    }
+  });
+
+  function endPointer(e){
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) lastPinchDist = null;
+    if (pointers.size === 0) { dragging = false; applyTransform(); }
+  }
+  img.addEventListener('pointerup', endPointer);
+  img.addEventListener('pointercancel', endPointer);
+  img.addEventListener('pointerleave', endPointer);
+
+  modal.addEventListener('click', e => { if (e.target === modal) closeImageViewer(); });
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('iv-open')) return;
+    if (e.key === 'Escape') closeImageViewer();
+    if (e.key === 'ArrowLeft') ivPrev();
+    if (e.key === 'ArrowRight') ivNext();
+  });
+})();
+</script>
+
 <script src="script.js"></script>
 <script>
 function openModal(imgSrc){
