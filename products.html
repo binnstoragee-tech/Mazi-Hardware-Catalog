@@ -41,11 +41,17 @@
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li class="nav-mobile-cta" aria-hidden="true">
-        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa">
-          <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa" aria-label="WhatsApp">
+          <i class="ph-fill ph-whatsapp-logo"></i>
         </a>
-        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb">
-          <i class="ph-fill ph-phone"></i> Viber
+        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb" aria-label="Viber">
+          <i class="ph-fill ph-phone"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61560211301367" target="_blank" class="nav-cta-btn nav-cta-fb" aria-label="Facebook">
+          <i class="ph-fill ph-facebook-logo"></i>
+        </a>
+        <a href="https://www.instagram.com/mazihardware/" target="_blank" class="nav-cta-btn nav-cta-ig" aria-label="Instagram">
+          <i class="ph-fill ph-instagram-logo"></i>
         </a>
       </li>
     </ul>
@@ -56,6 +62,9 @@
       <a href="viber://chat?number=%2B9788851" class="nav-pill nav-pill-vb" aria-label="Viber">
         <i class="ph-fill ph-phone"></i><span>Viber</span>
       </a>
+      <button class="nav-search-btn" id="searchTrigger" aria-label="Search">
+        <i class="ph ph-magnifying-glass"></i>
+      </button>
       <div class="nav-divider"></div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -63,6 +72,21 @@
     </div>
   </div>
 </nav>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="search-panel-head">
+      <div class="search-input-wrap">
+        <i class="ph ph-magnifying-glass search-input-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search products, categories..." autocomplete="off">
+      </div>
+      <button class="search-close-btn" id="searchClose" aria-label="Close search"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="search-panel-body" id="searchBody"></div>
+  </div>
+</div>
+
 
 
 <!-- ========================================================
@@ -82,7 +106,7 @@
       </div>
       <div class="pf-bar pf-bar--banner" id="filterBar">
         <button class="pf-toggle" id="pfToggle" onclick="openCatDrawer()">
-          <i class="ph ph-funnel-simple"></i> Categories
+          <i class="ph ph-faders-horizontal"></i> Filter
         </button>
         <div class="pf-track" id="pfTrack">
           <button class="pf-pill active" data-filter="all" onclick="filterCategory('all')">All</button>
@@ -98,23 +122,36 @@
   </div>
 </div>
 
-<!-- MOBILE CATEGORY SLIDE-IN DRAWER -->
+<!-- MOBILE FILTER SLIDE-IN DRAWER -->
 <div class="cat-drawer-overlay" id="catDrawerOverlay" onclick="closeCatDrawer()"></div>
 <div class="cat-drawer" id="catDrawer">
   <div class="cat-drawer-head">
-    <img src="img/logo.png" alt="MAZI Hardware" class="cat-drawer-logo">
+    <span class="cat-drawer-title">Filter</span>
     <button class="cat-drawer-close" onclick="closeCatDrawer()" aria-label="Close">
       <i class="ph ph-x"></i>
     </button>
   </div>
-  <div class="cat-drawer-list" id="catDrawerList">
-    <button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all'); closeCatDrawer();"><span class="cdi-dot"></span>All Stock</button>
-    <button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles'); closeCatDrawer();"><span class="cdi-dot"></span>Tiles</button>
-    <button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble'); closeCatDrawer();"><span class="cdi-dot"></span>UV Marble</button>
-    <button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling'); closeCatDrawer();"><span class="cdi-dot"></span>Ceiling Panel</button>
-    <button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet'); closeCatDrawer();"><span class="cdi-dot"></span>Parquet</button>
-    <button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall'); closeCatDrawer();"><span class="cdi-dot"></span>PVC Wall Panel</button>
-    <button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc'); closeCatDrawer();"><span class="cdi-dot"></span>WPC Wall Panel</button>
+
+  <div class="filter-drawer-body">
+    <div class="filter-accordion">
+      <button class="filter-acc-head" id="filterAccHead" onclick="toggleFilterAccordion()" aria-expanded="true">
+        Category
+        <i class="ph ph-caret-down filter-acc-chev"></i>
+      </button>
+      <div class="filter-acc-panel" id="filterAccPanel">
+        <div class="filter-acc-inner">
+          <div class="cat-drawer-list" id="catDrawerList">
+            <button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all'); closeCatDrawer();"><span class="cdi-dot"></span>All Stock</button>
+            <button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles'); closeCatDrawer();"><span class="cdi-dot"></span>Tiles</button>
+            <button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble'); closeCatDrawer();"><span class="cdi-dot"></span>UV Marble</button>
+            <button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling'); closeCatDrawer();"><span class="cdi-dot"></span>Ceiling Panel</button>
+            <button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet'); closeCatDrawer();"><span class="cdi-dot"></span>Parquet</button>
+            <button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall'); closeCatDrawer();"><span class="cdi-dot"></span>PVC Wall Panel</button>
+            <button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc'); closeCatDrawer();"><span class="cdi-dot"></span>WPC Wall Panel</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -129,6 +166,13 @@ function closeCatDrawer(){
   document.getElementById('catDrawerOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
+function toggleFilterAccordion(){
+  const head  = document.getElementById('filterAccHead');
+  const panel = document.getElementById('filterAccPanel');
+  const isOpen = head.getAttribute('aria-expanded') === 'true';
+  head.setAttribute('aria-expanded', String(!isOpen));
+  panel.classList.toggle('collapsed', isOpen);
+}
 </script>
 
 <!-- ========================================================
@@ -137,10 +181,10 @@ function closeCatDrawer(){
 <section id="products" class="section products-section">
   <div class="container">
 
-    <!-- MOBILE-ONLY CATEGORIES TRIGGER (sits in the white area, not over the hero photo) -->
+    <!-- MOBILE-ONLY FILTER TRIGGER (sits in the white area, not over the hero photo) -->
     <div class="pf-bar pf-bar--mobile">
-      <button class="pf-toggle pf-toggle--mobile" onclick="openCatDrawer()">
-        <i class="ph ph-funnel-simple"></i> Categories
+      <button class="filter-trigger" onclick="openCatDrawer()">
+        <i class="ph ph-faders-horizontal"></i> Filter
       </button>
     </div>
 
@@ -1042,9 +1086,15 @@ function filterCategory(cat) {
     <p class="footer-copy">&copy; 2026 MAZI Hardware. All rights reserved.</p>
   </div>
 </footer>
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i class="ph ph-arrow-up"></i>
-</button>
+<!-- FLOATING VIBER CHAT BUBBLE -->
+<a href="viber://chat?number=%2B9788851" class="viber-float" aria-label="Chat with us on Viber">
+  <span class="viber-float-ring"></span>
+  <span class="viber-float-ring delay"></span>
+  <span class="viber-float-btn">
+    <span class="viber-float-hand"><i class="ph-fill ph-hand-waving"></i></span>
+    <span class="viber-float-logo"><img src="img/viber-logo.png" alt="Viber"></span>
+  </span>
+</a>
 <script src="script.js"></script>
 <script>
 function openModal(imgSrc){

@@ -24,25 +24,31 @@
       <li class="nav-has-dropdown">
         <a href="categories.html" class="nav-link nav-link-noclick">Categories <i class="ph ph-caret-down nav-dd-caret"></i></a>
         <div class="nav-dropdown">
-          <a class="nav-dd-item" href="products.html"><span class="nav-dd-icon"><i class="ph-fill ph-house"></i></span>Home Improvement</a>
-          <a class="nav-dd-item" href="pvc-pipes.html"><span class="nav-dd-icon"><i class="ph-fill ph-pipe"></i></span>PVC Pipes</a>
-          <a class="nav-dd-item" href="gutter.html"><span class="nav-dd-icon"><i class="ph-fill ph-funnel"></i></span>Gutter</a>
-          <a class="nav-dd-item" href="steel-bar.html"><span class="nav-dd-icon"><i class="ph-fill ph-minus-square"></i></span>Steel Bar</a>
-          <a class="nav-dd-item" href="electrical.html"><span class="nav-dd-icon"><i class="ph-fill ph-lightning"></i></span>Electrical</a>
-          <a class="nav-dd-item" href="sanitaryware.html"><span class="nav-dd-icon"><i class="ph-fill ph-toilet"></i></span>Sanitaryware</a>
-          <a class="nav-dd-item" href="power-tools.html"><span class="nav-dd-icon"><i class="ph-fill ph-wrench"></i></span>Power Tools</a>
-          <a class="nav-dd-item" href="plumbing.html"><span class="nav-dd-icon"><i class="ph-fill ph-drop"></i></span>Plumbing</a>
+          <a class="nav-dd-item" href="products.html">Home Improvement</a>
+          <a class="nav-dd-item" href="pvc-pipes.html">PVC Pipes</a>
+          <a class="nav-dd-item" href="gutter.html">Gutter</a>
+          <a class="nav-dd-item" href="steel-bar.html">Steel Bar</a>
+          <a class="nav-dd-item" href="electrical.html">Electrical</a>
+          <a class="nav-dd-item" href="sanitaryware.html">Sanitaryware</a>
+          <a class="nav-dd-item" href="power-tools.html">Power Tools</a>
+          <a class="nav-dd-item" href="plumbing.html">Plumbing</a>
           <a class="nav-dd-footer" href="categories.html">View All Categories <i class="ph ph-arrow-right"></i></a>
         </div>
       </li>
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li class="nav-mobile-cta" aria-hidden="true">
-        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa">
-          <i class="ph-fill ph-whatsapp-logo"></i> WhatsApp
+        <a href="https://wa.me/9788851?text=Hi%20MAZI%20Hardware!%20I%27d%20like%20to%20inquire." target="_blank" class="nav-cta-btn nav-cta-wa" aria-label="WhatsApp">
+          <i class="ph-fill ph-whatsapp-logo"></i>
         </a>
-        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb">
-          <i class="ph-fill ph-phone"></i> Viber
+        <a href="viber://chat?number=%2B9788851" class="nav-cta-btn nav-cta-vb" aria-label="Viber">
+          <i class="ph-fill ph-phone"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61560211301367" target="_blank" class="nav-cta-btn nav-cta-fb" aria-label="Facebook">
+          <i class="ph-fill ph-facebook-logo"></i>
+        </a>
+        <a href="https://www.instagram.com/mazihardware/" target="_blank" class="nav-cta-btn nav-cta-ig" aria-label="Instagram">
+          <i class="ph-fill ph-instagram-logo"></i>
         </a>
       </li>
     </ul>
@@ -53,6 +59,9 @@
       <a href="viber://chat?number=%2B9788851" class="nav-pill nav-pill-vb" aria-label="Viber">
         <i class="ph-fill ph-phone"></i><span>Viber</span>
       </a>
+      <button class="nav-search-btn" id="searchTrigger" aria-label="Search">
+        <i class="ph ph-magnifying-glass"></i>
+      </button>
       <div class="nav-divider"></div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -61,789 +70,268 @@
   </div>
 </nav>
 
-<!-- ========================================================
-     HERO SECTION — PREMIUM 3D CAROUSEL
-     ======================================================== -->
-<section id="home" class="hero hero--3d">
-
-  <!-- Cinematic BG: slides crossfade with active card -->
-  <div class="hero3d-cinebg" id="hero3dBg">
-    <div class="hero3d-bg-slide active" style="background-image:url('home/wpc.jpeg')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/pvc%20pipe%20and%20fittings.png')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/gutter.png')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/steel%20bar.png')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/electrical.png')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/sanitaryware.png')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/power%20tools.png')"></div>
-    <div class="hero3d-bg-slide" style="background-image:url('categories/plumbing.png')"></div>
-  </div>
-  <div class="hero3d-cineoverlay"></div>
-  <!-- Vignette edges -->
-  <div class="hero3d-vignette"></div>
-
-  <!-- Left: copy -->
-  <!-- JS data binding elements (hidden) -->
-  <div class="hero3d-copy" aria-hidden="true" style="display:none;">
-    <h1 class="hero3d-title" id="hero3dTitle">
-      <span class="hero3d-title-line1" id="hero3dLine1">Premium</span>
-      <span class="hero3d-title-line2 hero3d-accent" id="hero3dLine2">Home Improvement</span>
-    </h1>
-    <p class="hero3d-sub" id="hero3dSub"></p>
-    <a href="products.html" class="hero3d-cta" id="hero3dCtaLink">Browse Products</a>
-    <span id="hero3dCur">01</span>
-  </div>
-
-  <!-- Right: 3D carousel -->
-  <div class="hero3d-stage" id="hero3dStage">
-    <div class="hero3d-scene" id="hero3dScene">
-      <div class="hero3d-carousel" id="hero3dCarousel">
-
-        <div class="hero3d-card"
-          data-index="0"
-          data-label="WPC Wall Panel"
-          data-line1="Premium"
-          data-line2="Home Improvement"
-          data-sub="Tiles, panels, flooring &amp; more — everything for your interior"
-          data-href="products.html"
-          data-img="home/wpc.jpeg">
-          <div class="hero3d-card-img" style="background-image:url('home/wpc.jpeg')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Home Improvement</span>
-              <span class="hero3d-card-label">WPC Wall Panel</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="1"
-          data-label="PVC Pipes"
-          data-line1="PVC"
-          data-line2="Pipes"
-          data-sub="Pressure, drainage, conduit pipes &amp; all fittings"
-          data-href="pvc-pipes.html"
-          data-img="categories/pvc%20pipe%20and%20fittings.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/pvc%20pipe%20and%20fittings.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Pipes</span>
-              <span class="hero3d-card-label">PVC Pipes</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="2"
-          data-label="Gutter"
-          data-line1="Rainwater"
-          data-line2="Gutter"
-          data-sub="Half-round, box gutters, downpipes &amp; brackets"
-          data-href="gutter.html"
-          data-img="categories/gutter.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/gutter.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Rainwater</span>
-              <span class="hero3d-card-label">Gutter</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="3"
-          data-label="Steel Bar"
-          data-line1="Steel"
-          data-line2="Bar"
-          data-sub="Rebars, round bars, flat bars &amp; hollow sections"
-          data-href="steel-bar.html"
-          data-img="categories/steel%20bar.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/steel%20bar.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Structural</span>
-              <span class="hero3d-card-label">Steel Bar</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="4"
-          data-label="Electrical"
-          data-line1="Electrical"
-          data-line2="Supplies"
-          data-sub="Cables, switches, breakers, LED lights &amp; panels"
-          data-href="electrical.html"
-          data-img="categories/electrical.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/electrical.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Electrical</span>
-              <span class="hero3d-card-label">Electrical</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="5"
-          data-label="Sanitaryware"
-          data-line1="Premium"
-          data-line2="Sanitaryware"
-          data-sub="Toilets, basins, showers, faucets &amp; bathtubs"
-          data-href="sanitaryware.html"
-          data-img="categories/sanitaryware.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/sanitaryware.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Bathroom</span>
-              <span class="hero3d-card-label">Sanitaryware</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="6"
-          data-label="Power Tools"
-          data-line1="Power"
-          data-line2="Tools"
-          data-sub="Drills, grinders, saws, hammers &amp; sanders"
-          data-href="power-tools.html"
-          data-img="categories/power%20tools.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/power%20tools.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Tools</span>
-              <span class="hero3d-card-label">Power Tools</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero3d-card"
-          data-index="7"
-          data-label="Plumbing"
-          data-line1="Plumbing"
-          data-line2="Supplies"
-          data-sub="Valves, pipe fittings, tanks, pumps &amp; hoses"
-          data-href="plumbing.html"
-          data-img="categories/plumbing.png">
-          <div class="hero3d-card-img" style="background-image:url('categories/plumbing.png')"></div>
-          <div class="hero3d-card-overlay">
-            <div class="hero3d-card-meta">
-              <span class="hero3d-card-tag">Plumbing</span>
-              <span class="hero3d-card-label">Plumbing</span>
-            </div>
-          </div>
-        </div>
-
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="search-panel-head">
+      <div class="search-input-wrap">
+        <i class="ph ph-magnifying-glass search-input-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search products, categories..." autocomplete="off">
       </div>
+      <button class="search-close-btn" id="searchClose" aria-label="Close search"><i class="ph ph-x"></i></button>
     </div>
-
-    <!-- Controls -->
-    <div class="hero3d-controls">
-      <button class="hero3d-btn" id="hero3dPrev" aria-label="Previous"><i class="ph ph-caret-left"></i></button>
-      <div class="hero3d-dots" id="hero3dDots"></div>
-      <button class="hero3d-btn" id="hero3dNext" aria-label="Next"><i class="ph ph-caret-right"></i></button>
-    </div>
-  </div>
-
-  <!-- Progress bar -->
-  <div class="hero3d-progress"><div class="hero3d-progress-bar" id="hero3dBar"></div></div>
-
-</section>
-
-<!-- Image lightbox modal -->
-<div class="hero3d-modal" id="hero3dModal">
-  <div class="hero3d-modal-inner">
-    <button class="hero3d-modal-close" id="hero3dModalClose"><i class="ph ph-x"></i></button>
-    <img class="hero3d-modal-img" id="hero3dModalImg" src="" alt="">
-    <div class="hero3d-modal-caption" id="hero3dModalCaption"></div>
+    <div class="search-panel-body" id="searchBody"></div>
   </div>
 </div>
 
+
+<!-- ========================================================
+     HERO SECTION — SMOOTH FULL-BLEED SLIDESHOW
+     ======================================================== -->
+<section id="home" class="hero-slideshow" aria-label="Featured categories">
+
+  <div class="hs-track" id="hsTrack">
+
+    <div class="hs-slide is-active" data-index="0" data-href="products.html">
+      <div class="hs-slide-img" style="background-image:url('home/wpc.jpeg')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="1" data-href="pvc-pipes.html">
+      <div class="hs-slide-img" style="background-image:url('categories/pvc%20pipe%20and%20fittings.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="2" data-href="gutter.html">
+      <div class="hs-slide-img" style="background-image:url('categories/gutter.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="3" data-href="steel-bar.html">
+      <div class="hs-slide-img" style="background-image:url('categories/steel%20bar.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="4" data-href="electrical.html">
+      <div class="hs-slide-img" style="background-image:url('categories/electrical.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="5" data-href="sanitaryware.html">
+      <div class="hs-slide-img" style="background-image:url('categories/sanitaryware.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="6" data-href="power-tools.html">
+      <div class="hs-slide-img" style="background-image:url('categories/power%20tools.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+    <div class="hs-slide" data-index="7" data-href="plumbing.html">
+      <div class="hs-slide-img" style="background-image:url('categories/plumbing.png')"></div>
+      <div class="hs-slide-scrim"></div>
+    </div>
+
+  </div>
+
+  <!-- Overlay copy -->
+  <div class="hs-copy">
+    <h1 class="hs-title" id="hsTitle">
+      <span id="hsLine1">Premium</span>
+      <span class="hs-accent" id="hsLine2">Home Improvement</span>
+    </h1>
+    <p class="hs-sub" id="hsSub">Tiles, panels, flooring &amp; more — everything for your interior</p>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="hs-progress"><div class="hs-progress-bar" id="hsBar"></div></div>
+
+</section>
+
 <style>
 /* ════════════════════════════════════════════════════════════
-   PREMIUM 3D HERO
+   HERO — SMOOTH FULL-BLEED SLIDESHOW
    ════════════════════════════════════════════════════════════ */
-
-/* -- Base shell -- */
-.hero--3d {
+.hero-slideshow {
   position: relative;
-  min-height: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 130px 0 120px 0;
+  width: 100%;
+  height: 88vh;
+  min-height: 560px;
+  max-height: 820px;
   overflow: hidden;
   background: #060c07;
+  margin-top: 0;
 }
 
-/* white fade removed */
-
-/* -- Cinematic BG: crossfading slides -- */
-.hero3d-cinebg {
+.hs-track {
   position: absolute;
-  inset: -5% -2%;
-  z-index: 0;
+  inset: 0;
 }
-.hero3d-bg-slide {
+.hs-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.1s cubic-bezier(0.45,0,0.15,1);
+  z-index: 1;
+}
+.hs-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+.hs-slide-img {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center 30%;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 7s linear;
+}
+.hs-slide.is-active .hs-slide-img {
   transform: scale(1.0);
-  animation: cinebreathe 14s ease-in-out infinite alternate;
-  opacity: 0;
-  transition: opacity 0.9s ease;
+  transition: transform 7s linear;
 }
-.hero3d-bg-slide.active {
-  opacity: 1;
-}
-@keyframes cinebreathe {
-  0%   { transform: scale(1.04) translateY(0px); }
-  100% { transform: scale(1.08) translateY(-10px); }
-}
-.hero3d-cineoverlay {
+.hs-slide-scrim {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(4,10,6,0.7) 0%, rgba(4,10,6,0.35) 40%, rgba(4,10,6,0.8) 100%);
-  z-index: 1;
-}
-.hero3d-vignette {
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 120px rgba(0,0,0,0.6);
-  z-index: 1;
-  pointer-events: none;
+    linear-gradient(90deg, rgba(1,1,1,0.78) 0%, rgba(1,1,1,0.35) 46%, rgba(1,1,1,0.18) 100%),
+    linear-gradient(to top, rgba(1,1,1,0.55) 0%, transparent 32%);
 }
 
-/* -- Copy block -- */
-.hero3d-copy {
-  position: relative;
-  z-index: 3;
-  flex: 0 1 480px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding-right: 40px;
-}
-
-.hero3d-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #c8f564;
-}
-.hero3d-eyebrow-line {
-  display: inline-block;
-  width: 32px;
-  height: 2px;
-  background: #c8f564;
-  flex-shrink: 0;
-}
-
-.hero3d-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -1px;
-  display: flex;
-  flex-direction: column;
-}
-.hero3d-title-line1 {
-  font-size: clamp(52px, 6.5vw, 90px);
-  color: #fff;
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-.hero3d-title-line2 {
-  font-size: clamp(52px, 6.5vw, 90px);
-  color: #c8f564;
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
-}
-.hero3d-title.is-changing .hero3d-title-line1,
-.hero3d-title.is-changing .hero3d-title-line2 {
-  opacity: 0;
-  transform: translateY(14px);
-}
-
-.hero3d-sub {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.52);
-  line-height: 1.7;
-  max-width: 360px;
-  transition: opacity 0.35s ease;
-}
-.hero3d-sub.is-changing { opacity: 0; }
-
-.hero3d-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.hero3d-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #c8f564;
-  color: #060c07;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  padding: 14px 30px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 6px 28px rgba(200,245,100,0.22);
-}
-.hero3d-cta:hover {
-  background: #d9ff7a;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(200,245,100,0.32);
-}
-.hero3d-cta i { font-size: 17px; transition: transform 0.2s; }
-.hero3d-cta:hover i { transform: translateX(4px); }
-
-.hero3d-cta-ghost {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.hero3d-cta-ghost:hover { color: #c8f564; border-color: #c8f564; }
-
-.hero3d-counter {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 6px;
-}
-.hero3d-counter-cur {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #c8f564;
-  letter-spacing: 1px;
-  min-width: 20px;
-  transition: opacity 0.3s;
-}
-.hero3d-counter-sep {
-  flex: 1;
-  max-width: 60px;
-  height: 1px;
-  background: rgba(255,255,255,0.2);
-}
-.hero3d-counter-total {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 1px;
-}
-
-/* -- Stage -- */
-.hero3d-stage {
+.hs-copy {
   position: relative;
   z-index: 5;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-  overflow: visible;
-}
-
-/* Yellow-green ground glow under carousel */
-.hero3d-stage::before {
-  content: '';
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 320px;
-  height: 80px;
-  background: radial-gradient(ellipse at center, rgba(200,245,100,0.18) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(8px);
-}
-.hero3d-scene {
-  width: 420px;
-  max-width: 100%;
-  height: 290px;
-  perspective: 900px;
-  perspective-origin: 50% 42%;
-  overflow: visible;
-}
-.hero3d-carousel {
-  width: 160px;
-  height: 230px;
-  position: relative;
-  transform-style: preserve-3d;
-  margin: 28px auto 0;
-  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: visible;
-}
-
-/* -- Cards -- */
-.hero3d-card {
-  position: absolute;
-  width: 160px;
-  height: 230px;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1.5px solid rgba(200,245,100,0.12);
-  backface-visibility: hidden;
-  transition: border-color 0.5s ease, box-shadow 0.5s ease;
-}
-.hero3d-card-img {
-  width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.7s ease;
-}
-.hero3d-card:hover .hero3d-card-img { transform: scale(1.07); }
-.hero3d-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(4,10,6,0.88) 0%, rgba(4,10,6,0.2) 55%, transparent 100%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 20px 18px;
-  opacity: 0.85;
-  transition: opacity 0.3s;
-  overflow: hidden;
-}
-.hero3d-card:hover .hero3d-card-overlay { opacity: 1; }
-.hero3d-card-meta {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  justify-content: center;
+  max-width: 640px;
+  padding: 0 6vw;
 }
-.hero3d-card-tag {
+.hs-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #c8f564;
-}
-.hero3d-card-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
   font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+}
+.hs-title span {
+  font-size: clamp(44px, 6vw, 84px);
   color: #fff;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  line-height: 1;
+  display: block;
 }
-.hero3d-card.is-active {
-  border-color: rgba(200,245,100,0.55);
-  box-shadow:
-    0 0 0 1px rgba(200,245,100,0.25),
-    0 40px 100px rgba(0,0,0,0.8),
-    0 0 60px rgba(200,245,100,0.1);
-}
-
-/* -- Controls -- */
-.hero3d-controls {
-  position: relative;
-  width: 100%;
+.hs-title .hs-accent { color: #c8f564; }
+.hs-sub {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.7;
+  margin: 20px 0 0;
   max-width: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding-bottom: 24px;
-}
-#hero3dPrev { position: absolute; left: 0; }
-#hero3dNext { position: absolute; right: 0; }
-.hero3d-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: rgba(255,255,255,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 0.2s;
-  backdrop-filter: blur(12px);
-}
-.hero3d-btn:hover {
-  border-color: #c8f564;
-  background: rgba(200,245,100,0.1);
-  color: #c8f564;
-  transform: scale(1.08);
-}
-.hero3d-dots {
-  display: flex;
-  gap: 7px;
-  align-items: center;
-}
-.hero3d-dot {
-  height: 5px;
-  width: 5px;
-  border-radius: 3px;
-  background: rgba(255,255,255,0.22);
-  cursor: pointer;
-  transition: background 0.3s, width 0.35s;
-}
-.hero3d-dot.active {
-  background: #c8f564;
-  width: 22px;
 }
 
-/* -- Progress bar -- */
-.hero3d-progress {
+.hs-title span, .hs-sub {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.hs-copy.is-changing .hs-title span,
+.hs-copy.is-changing .hs-sub {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.hs-progress {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: rgba(255,255,255,0.06);
-  z-index: 6;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  z-index: 9;
 }
-.hero3d-progress-bar {
+.hs-progress-bar {
   height: 100%;
   background: #c8f564;
   width: 0%;
   transition: width linear;
 }
 
-/* -- Lightbox Modal -- */
-.hero3d-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(0,0,0,0.92);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  backdrop-filter: blur(12px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.hero3d-modal.open { display: flex; opacity: 1; }
-.hero3d-modal-inner {
-  position: relative;
-  max-width: 860px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  transform: scale(0.92);
-  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-}
-.hero3d-modal.open .hero3d-modal-inner { transform: scale(1); }
-.hero3d-modal-img {
-  width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  border-radius: 12px;
-}
-.hero3d-modal-caption {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-}
-.hero3d-modal-close {
-  position: absolute;
-  top: -16px;
-  right: -16px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.hero3d-modal-close:hover { background: rgba(200,245,100,0.2); color: #c8f564; }
-
-/* ── RESPONSIVE ────────────────────────────────────────── */
-@media (max-width: 1100px) {
-  .hero--3d {
-    padding: 110px 0 90px;
+@media (max-width: 900px) {
+  .hero-slideshow { height: 78vh; min-height: 500px; }
+  .hs-copy { max-width: 100%; padding: 0 24px; align-items: flex-start; }
+  .hs-slide-scrim {
+    background:
+      linear-gradient(to top, rgba(1,1,1,0.9) 0%, rgba(1,1,1,0.55) 40%, rgba(1,1,1,0.25) 70%);
   }
-  .hero3d-scene {
-    width: 100%;
-    height: 290px;
-    perspective: 880px;
-    perspective-origin: 50% 40%;
-  }
-  /* margin-top(28) + card(230) + shadow(20) = 278 → 290 ✓ */
-  .hero3d-carousel { width: 160px; height: 230px; margin-top: 28px; }
-  .hero3d-card { width: 160px; height: 230px; }
 }
 
-@media (max-width: 680px) {
-  .hero--3d { padding: 90px 0 100px; min-height: unset; }
-  .hero3d-stage { gap: 10px; margin-top: 85px; }
-  .hero3d-scene {
-    width: 100%;
-    height: 220px;
-    perspective: 680px;
-    perspective-origin: 50% 38%;
-  }
-  .hero3d-carousel { width: 100px; height: 148px; margin-top: 18px; }
-  .hero3d-card { width: 100px; height: 148px; border-radius: 9px; }
-  .hero3d-card-overlay { padding: 10px 8px; }
-  .hero3d-card-label { font-size: 11px; }
-  .hero3d-card-tag { font-size: 7px; }
-  .hero3d-controls { gap: 8px; padding-bottom: 0; margin-top: -18px; }
-  .hero3d-btn { width: 32px; height: 32px; font-size: 13px; }
+@media (max-width: 600px) {
+  .hero-slideshow { height: 72vh; min-height: 460px; }
+  .hs-sub { font-size: 14px; margin: 14px 0 0; }
 }
 
-@media (max-width: 400px) {
-  .hero--3d { padding: 86px 0 90px; min-height: unset; }
-  .hero3d-stage { gap: 10px; margin-top: 78px; }
-  .hero3d-scene {
-    width: 100%;
-    height: 200px;
-    perspective: 620px;
+@media (prefers-reduced-motion: reduce) {
+  .hs-slide, .hs-slide-img, .hs-title span, .hs-sub {
+    transition: none !important;
   }
-  .hero3d-carousel { width: 88px; height: 132px; margin-top: 16px; }
-  .hero3d-card { width: 88px; height: 132px; border-radius: 8px; }
-  .hero3d-card-overlay { padding: 8px 6px; }
-  .hero3d-card-label { font-size: 10px; }
-  .hero3d-card-tag { font-size: 6px; }
-  .hero3d-controls { gap: 6px; padding-bottom: 0; margin-top: -18px; }
-  .hero3d-btn { width: 30px; height: 30px; font-size: 12px; }
 }
-
-/* na simple — no skeletons */
-.na-coming-soon { background: var(--bg-light); min-height: unset !important; overflow: visible !important; }
-.na-overlay-msg { position: static !important; inset: unset !important; background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; padding: 56px 28px 60px !important; }
 </style>
 
 <script>
-(function() {
+(function () {
   const N = 8;
-  const AUTO_INTERVAL = 4200;
+  const AUTO_INTERVAL = 5000;
 
-  const carousel  = document.getElementById('hero3dCarousel');
-  const scene     = document.getElementById('hero3dScene');
-  const cards     = Array.from(carousel.querySelectorAll('.hero3d-card'));
-  const line1El   = document.getElementById('hero3dLine1');
-  const line2El   = document.getElementById('hero3dLine2');
-  const titleEl   = document.getElementById('hero3dTitle');
-  const subEl     = document.getElementById('hero3dSub');
-  const ctaLink   = document.getElementById('hero3dCtaLink');
-  const curEl     = document.getElementById('hero3dCur');
-  const dotsWrap  = document.getElementById('hero3dDots');
-  const barEl     = document.getElementById('hero3dBar');
-  const modal     = document.getElementById('hero3dModal');
-  const modalImg  = document.getElementById('hero3dModalImg');
-  const modalCap  = document.getElementById('hero3dModalCaption');
-  const modalClose= document.getElementById('hero3dModalClose');
+  const slides   = Array.from(document.querySelectorAll('.hs-slide'));
+  const copyEl    = document.querySelector('.hs-copy');
+  const line1El   = document.getElementById('hsLine1');
+  const line2El   = document.getElementById('hsLine2');
+  const subEl     = document.getElementById('hsSub');
+  const barEl     = document.getElementById('hsBar');
 
-  const bgSlides = Array.from(document.querySelectorAll('.hero3d-bg-slide'));
+  const data = [
+    { line1: 'Premium',    line2: 'Home Improvement', sub: 'Tiles, panels, flooring &amp; more — everything for your interior', href: 'products.html' },
+    { line1: 'PVC',        line2: 'Pipes',             sub: 'Pressure, drainage, conduit pipes &amp; all fittings',              href: 'pvc-pipes.html' },
+    { line1: 'Rainwater',  line2: 'Gutter',            sub: 'Half-round, box gutters, downpipes &amp; brackets',                 href: 'gutter.html' },
+    { line1: 'Steel',      line2: 'Bar',               sub: 'Rebars, round bars, flat bars &amp; hollow sections',               href: 'steel-bar.html' },
+    { line1: 'Electrical', line2: 'Supplies',          sub: 'Cables, switches, breakers, LED lights &amp; panels',               href: 'electrical.html' },
+    { line1: 'Premium',    line2: 'Sanitaryware',      sub: 'Toilets, basins, showers, faucets &amp; bathtubs',                  href: 'sanitaryware.html' },
+    { line1: 'Power',      line2: 'Tools',             sub: 'Drills, grinders, saws, hammers &amp; sanders',                     href: 'power-tools.html' },
+    { line1: 'Plumbing',   line2: 'Supplies',          sub: 'Valves, pipe fittings, tanks, pumps &amp; hoses',                   href: 'plumbing.html' }
+  ];
+
   let current = 0;
   let autoTimer = null;
-  let barTimer  = null;
-  let isAnim    = false;
+  let playing = true;
 
-  /* dots */
-  const dots = cards.map((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'hero3d-dot' + (i===0 ? ' active' : '');
-    d.addEventListener('click', () => { goTo(i); resetAuto(); });
-    dotsWrap.appendChild(d);
-    return d;
-  });
-
-  function cardRadius() {
-    const w = cards[0].offsetWidth || 270;
-    // base formula: w / (2 * tan(π/N))
-    // add extra padding so side cards are clearly visible
-    // scale extra with card width so it works on all screen sizes
-    const base = Math.round(w / (2 * Math.tan(Math.PI / N)));
-    const isMobile = window.innerWidth <= 680;
-    const extra = Math.round(w * (isMobile ? 0.16 : 0.42));
-    return base + extra;
-  }
-
-  function layout() {
-    const r = cardRadius();
-    cards.forEach((c, i) => {
-      const a = (360/N) * i;
-      c.style.transform = `rotateY(${a}deg) translateZ(${r}px)`;
-    });
-  }
-
-  function animateCopy(idx) {
-    const c = cards[idx];
-    titleEl.classList.add('is-changing');
-    subEl.classList.add('is-changing');
+  function updateCopy(idx) {
+    const d = data[idx];
+    copyEl.classList.add('is-changing');
     setTimeout(() => {
-      line1El.textContent = c.dataset.line1 || '';
-      line2El.textContent = c.dataset.line2 || '';
-      subEl.innerHTML     = c.dataset.sub   || '';
-      if (ctaLink) ctaLink.href = c.dataset.href || '#';
-      curEl.textContent   = String(idx+1).padStart(2,'0');
-      titleEl.classList.remove('is-changing');
-      subEl.classList.remove('is-changing');
-    }, 320);
+      line1El.textContent = d.line1;
+      line2El.textContent = d.line2;
+      subEl.innerHTML = d.sub;
+      copyEl.classList.remove('is-changing');
+    }, 260);
   }
 
   function goTo(idx) {
-    if (isAnim) return;
-    isAnim = true;
-    cards[current].classList.remove('is-active');
-    dots[current].classList.remove('active');
-    current = ((idx % N) + N) % N;
-    carousel.style.transform = `rotateY(${-(360/N)*current}deg)`;
-    cards[current].classList.add('is-active');
-    dots[current].classList.add('active');
-    /* switch background */
-    bgSlides.forEach((s, i) => s.classList.toggle('active', i === current));
-    animateCopy(current);
-    setTimeout(() => { isAnim = false; }, 900);
+    const next = ((idx % N) + N) % N;
+    if (next === current) return;
+    slides[current].classList.remove('is-active');
+    current = next;
+    slides[current].classList.add('is-active');
+    updateCopy(current);
   }
 
-  function next() { goTo(current+1); }
-  function prev() { goTo(current-1); }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
 
-  /* progress bar */
   function startBar() {
-    clearTimeout(barTimer);
     barEl.style.transition = 'none';
     barEl.style.width = '0%';
     requestAnimationFrame(() => {
@@ -856,53 +344,385 @@
 
   function startAuto() {
     clearInterval(autoTimer);
+    if (!playing) return;
     startBar();
     autoTimer = setInterval(() => { next(); startBar(); }, AUTO_INTERVAL);
   }
-  function resetAuto() { startAuto(); }
+  function restartAuto() { startAuto(); }
 
-  /* lightbox */
-  function openLightbox(card) {
-    modalImg.src = card.dataset.img || '';
-    modalCap.textContent = card.dataset.label || '';
-    modal.style.display = 'flex';
-    requestAnimationFrame(() => modal.classList.add('open'));
-  }
-  function closeLightbox() {
-    modal.classList.remove('open');
-    setTimeout(() => { modal.style.display = 'none'; }, 320);
-  }
-
-  cards.forEach(card => {
-    /* click card = go to it, or view image if already active */
-    card.addEventListener('click', () => {
-      const idx = parseInt(card.dataset.index);
-      if (idx !== current) { goTo(idx); resetAuto(); }
-      else { openLightbox(card); }
-    });
+  slides.forEach(s => {
+    s.addEventListener('click', () => { window.location.href = s.dataset.href; });
+    s.style.cursor = 'pointer';
   });
 
-  modalClose.addEventListener('click', closeLightbox);
-  modal.addEventListener('click', e => { if (e.target === modal) closeLightbox(); });
-  document.addEventListener('keydown', e => { if (e.key==='Escape') closeLightbox(); });
-
-  /* swipe */
   let sx = 0;
-  document.getElementById('hero3dStage').addEventListener('pointerdown', e => { sx = e.clientX; });
-  document.getElementById('hero3dStage').addEventListener('pointerup', e => {
+  const stage = document.getElementById('hsTrack');
+  stage.addEventListener('pointerdown', e => { sx = e.clientX; });
+  stage.addEventListener('pointerup', e => {
     const dx = e.clientX - sx;
-    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetAuto(); }
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restartAuto(); }
   });
 
-  document.getElementById('hero3dPrev').addEventListener('click', () => { prev(); resetAuto(); });
-  document.getElementById('hero3dNext').addEventListener('click', () => { next(); resetAuto(); });
-
-  window.addEventListener('resize', layout);
-
-  /* init */
-  layout();
-  cards[0].classList.add('is-active');
   startAuto();
+})();
+</script>
+
+<!-- ========================================================
+     HOME IMPROVEMENT — PRODUCT CATEGORIES STRIP
+     ======================================================== -->
+<section class="popcat-section">
+  <div class="container popcat-head">
+    <div>
+      <span class="section-tag">Most Popular</span>
+      <h2 class="section-title">Home <span class="accent">Improvement</span></h2>
+    </div>
+  </div>
+
+  <div class="popcat-row" id="popcatRow">
+    <a href="products.html?cat=tiles" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="img/tiles catalog/5.jpg" alt="Tiles" loading="lazy">
+      </span>
+      <span class="popcat-label">Tiles</span>
+    </a>
+    <a href="products.html?cat=uv-marble" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="img/uv marble sheets catalog/3.jpg" alt="UV Marble" loading="lazy">
+      </span>
+      <span class="popcat-label">UV Marble</span>
+    </a>
+    <a href="products.html?cat=ceiling" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="img/ceiling panel/3.jpg" alt="Ceiling Panel" loading="lazy">
+      </span>
+      <span class="popcat-label">Ceiling Panel</span>
+    </a>
+    <a href="products.html?cat=parquet" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="img/parquet/3.jpg" alt="Parquet" loading="lazy">
+      </span>
+      <span class="popcat-label">Parquet</span>
+    </a>
+    <a href="products.html?cat=pvc-wall" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="img/pvc wall panel/3.jpg" alt="PVC Wall Panel" loading="lazy">
+      </span>
+      <span class="popcat-label">PVC Wall Panel</span>
+    </a>
+    <a href="products.html?cat=wpc" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="img/wpc/3.jpg" alt="WPC Wall Panel" loading="lazy">
+      </span>
+      <span class="popcat-label">WPC Wall Panel</span>
+    </a>
+  </div>
+
+  <div class="container popcat-scrollbar">
+    <button class="popcat-scroll-arrow popcat-scroll-arrow--left" type="button" aria-label="Scroll left"><i class="ph ph-caret-left"></i></button>
+    <div class="popcat-scrollbar-track" id="popcatTrack">
+      <div class="popcat-scrollbar-thumb" id="popcatThumb"></div>
+    </div>
+    <button class="popcat-scroll-arrow popcat-scroll-arrow--right" type="button" aria-label="Scroll right"><i class="ph ph-caret-right"></i></button>
+  </div>
+</section>
+
+<style>
+/* ════════════════════════════════════════════════════════════
+   HOME IMPROVEMENT — PRODUCT CATEGORIES STRIP
+   ════════════════════════════════════════════════════════════ */
+.popcat-section {
+  padding: 64px 0 56px;
+  background: var(--white);
+}
+.popcat-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 34px;
+  gap: 20px;
+}
+.popcat-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.popcat-item {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--bg-light);
+  box-shadow: var(--card-shadow);
+
+  /* scroll-reveal base state */
+  opacity: 0;
+  transform: translateY(36px) scale(0.94);
+  transition:
+    transform 0.5s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.popcat-item.is-visible {
+  animation: popcatReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes popcatReveal {
+  0%   { opacity: 0; transform: translateY(36px) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.popcat-img-wrap {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e4e6da;
+}
+.popcat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.0);
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.5s ease;
+}
+.popcat-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(1,1,1,0.35) 0%, rgba(1,1,1,0) 45%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.popcat-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: var(--black);
+  line-height: 1.2;
+  padding: 16px 10px;
+  transition: color 0.35s ease, background 0.35s ease;
+}
+
+.popcat-item:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-6px);
+}
+.popcat-item:hover .popcat-img {
+  transform: scale(1.1);
+}
+.popcat-item:hover .popcat-img-wrap::after { opacity: 1; }
+.popcat-item:hover .popcat-label {
+  color: var(--black);
+  background: var(--green);
+}
+.popcat-item:active { transform: translateY(-2px) scale(0.98); }
+
+/* Stagger delays */
+.popcat-item:nth-child(1) { animation-delay: 0.03s; }
+.popcat-item:nth-child(2) { animation-delay: 0.1s; }
+.popcat-item:nth-child(3) { animation-delay: 0.17s; }
+.popcat-item:nth-child(4) { animation-delay: 0.24s; }
+.popcat-item:nth-child(5) { animation-delay: 0.31s; }
+.popcat-item:nth-child(6) { animation-delay: 0.38s; }
+
+@media (max-width: 1024px) {
+  .popcat-row {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 220px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 4px 24px 12px;
+    scroll-padding: 0 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .popcat-row::-webkit-scrollbar { display: none; }
+  .popcat-item { scroll-snap-align: start; }
+}
+
+/* ── Mobile "swipe" scroll indicator under the row ─────────── */
+.popcat-scrollbar {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  margin: 10px auto 0;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+  .popcat-scrollbar { display: flex; }
+}
+.popcat-scrollbar-track {
+  position: relative;
+  flex: 1;
+  height: 6px;
+  border-radius: 10px;
+  background: #e9ebe1;
+  overflow: visible;
+  cursor: pointer;
+  touch-action: none;
+}
+.popcat-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  border-radius: 10px;
+  background: #9a9c8e;
+  cursor: grab;
+  touch-action: none;
+  transition: background 0.2s ease;
+}
+.popcat-scrollbar-thumb::before {
+  /* invisible larger hit-area so the thumb is easy to grab on touch */
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+}
+.popcat-scrollbar-thumb:active,
+.popcat-scrollbar-thumb.is-dragging {
+  background: #6f7266;
+  cursor: grabbing;
+}
+.popcat-scroll-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f2ea;
+  color: #8c8e80;
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+.popcat-scroll-arrow:active,
+.popcat-scroll-arrow:hover { color: var(--black); background: #e4e6da; }
+
+@media (max-width: 600px) {
+  .popcat-section { padding: 48px 0 44px; }
+  .popcat-head { margin-bottom: 24px; }
+  .popcat-row { grid-auto-columns: 168px; }
+  .popcat-label { font-size: 13px; padding: 13px 8px; }
+  .popcat-scrollbar { padding: 0 28px; gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popcat-item, .popcat-img, .popcat-label {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+</style>
+
+<script>
+(function () {
+  const items = document.querySelectorAll('#popcatRow .popcat-item');
+  if (!items.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.25 });
+
+  items.forEach(el => io.observe(el));
+})();
+
+/* ── Draggable scroll indicator for popcatRow ──────────────── */
+(function () {
+  const row      = document.getElementById('popcatRow');
+  const track    = document.getElementById('popcatTrack');
+  const thumb    = document.getElementById('popcatThumb');
+  const leftBtn  = document.querySelector('.popcat-scroll-arrow--left');
+  const rightBtn = document.querySelector('.popcat-scroll-arrow--right');
+  if (!row || !track || !thumb) return;
+
+  let widthPct = 30;
+
+  function update() {
+    const scrollable = row.scrollWidth - row.clientWidth;
+    const ratio = row.clientWidth / row.scrollWidth;
+    widthPct = Math.min(Math.max(ratio * 100, 12), 100);
+    const progress = scrollable > 0 ? row.scrollLeft / scrollable : 0;
+    thumb.style.width = widthPct + '%';
+    thumb.style.left = (progress * (100 - widthPct)) + '%';
+  }
+
+  row.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  if (leftBtn)  leftBtn.addEventListener('click', () => row.scrollBy({ left: -220, behavior: 'smooth' }));
+  if (rightBtn) rightBtn.addEventListener('click', () => row.scrollBy({ left: 220, behavior: 'smooth' }));
+
+  /* Drag the thumb (or tap/click the track) to scroll the row */
+  let dragging = false;
+  let trackRect = null;
+  let thumbWidthPx = 0;
+
+  function scrollToClientX(clientX) {
+    const x = Math.max(0, Math.min(clientX - trackRect.left - thumbWidthPx / 2, trackRect.width - thumbWidthPx));
+    const denom = trackRect.width - thumbWidthPx;
+    const progress = denom > 0 ? x / denom : 0;
+    const scrollable = row.scrollWidth - row.clientWidth;
+    row.scrollLeft = progress * scrollable;
+  }
+
+  function startDrag(e) {
+    dragging = true;
+    thumb.classList.add('is-dragging');
+    trackRect = track.getBoundingClientRect();
+    thumbWidthPx = thumb.offsetWidth;
+    if (thumb.setPointerCapture && e.pointerId !== undefined) {
+      thumb.setPointerCapture(e.pointerId);
+    }
+    e.preventDefault();
+  }
+
+  thumb.addEventListener('pointerdown', startDrag);
+
+  track.addEventListener('pointerdown', (e) => {
+    if (e.target === thumb) return; // handled by thumb's own listener
+    trackRect = track.getBoundingClientRect();
+    thumbWidthPx = thumb.offsetWidth;
+    scrollToClientX(e.clientX);
+    startDrag(e);
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    scrollToClientX(e.clientX);
+  });
+
+  window.addEventListener('pointerup', () => {
+    dragging = false;
+    thumb.classList.remove('is-dragging');
+  });
 })();
 </script>
 
@@ -921,10 +741,6 @@
 
       <!-- Frosted overlay message -->
       <div class="na-overlay-msg">
-        <div class="na-badge-new">
-          <span class="na-badge-dot"></span>
-          NEW STOCK
-        </div>
         <div class="na-msg-icon">
           <i class="ph-fill ph-package"></i>
           <div class="na-msg-rings">
@@ -940,8 +756,184 @@
 
     </div>
 
+    <!-- PRODUCT CARDS — swap images/names later -->
+    <div class="na-grid" id="naGrid">
+      <div class="na-card">
+        <span class="na-card-badge">New</span>
+        <span class="na-card-img-wrap">
+          <img class="na-card-img" src="img/tiles catalog/6.jpg" alt="New Product" loading="lazy">
+        </span>
+        <span class="na-card-name">Product Name</span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-badge">New</span>
+        <span class="na-card-img-wrap">
+          <img class="na-card-img" src="img/tiles catalog/7.jpg" alt="New Product" loading="lazy">
+        </span>
+        <span class="na-card-name">Product Name</span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-badge">New</span>
+        <span class="na-card-img-wrap">
+          <img class="na-card-img" src="img/tiles catalog/8.jpg" alt="New Product" loading="lazy">
+        </span>
+        <span class="na-card-name">Product Name</span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-badge">New</span>
+        <span class="na-card-img-wrap">
+          <img class="na-card-img" src="img/tiles catalog/9.jpg" alt="New Product" loading="lazy">
+        </span>
+        <span class="na-card-name">Product Name</span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-badge">New</span>
+        <span class="na-card-img-wrap">
+          <img class="na-card-img" src="img/tiles catalog/10.jpg" alt="New Product" loading="lazy">
+        </span>
+        <span class="na-card-name">Product Name</span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-badge">New</span>
+        <span class="na-card-img-wrap">
+          <img class="na-card-img" src="img/tiles catalog/11.jpg" alt="New Product" loading="lazy">
+        </span>
+        <span class="na-card-name">Product Name</span>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<style>
+/* ════════════════════════════════════════════════════════════
+   NEW ARRIVALS — PLACEHOLDER PRODUCT CARDS
+   ════════════════════════════════════════════════════════════ */
+.na-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.na-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--bg-light);
+  box-shadow: var(--card-shadow);
+  position: relative;
+
+  /* scroll-reveal base state */
+  opacity: 0;
+  transform: translateY(36px) scale(0.94);
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.na-card.is-visible {
+  animation: naCardReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes naCardReveal {
+  0%   { opacity: 0; transform: translateY(36px) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.na-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: var(--green);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(180,211,52,0.35);
+}
+
+.na-card-img-wrap {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #e4e6da;
+}
+.na-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+
+.na-card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: var(--black);
+  line-height: 1.2;
+  padding: 14px 10px;
+}
+
+.na-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-6px);
+}
+.na-card:hover .na-card-img { transform: scale(1.1); }
+
+/* Stagger delays */
+.na-card:nth-child(1) { animation-delay: 0.03s; }
+.na-card:nth-child(2) { animation-delay: 0.1s; }
+.na-card:nth-child(3) { animation-delay: 0.17s; }
+.na-card:nth-child(4) { animation-delay: 0.24s; }
+.na-card:nth-child(5) { animation-delay: 0.31s; }
+.na-card:nth-child(6) { animation-delay: 0.38s; }
+
+@media (max-width: 1024px) {
+  .na-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .na-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; }
+  .na-card-name { font-size: 12.5px; padding: 11px 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .na-card, .na-card-img {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+</style>
+
+<script>
+(function () {
+  const cards = document.querySelectorAll('#naGrid .na-card');
+  if (!cards.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(el => io.observe(el));
+})();
+</script>
 
 <!-- ========================================================
      EXCLUSIVE BRANDS SECTION
@@ -1030,9 +1022,15 @@
     <p class="footer-copy">&copy; 2026 MAZI Hardware. All rights reserved.</p>
   </div>
 </footer>
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i class="ph ph-arrow-up"></i>
-</button>
+<!-- FLOATING VIBER CHAT BUBBLE -->
+<a href="viber://chat?number=%2B9788851" class="viber-float" aria-label="Chat with us on Viber">
+  <span class="viber-float-ring"></span>
+  <span class="viber-float-ring delay"></span>
+  <span class="viber-float-btn">
+    <span class="viber-float-hand"><i class="ph-fill ph-hand-waving"></i></span>
+    <span class="viber-float-logo"><img src="img/viber-logo.png" alt="Viber"></span>
+  </span>
+</a>
 <script src="script.js"></script>
 <script>
 function openModal(imgSrc){

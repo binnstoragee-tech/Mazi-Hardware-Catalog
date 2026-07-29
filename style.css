@@ -26,7 +26,7 @@
   --card-shadow-hover: 0 12px 40px rgba(1,1,1,0.18);
   --radius:       14px;
   --radius-sm:    8px;
-  --nav-h:        72px;
+  --nav-h:        88px;
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body:    'Nunito Sans', sans-serif;
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -88,9 +88,9 @@ img { max-width: 100%; display: block; }
 
 /* ── 3. UTILITIES ─────────────────────────────────────────────── */
 .container {
-  max-width: 1180px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px;
 }
 
 .accent { color: var(--green); }
@@ -189,24 +189,40 @@ img { max-width: 100%; display: block; }
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
   z-index: 1000;
-  background: rgba(4, 4, 4, 0.85);
+  border-bottom: 1px solid rgba(180,211,52,0.22);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Blur/tint lives on a separate layer behind the nav content.
+   (backdrop-filter directly on #navbar would create a new containing
+   block for its position:fixed descendants — e.g. the mobile drawer —
+   trapping them inside navbar's own short height instead of the
+   viewport, which is what was cutting the drawer/social icons off.) */
+#navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(4, 4, 4, 0.97);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
-  border-bottom: 1px solid rgba(180,211,52,0.22);
-  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: background 0.35s ease;
 }
 
 #navbar.scrolled {
-  background: rgba(4, 4, 4, 0.97);
   border-bottom-color: rgba(180,211,52,0.55);
   box-shadow: 0 2px 28px rgba(0,0,0,0.55);
 }
 
+#navbar.scrolled::before {
+  background: rgba(4, 4, 4, 0.97);
+}
+
 /* ── Grid: logo | links | right ── */
 .nav-inner {
-  max-width: 1240px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 40px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -222,7 +238,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo-img {
-    height: 120px;
+    height: 145px;
     width: auto;
 }
 
@@ -344,14 +360,16 @@ img { max-width: 100%; display: block; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 22px; }
 
 /* ═══════════════════════════════════════════════════════════════
-   MOBILE NAV  ≤ 980px → icon pills   ≤ 700px → full drawer
+   MOBILE NAV  ≤ 900px → full drawer (was previously mismatched
+   with the JS breakpoint, leaving a broken zone ~701–900px where
+   the nav neither behaved like desktop nor like mobile)
    ═══════════════════════════════════════════════════════════════ */
 
-/* Mid breakpoint: pills already hidden */
-
 /* ── Full mobile drawer ── */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   :root { --nav-h: 62px; }
+
+  .nav-logo-img { height: 100px; }
 
   .nav-inner {
     display: flex;
@@ -366,65 +384,83 @@ img { max-width: 100%; display: block; }
     margin: 0 !important;
   }
 
-  .hamburger { display: flex; margin-left: auto; }
+  .hamburger { display: flex; margin-left: auto; position: relative; z-index: 1001; }
 
-  /* ── DRAWER ── */
+  /* Dim backdrop behind the drawer */
+  body.nav-drawer-open::before {
+    content: '';
+    position: fixed;
+    inset: var(--nav-h) 0 0 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 997;
+    opacity: 0;
+    animation: navBackdropIn 0.35s ease forwards;
+  }
+  @keyframes navBackdropIn { to { opacity: 1; } }
+  body.nav-drawer-open { overflow: hidden; }
+  body.nav-drawer-open .viber-float { display: none; }
+
+  /* ── DRAWER — slides in from the right ── */
   .nav-links {
     position: fixed;
     top: var(--nav-h);
-    left: 0; right: 0;
-    background: rgba(4, 4, 4, 0.97);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
+    right: 0;
+    left: auto;
+    bottom: 0;
+    width: min(82vw, 320px);
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     flex-direction: column;
     align-items: stretch;
-    padding: 6px 0 24px;
+    padding: 8px 0 20px;
     gap: 0;
-    border-bottom: 2px solid rgba(180,211,52,0.5);
-    box-shadow: 0 24px 48px rgba(0,0,0,0.55);
+    border-bottom: none;
+    border-left: 1px solid rgba(0,0,0,0.06);
+    box-shadow: -20px 0 50px rgba(0,0,0,0.28);
     /* closed state */
-    transform: translateY(-12px);
-    opacity: 0;
+    transform: translateX(100%);
+    opacity: 1;
     pointer-events: none;
-    transition:
-      transform 0.38s cubic-bezier(0.22,1,0.36,1),
-      opacity   0.28s ease;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    overflow-y: auto;
+    overflow-x: hidden;
     z-index: 998;
   }
 
   .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateX(0);
     pointer-events: all;
   }
 
-  /* Stagger each nav item when drawer opens */
-  .nav-links li { opacity: 0; transform: translateX(-14px); transition: none; }
+  /* Simple fade-in for items (the panel itself provides the slide motion) */
+  .nav-links li { opacity: 0; transform: none; transition: none; }
   .nav-links.open li {
     opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22,1,0.36,1);
+    transition: opacity 0.3s ease;
   }
-  .nav-links.open li:nth-child(1) { transition-delay: 0.06s; }
-  .nav-links.open li:nth-child(2) { transition-delay: 0.11s; }
-  .nav-links.open li:nth-child(3) { transition-delay: 0.16s; }
-  .nav-links.open li:nth-child(4) { transition-delay: 0.21s; }
-  .nav-links.open li:nth-child(5) { transition-delay: 0.26s; }
-  .nav-links.open li:nth-child(6) { transition-delay: 0.31s; }
+  .nav-links.open li:nth-child(1) { transition-delay: 0.08s; }
+  .nav-links.open li:nth-child(2) { transition-delay: 0.13s; }
+  .nav-links.open li:nth-child(3) { transition-delay: 0.18s; }
+  .nav-links.open li:nth-child(4) { transition-delay: 0.23s; }
+  .nav-links.open li:nth-child(5) { transition-delay: 0.28s; }
 
   /* ── Mobile link rows ── */
   .nav-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
-    letter-spacing: 0.13em;
-    padding: 14px 24px;
+    gap: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    padding: 15px 22px;
     border-radius: 0;
-    color: rgba(255,255,255,0.55);
-    border-left: 3px solid transparent;
+    color: #232323;
+    border-left: none;
     position: relative;
-    transition: color 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    transition: color 0.22s ease, background 0.22s ease;
   }
 
   /* Remove desktop underline on mobile */
@@ -433,67 +469,128 @@ img { max-width: 100%; display: block; }
 
   /* Active / hover state */
   .nav-link:hover {
-    color: rgba(255,255,255,0.9);
-    background: rgba(255,255,255,0.04);
-    border-left-color: rgba(180,211,52,0.4);
+    color: #000;
+    background: rgba(180,211,52,0.10);
   }
   .nav-link.active {
-    color: #fff;
-    background: rgba(180,211,52,0.08);
-    border-left-color: var(--green);
+    color: #000;
+    background: rgba(180,211,52,0.14);
+    font-weight: 800;
   }
 
   /* Separator line between links */
   .nav-links li + li .nav-link {
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(0,0,0,0.07);
   }
 
-  /* ── Mobile CTA buttons ── */
+  /* ── Categories row: caret + tap-to-expand accordion ── */
+  .nav-has-dropdown > .nav-link { justify-content: space-between; }
+  .nav-has-dropdown .nav-dd-caret {
+    display: inline-flex !important;
+    font-size: 0.85rem;
+    color: #9a9a9a;
+    transition: transform 0.25s ease;
+  }
+  .nav-has-dropdown.dd-open .nav-dd-caret { transform: rotate(180deg); }
+  .nav-has-dropdown.dd-open > .nav-link {
+    color: #000;
+    background: rgba(180,211,52,0.08);
+  }
+
+  .nav-has-dropdown .nav-dropdown {
+    display: none !important;
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    min-width: 0;
+    background: #fafaf6;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 4px 0;
+  }
+  .nav-has-dropdown.dd-open .nav-dropdown {
+    display: block !important;
+  }
+  .nav-dropdown::before { display: none !important; }
+
+  .nav-dd-item {
+    display: block;
+    width: 100%;
+    padding: 11px 22px 11px 22px;
+    border-radius: 0;
+    font-size: 0.88rem;
+    color: #4a4a4a;
+    white-space: normal;
+  }
+  .nav-dd-item:hover { background: rgba(180,211,52,0.10); color: #4c8a0e; }
+  /* icons removed on mobile — text-only category names in the drawer */
+  .nav-dd-icon { display: none; }
+
+  .nav-dd-footer {
+    display: none;
+  }
+
+  /* ── Bottom social icon row ── */
   .nav-mobile-cta {
     display: flex;
-    gap: 10px;
-    padding: 16px 20px 4px;
-    margin-top: 8px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    gap: 12px;
+    padding: 18px 22px 6px;
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.07);
   }
 
   .nav-cta-btn {
-    flex: 1;
+    flex: none;
+    width: 42px;
+    height: 42px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 0.82rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 13px 10px;
-    border-radius: 12px;
+    gap: 0;
+    font-size: 1.15rem;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: normal;
+    text-transform: none;
+    padding: 0;
+    border-radius: 50%;
     text-decoration: none;
     transition: filter 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
   }
-  .nav-cta-btn:active { transform: scale(0.97); }
-  .nav-cta-btn i { font-size: 1.1rem; }
+  .nav-cta-btn:active { transform: scale(0.93); }
   .nav-cta-wa {
     background: #25D366;
     color: #fff;
-    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    box-shadow: 0 4px 14px rgba(37,211,102,0.35);
   }
   .nav-cta-vb {
     background: #7360F2;
     color: #fff;
-    box-shadow: 0 4px 16px rgba(115,96,242,0.3);
+    box-shadow: 0 4px 14px rgba(115,96,242,0.35);
   }
-  .nav-cta-wa:hover { filter: brightness(1.1); box-shadow: 0 6px 20px rgba(37,211,102,0.45); }
-  .nav-cta-vb:hover { filter: brightness(1.1); box-shadow: 0 6px 20px rgba(115,96,242,0.45); }
+  .nav-cta-fb {
+    background: #1877F2;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(24,119,242,0.35);
+  }
+  .nav-cta-ig {
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(214,36,159,0.35);
+  }
+  .nav-cta-wa:hover,
+  .nav-cta-vb:hover,
+  .nav-cta-fb:hover,
+  .nav-cta-ig:hover { filter: brightness(1.1); }
 
   /* Hide the sliding pill on mobile */
   .nav-active-pill { display: none; }
 }
 
 @media (max-width: 400px) {
-  .nav-logo img { height: 42px; }
+  .nav-logo-img { height: 48px; }
   .nav-inner { padding: 0 14px; }
   .nav-link { font-size: 0.88rem; padding: 13px 20px; }
 }
@@ -2068,7 +2165,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 768px) {
-    .hero {
+    .hero:not(.hero--3d) {
         height: 340px !important;
         min-height: 340px !important;
     }
@@ -2146,41 +2243,6 @@ img { max-width: 100%; display: block; }
   margin-top: 20px;
   border-top: 1px solid #1a1a1a;
   padding-top: 20px;
-}
-
-/* ── 13. BACK TO TOP ──────────────────────────────────────────── */
-.back-to-top {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 999;
-  width: 48px;
-  height: 48px;
-  background: var(--green);
-  color: var(--black);
-  border: none;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(180,211,52,0.4);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity var(--transition), transform var(--transition);
-  pointer-events: none;
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-
-.back-to-top:hover {
-  background: var(--green-light);
-  transform: translateY(-3px);
 }
 
 /* ── 14. RESPONSIVE ───────────────────────────────────────────── */
@@ -4053,7 +4115,7 @@ body.pt-enter-active {
   }
 }
 
-/* ── MOBILE CATEGORIES BAR (white area, above the product grid) ── */
+/* ── MOBILE FILTER BAR (white area, above the product grid) ── */
 .pf-bar--mobile {
   display: none;
 }
@@ -4064,15 +4126,32 @@ body.pt-enter-active {
     justify-content: flex-start;
     margin-bottom: 20px;
   }
-
-  .pf-toggle--mobile {
-    color: var(--black);
-    background: #f3f4ee;
-    border: 1px solid #e5e7dc;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 }
+
+.filter-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--gray-lt);
+  border-radius: 12px;
+  padding: 11px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(1,1,1,0.05);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.filter-trigger i { font-size: 1rem; color: var(--gray-dk); transition: color 0.25s ease; }
+.filter-trigger:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 14px rgba(180,211,52,0.2);
+  transform: translateY(-1px);
+}
+.filter-trigger:hover i { color: var(--green-dark); }
+.filter-trigger:active { transform: translateY(0) scale(0.98); }
 
 /* ── MOBILE CATEGORY SLIDE-IN DRAWER ──────────────────────────
    Slides in from the left, MAZI brand colors (black/green). ──── */
@@ -4115,33 +4194,87 @@ body.pt-enter-active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 18px 16px;
+  padding: 22px 22px 18px;
   border-bottom: 1px solid var(--gray-lt);
 }
 
-.cat-drawer-logo {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
+.cat-drawer-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+  color: var(--black);
 }
 
 .cat-drawer-close {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: none;
-  background: var(--bg-section);
+  background: transparent;
   color: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.2s ease;
+  font-size: 20px;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .cat-drawer-close:hover {
-  background: var(--gray-lt);
+  background: var(--bg-section);
+  transform: rotate(90deg);
+}
+
+/* ── FILTER ACCORDION ──────────────────────────────────────── */
+.filter-drawer-body {
+  padding: 6px 0;
+  overflow-y: auto;
+}
+
+.filter-accordion {
+  border-bottom: 1px solid var(--gray-lt);
+}
+
+.filter-acc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 20px 22px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.filter-acc-chev {
+  font-size: 15px;
+  color: var(--gray-dk);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+
+.filter-acc-head[aria-expanded="true"] .filter-acc-chev {
+  transform: rotate(180deg);
+}
+
+.filter-acc-panel {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+
+.filter-acc-panel.collapsed {
+  grid-template-rows: 0fr;
+}
+
+.filter-acc-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 
 .cat-drawer-list {
@@ -4205,6 +4338,15 @@ body.pt-enter-active {
    ================================================================ */
 .nav-has-dropdown { position: relative; }
 
+/* NOTE: this whole block is wrapped in (min-width: 901px) on purpose.
+   It used to have no media query at all, so on mobile it applied at
+   the exact same CSS specificity as the mobile accordion rules above
+   (single .nav-dd-item / .nav-dd-icon / .nav-dd-footer / .nav-dropdown
+   selectors on both sides) and, being later in the file, silently won
+   the tie — overriding the drawer's padding/indent/white-space rules.
+   That's what caused the Categories accordion text to overflow the
+   drawer and bleed over the page behind it on mobile. */
+@media (min-width: 901px) {
 .nav-has-dropdown > .nav-link {
   display: flex; align-items: center; gap: 5px;
 }
@@ -4306,9 +4448,10 @@ body.pt-enter-active {
   transition: background 0.13s;
 }
 .nav-dd-footer:hover { background: #f4f8eb; }
+} /* end (min-width: 901px) */
 
-/* Mobile — hide dropdown, hide caret */
-@media (max-width: 900px) {
+/* Tablet only — hide the hover dropdown & caret (no accordion at this width) */
+@media (min-width: 701px) and (max-width: 900px) {
   .nav-dropdown  { display: none !important; }
   .nav-dd-caret  { display: none !important; }
 }
@@ -5498,4 +5641,423 @@ body.pt-enter-active {
 /* List-view rows keep the same restrained treatment */
 .products-grid.products-list .prod-card:hover {
   transform: translateY(-2px) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FLOATING VIBER CHAT BUBBLE — appears on every page, bottom-right
+   ══════════════════════════════════════════════════════════════ */
+.viber-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* expanding radar-style wave rings, looping forever, staggered */
+.viber-float-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(115, 96, 242, 0.45);
+  animation: viberPing 2.6s cubic-bezier(0.2, 0.7, 0.4, 1) infinite;
+  pointer-events: none;
+}
+.viber-float-ring.delay { animation-delay: 1.3s; }
+
+@keyframes viberPing {
+  0%   { transform: scale(0.65); opacity: 0.65; }
+  70%  { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* the button itself gently floats up and down on a loop */
+.viber-float-btn {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #8874FF, #6650E8);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  box-shadow: 0 6px 22px rgba(115,96,242,0.5), 0 2px 6px rgba(0,0,0,0.18);
+  animation: viberFloat 3s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+.viber-float:hover .viber-float-btn {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(115,96,242,0.6), 0 2px 8px rgba(0,0,0,0.2);
+}
+.viber-float:active .viber-float-btn { transform: scale(0.94); }
+
+@keyframes viberFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* the hand icon and the Viber logo sit stacked on top of each other,
+   and crossfade smoothly back and forth on a continuous loop */
+.viber-float-hand,
+.viber-float-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viber-float-logo img {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: block;
+}
+
+/* hand icon: visible first, waves, then fades out */
+.viber-float-hand {
+  animation: viberHandCross 5s ease-in-out infinite;
+}
+.viber-float-hand i {
+  display: inline-block;
+  transform-origin: 70% 75%;
+  animation: viberHandWave 5s ease-in-out infinite;
+}
+@keyframes viberHandCross {
+  0%, 40%  { opacity: 1; transform: scale(1); }
+  55%, 95% { opacity: 0; transform: scale(0.5); }
+  100%     { opacity: 1; transform: scale(1); }
+}
+@keyframes viberHandWave {
+  0%, 100% { transform: rotate(0deg); }
+  8%  { transform: rotate(18deg); }
+  16% { transform: rotate(-10deg); }
+  24% { transform: rotate(18deg); }
+  32% { transform: rotate(-6deg); }
+  40% { transform: rotate(0deg); }
+}
+
+/* Viber logo: fades in smoothly right after the hand fades out, holds, fades back out */
+.viber-float-logo {
+  animation: viberLogoCross 5s ease-in-out infinite;
+}
+@keyframes viberLogoCross {
+  0%, 40%  { opacity: 0; transform: scale(0.5); }
+  55%, 95% { opacity: 1; transform: scale(1); }
+  100%     { opacity: 0; transform: scale(0.5); }
+}
+
+@media (max-width: 700px) {
+  .viber-float { bottom: 20px; right: 16px; width: 52px; height: 52px; }
+  .viber-float-btn { width: 52px; height: 52px; font-size: 1.4rem; }
+  .viber-float-logo img { width: 30px; height: 30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viber-float-btn,
+  .viber-float-ring,
+  .viber-float-hand,
+  .viber-float-hand i,
+  .viber-float-logo { animation: none; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   NAV SEARCH — trigger button + overlay panel
+   ════════════════════════════════════════════════════════════ */
+.nav-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: none;
+  color: var(--white);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.nav-search-btn:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.22);
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(1,1,1,0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 90px 20px 20px;
+}
+.search-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-panel {
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - 110px);
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(1,1,1,0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-16px);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease;
+}
+.search-overlay.open .search-panel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.search-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #ececec;
+  flex-shrink: 0;
+}
+
+.search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-light);
+  border: 1px solid #e4e6da;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.search-input-icon { color: var(--green-dark); font-size: 1.05rem; flex-shrink: 0; }
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--black);
+}
+.search-input::placeholder { color: #9a9c8f; }
+
+.search-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: var(--bg-light);
+  color: var(--black);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.search-close-btn:hover { background: #e9ebde; }
+
+.search-panel-body {
+  overflow-y: auto;
+  padding: 8px 8px 16px;
+}
+
+.search-section-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #9a9c8f;
+  padding: 14px 12px 8px;
+}
+
+/* suggestion chips (empty-state) */
+.search-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 12px 6px;
+}
+.search-chip {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--black);
+  background: var(--bg-light);
+  border: 1px solid #e4e6da;
+  border-radius: 20px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.search-chip:hover { background: var(--green-light); border-color: var(--green); }
+
+/* product result row */
+.search-result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.search-result-row:hover { background: var(--bg-light); }
+
+.search-result-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e4e6da;
+  flex-shrink: 0;
+}
+.search-result-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.search-result-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--bg-light);
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.search-result-text { min-width: 0; }
+.search-result-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-result-desc {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: #7a7c6f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-empty {
+  padding: 30px 16px 10px;
+  text-align: center;
+}
+.search-empty i { font-size: 1.8rem; color: #cfd2c2; }
+.search-empty p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #7a7c6f;
+  margin: 10px 0 14px;
+}
+
+
+@media (max-width: 600px) {
+  .search-overlay { padding: var(--nav-h, 62px) 0 0; }
+  .search-panel { max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
+}
+
+/* ── recent search history rows ── */
+.search-history-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.search-history-row:hover { background: var(--bg-light); }
+.search-history-icon { color: #9a9c8f; font-size: 1rem; flex-shrink: 0; }
+.search-history-text {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-history-remove {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: #9a9c8f;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+.search-history-remove:hover { background: #e9ebde; color: var(--black); }
+
+/* ── live autocomplete text suggestions while typing ── */
+.search-suggest-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--black);
+  transition: background 0.15s;
+}
+.search-suggest-row:hover { background: var(--bg-light); }
+.search-suggest-icon { color: #9a9c8f; font-size: 0.95rem; flex-shrink: 0; }
+
+/* ════════════════════════════════════════════════════════════
+   SCROLL REVEAL — rise-up animation, replays on scroll up/down
+   ════════════════════════════════════════════════════════════ */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+  will-change: opacity, transform;
+}
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
