@@ -86,73 +86,31 @@
 
 
 <!-- ========================================================
-     HERO SECTION — SMOOTH FULL-BLEED SLIDESHOW
+     HERO SECTION — FULL-BLEED CROSSFADE SLIDER (dots only, no arrows)
      ======================================================== -->
-<section id="home" class="hero-slideshow" aria-label="Featured categories">
+<section id="home" class="cf-hero" aria-label="Featured categories">
 
-  <div class="hs-track" id="hsTrack">
+  <div class="cf-stage" id="cfStage">
 
-    <div class="hs-slide is-active" data-index="0" data-href="products.html">
-      <div class="hs-slide-img" style="background-image:url('home/wpc.jpeg')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="1" data-href="pvc-pipes.html">
-      <div class="hs-slide-img" style="background-image:url('categories/pvc%20pipe%20and%20fittings.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="2" data-href="gutter.html">
-      <div class="hs-slide-img" style="background-image:url('categories/gutter.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="3" data-href="steel-bar.html">
-      <div class="hs-slide-img" style="background-image:url('categories/steel%20bar.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="4" data-href="electrical.html">
-      <div class="hs-slide-img" style="background-image:url('categories/electrical.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="5" data-href="sanitaryware.html">
-      <div class="hs-slide-img" style="background-image:url('categories/sanitaryware.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="6" data-href="power-tools.html">
-      <div class="hs-slide-img" style="background-image:url('categories/power%20tools.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
-
-    <div class="hs-slide" data-index="7" data-href="plumbing.html">
-      <div class="hs-slide-img" style="background-image:url('categories/plumbing.png')"></div>
-      <div class="hs-slide-scrim"></div>
-    </div>
+    <div class="cf-slide" data-index="0" data-href="products.html" style="background-image:url('home/wpc.jpeg')"></div>
+    <div class="cf-slide" data-index="1" data-href="gutter.html" style="background-image:url('categories/gutter.png')"></div>
+    <div class="cf-slide" data-index="2" data-href="sanitaryware.html" style="background-image:url('categories/sanitaryware.png')"></div>
 
   </div>
 
-  <!-- Overlay copy -->
-  <div class="hs-copy">
-    <h1 class="hs-title" id="hsTitle">
-      <span id="hsLine1">Premium</span>
-      <span class="hs-accent" id="hsLine2">Home Improvement</span>
-    </h1>
-    <p class="hs-sub" id="hsSub">Tiles, panels, flooring &amp; more — everything for your interior</p>
+  <div class="cf-dots" id="cfDots">
+    <span class="cf-dot is-active" data-index="0"></span>
+    <span class="cf-dot" data-index="1"></span>
+    <span class="cf-dot" data-index="2"></span>
   </div>
-
-  <!-- Progress bar -->
-  <div class="hs-progress"><div class="hs-progress-bar" id="hsBar"></div></div>
 
 </section>
 
 <style>
 /* ════════════════════════════════════════════════════════════
-   HERO — SMOOTH FULL-BLEED SLIDESHOW
+   HERO — COVERFLOW CAROUSEL
    ════════════════════════════════════════════════════════════ */
-.hero-slideshow {
+.cf-hero {
   position: relative;
   width: 100%;
   height: 88vh;
@@ -160,209 +118,137 @@
   max-height: 820px;
   overflow: hidden;
   background: #060c07;
-  margin-top: 0;
+  margin-top: var(--nav-h);
 }
 
-.hs-track {
+.cf-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cf-slide {
   position: absolute;
   inset: 0;
-}
-.hs-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.1s cubic-bezier(0.45,0,0.15,1);
-  z-index: 1;
-}
-.hs-slide.is-active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 2;
-}
-.hs-slide-img {
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  transform: scale(1.06);
-  transition: transform 7s linear;
-}
-.hs-slide.is-active .hs-slide-img {
-  transform: scale(1.0);
-  transition: transform 7s linear;
-}
-.hs-slide-scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(1,1,1,0.78) 0%, rgba(1,1,1,0.35) 46%, rgba(1,1,1,0.18) 100%),
-    linear-gradient(to top, rgba(1,1,1,0.55) 0%, transparent 32%);
-}
-
-.hs-copy {
-  position: relative;
-  z-index: 5;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 640px;
-  padding: 0 6vw;
-}
-.hs-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  line-height: 0.98;
-  letter-spacing: -0.5px;
-  display: flex;
-  flex-direction: column;
-}
-.hs-title span {
-  font-size: clamp(44px, 6vw, 84px);
-  color: #fff;
-  display: block;
-}
-.hs-title .hs-accent { color: #c8f564; }
-.hs-sub {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 16px;
-  color: rgba(255,255,255,0.62);
-  line-height: 1.7;
-  margin: 20px 0 0;
-  max-width: 420px;
-}
-
-.hs-title span, .hs-sub {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-.hs-copy.is-changing .hs-title span,
-.hs-copy.is-changing .hs-sub {
+  cursor: pointer;
   opacity: 0;
-  transform: translateY(10px);
+  z-index: 1;
+  transition: opacity 0.9s ease;
+  will-change: opacity;
 }
 
-.hs-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.08);
-  z-index: 9;
+.cf-slide.cf-pos-0 {
+  opacity: 1;
+  z-index: 3;
 }
-.hs-progress-bar {
-  height: 100%;
+.cf-slide.cf-pos-1,
+.cf-slide.cf-pos--1,
+.cf-slide.cf-hidden {
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cf-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  gap: 10px;
+}
+.cf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.cf-dot.is-active {
   background: #c8f564;
-  width: 0%;
-  transition: width linear;
+  transform: scale(1.25);
 }
 
 @media (max-width: 900px) {
-  .hero-slideshow { height: 78vh; min-height: 500px; }
-  .hs-copy { max-width: 100%; padding: 0 24px; align-items: flex-start; }
-  .hs-slide-scrim {
-    background:
-      linear-gradient(to top, rgba(1,1,1,0.9) 0%, rgba(1,1,1,0.55) 40%, rgba(1,1,1,0.25) 70%);
-  }
+  .cf-hero { height: 62vh; min-height: 420px; }
 }
 
 @media (max-width: 600px) {
-  .hero-slideshow { height: 72vh; min-height: 460px; }
-  .hs-sub { font-size: 14px; margin: 14px 0 0; }
+  .cf-hero { height: 52vh; min-height: 360px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hs-slide, .hs-slide-img, .hs-title span, .hs-sub {
-    transition: none !important;
-  }
+  .cf-slide { transition: none !important; }
 }
 </style>
 
 <script>
 (function () {
-  const N = 8;
-  const AUTO_INTERVAL = 5000;
+  const N = 3;
+  const AUTO_INTERVAL = 3000;
 
-  const slides   = Array.from(document.querySelectorAll('.hs-slide'));
-  const copyEl    = document.querySelector('.hs-copy');
-  const line1El   = document.getElementById('hsLine1');
-  const line2El   = document.getElementById('hsLine2');
-  const subEl     = document.getElementById('hsSub');
-  const barEl     = document.getElementById('hsBar');
-
-  const data = [
-    { line1: 'Premium',    line2: 'Home Improvement', sub: 'Tiles, panels, flooring &amp; more — everything for your interior', href: 'products.html' },
-    { line1: 'PVC',        line2: 'Pipes',             sub: 'Pressure, drainage, conduit pipes &amp; all fittings',              href: 'pvc-pipes.html' },
-    { line1: 'Rainwater',  line2: 'Gutter',            sub: 'Half-round, box gutters, downpipes &amp; brackets',                 href: 'gutter.html' },
-    { line1: 'Steel',      line2: 'Bar',               sub: 'Rebars, round bars, flat bars &amp; hollow sections',               href: 'steel-bar.html' },
-    { line1: 'Electrical', line2: 'Supplies',          sub: 'Cables, switches, breakers, LED lights &amp; panels',               href: 'electrical.html' },
-    { line1: 'Premium',    line2: 'Sanitaryware',      sub: 'Toilets, basins, showers, faucets &amp; bathtubs',                  href: 'sanitaryware.html' },
-    { line1: 'Power',      line2: 'Tools',             sub: 'Drills, grinders, saws, hammers &amp; sanders',                     href: 'power-tools.html' },
-    { line1: 'Plumbing',   line2: 'Supplies',          sub: 'Valves, pipe fittings, tanks, pumps &amp; hoses',                   href: 'plumbing.html' }
-  ];
+  const slides = Array.from(document.querySelectorAll('.cf-slide'));
+  const dots   = Array.from(document.querySelectorAll('.cf-dot'));
+  const stage  = document.getElementById('cfStage');
 
   let current = 0;
   let autoTimer = null;
-  let playing = true;
 
-  function updateCopy(idx) {
-    const d = data[idx];
-    copyEl.classList.add('is-changing');
-    setTimeout(() => {
-      line1El.textContent = d.line1;
-      line2El.textContent = d.line2;
-      subEl.innerHTML = d.sub;
-      copyEl.classList.remove('is-changing');
-    }, 260);
+  function render() {
+    slides.forEach((s, i) => {
+      let diff = ((i - current) % N + N) % N;
+      if (diff === N - 1) diff = -1;
+      s.classList.remove('cf-pos-0', 'cf-pos-1', 'cf-pos--1', 'cf-hidden');
+      if (diff === 0) s.classList.add('cf-pos-0');
+      else if (diff === 1) s.classList.add('cf-pos-1');
+      else if (diff === -1) s.classList.add('cf-pos--1');
+      else s.classList.add('cf-hidden');
+    });
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
   }
 
   function goTo(idx) {
-    const next = ((idx % N) + N) % N;
-    if (next === current) return;
-    slides[current].classList.remove('is-active');
-    current = next;
-    slides[current].classList.add('is-active');
-    updateCopy(current);
+    current = ((idx % N) + N) % N;
+    render();
   }
-
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  function startBar() {
-    barEl.style.transition = 'none';
-    barEl.style.width = '0%';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        barEl.style.transition = `width ${AUTO_INTERVAL}ms linear`;
-        barEl.style.width = '100%';
-      });
-    });
-  }
-
   function startAuto() {
     clearInterval(autoTimer);
-    if (!playing) return;
-    startBar();
-    autoTimer = setInterval(() => { next(); startBar(); }, AUTO_INTERVAL);
+    autoTimer = setInterval(next, AUTO_INTERVAL);
   }
   function restartAuto() { startAuto(); }
 
-  slides.forEach(s => {
-    s.addEventListener('click', () => { window.location.href = s.dataset.href; });
-    s.style.cursor = 'pointer';
+  slides.forEach((s, i) => {
+    s.addEventListener('click', () => {
+      if (i === current) {
+        window.location.href = s.dataset.href;
+      } else {
+        goTo(i);
+        restartAuto();
+      }
+    });
+  });
+
+  dots.forEach((d, i) => {
+    d.addEventListener('click', () => { goTo(i); restartAuto(); });
   });
 
   let sx = 0;
-  const stage = document.getElementById('hsTrack');
   stage.addEventListener('pointerdown', e => { sx = e.clientX; });
   stage.addEventListener('pointerup', e => {
     const dx = e.clientX - sx;
     if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restartAuto(); }
   });
 
+  render();
   startAuto();
 })();
 </script>
@@ -382,38 +268,58 @@
     <a href="products.html?cat=tiles" class="popcat-item">
       <span class="popcat-img-wrap">
         <img class="popcat-img" src="img/tiles catalog/5.jpg" alt="Tiles" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">Tiles</span>
       </span>
-      <span class="popcat-label">Tiles</span>
     </a>
     <a href="products.html?cat=uv-marble" class="popcat-item">
       <span class="popcat-img-wrap">
         <img class="popcat-img" src="img/uv marble sheets catalog/3.jpg" alt="UV Marble" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">UV Marble</span>
       </span>
-      <span class="popcat-label">UV Marble</span>
     </a>
     <a href="products.html?cat=ceiling" class="popcat-item">
       <span class="popcat-img-wrap">
         <img class="popcat-img" src="img/ceiling panel/3.jpg" alt="Ceiling Panel" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">Ceiling Panel</span>
       </span>
-      <span class="popcat-label">Ceiling Panel</span>
     </a>
     <a href="products.html?cat=parquet" class="popcat-item">
       <span class="popcat-img-wrap">
         <img class="popcat-img" src="img/parquet/3.jpg" alt="Parquet" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">Parquet</span>
       </span>
-      <span class="popcat-label">Parquet</span>
     </a>
     <a href="products.html?cat=pvc-wall" class="popcat-item">
       <span class="popcat-img-wrap">
         <img class="popcat-img" src="img/pvc wall panel/3.jpg" alt="PVC Wall Panel" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">PVC Wall Panel</span>
       </span>
-      <span class="popcat-label">PVC Wall Panel</span>
     </a>
     <a href="products.html?cat=wpc" class="popcat-item">
       <span class="popcat-img-wrap">
         <img class="popcat-img" src="img/wpc/3.jpg" alt="WPC Wall Panel" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">WPC Wall Panel</span>
       </span>
-      <span class="popcat-label">WPC Wall Panel</span>
+    </a>
+    <a href="gutter.html" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="categories/gutter.png" alt="Gutter" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">Gutter</span>
+      </span>
+    </a>
+    <a href="sanitaryware.html" class="popcat-item">
+      <span class="popcat-img-wrap">
+        <img class="popcat-img" src="categories/sanitaryware.png" alt="Sanitaryware" loading="lazy">
+        <span class="popcat-scrim"></span>
+        <span class="popcat-label">Sanitaryware</span>
+      </span>
     </a>
   </div>
 
@@ -436,35 +342,29 @@
 }
 .popcat-head {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 34px;
   gap: 20px;
 }
 .popcat-row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
   max-width: 1800px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
 .popcat-item {
-  display: flex;
-  flex-direction: column;
+  display: block;
   text-decoration: none;
-  border-radius: 0;
-  overflow: hidden;
-  background: var(--bg-light);
-  box-shadow: var(--card-shadow);
+  position: relative;
 
   /* scroll-reveal base state */
   opacity: 0;
   transform: translateY(36px) scale(0.94);
-  transition:
-    transform 0.5s cubic-bezier(0.22,1,0.36,1),
-    box-shadow 0.45s cubic-bezier(0.22,1,0.36,1);
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 .popcat-item.is-visible {
   animation: popcatReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
@@ -488,42 +388,38 @@
   object-fit: cover;
   display: block;
   transform: scale(1.0);
-  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.5s ease;
+  transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
 }
-.popcat-img-wrap::after {
-  content: "";
+
+/* Dark gradient scrim so the label reads over any photo */
+.popcat-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(1,1,1,0.35) 0%, rgba(1,1,1,0) 45%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(1,1,1,0.62) 0%, rgba(1,1,1,0.15) 42%, transparent 70%);
+  transition: background 0.35s ease;
 }
 
 .popcat-label {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  z-index: 2;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: clamp(16px, 1.6vw, 20px);
   letter-spacing: 0.3px;
-  text-align: center;
-  color: var(--black);
-  line-height: 1.2;
-  padding: 16px 10px;
-  transition: color 0.35s ease, background 0.35s ease;
+  color: var(--white);
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 
-.popcat-item:hover {
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(-6px);
-}
 .popcat-item:hover .popcat-img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
-.popcat-item:hover .popcat-img-wrap::after { opacity: 1; }
-.popcat-item:hover .popcat-label {
-  color: var(--black);
-  background: var(--green);
+.popcat-item:hover .popcat-scrim {
+  background: linear-gradient(0deg, rgba(1,1,1,0.72) 0%, rgba(1,1,1,0.2) 46%, transparent 72%);
 }
-.popcat-item:active { transform: translateY(-2px) scale(0.98); }
 
 /* Stagger delays */
 .popcat-item:nth-child(1) { animation-delay: 0.03s; }
@@ -532,12 +428,15 @@
 .popcat-item:nth-child(4) { animation-delay: 0.24s; }
 .popcat-item:nth-child(5) { animation-delay: 0.31s; }
 .popcat-item:nth-child(6) { animation-delay: 0.38s; }
+.popcat-item:nth-child(7) { animation-delay: 0.45s; }
+.popcat-item:nth-child(8) { animation-delay: 0.52s; }
 
 @media (max-width: 1024px) {
   .popcat-row {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 220px;
+    grid-auto-columns: 280px;
+    gap: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -736,73 +635,92 @@
       <p class="section-desc">Fresh stock just in — be the first to get the latest products.</p>
     </div>
 
-    <!-- COMING SOON DISPLAY -->
-    <div class="na-coming-soon">
-
-      <!-- Frosted overlay message -->
-      <div class="na-overlay-msg">
-        <div class="na-msg-icon">
-          <i class="ph-fill ph-package"></i>
-          <div class="na-msg-rings">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-        <h3 class="na-msg-title">New Arrivals Coming Soon…</h3>
-        <p class="na-msg-desc">We're preparing fresh new products for you. Join our Viber community to be the first to know when they drop!</p>
-        <a href="https://invite.viber.com/?g2=AQAOsqIHWsWeUFJiWCRvzaAXHA1gww68RE5eot33m843cTV8IsP9hqEhyg%2F1On3Q" target="_blank" class="na-msg-btn">
-          <i class="ph-fill ph-users"></i> Join Viber Community
-        </a>
-      </div>
-
-    </div>
-
     <!-- PRODUCT CARDS — swap images/names later -->
     <div class="na-grid" id="naGrid">
       <div class="na-card">
-        <span class="na-card-badge">New</span>
         <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/6.jpg', 'New Product', 0)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/6.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
         </span>
-        <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
-        <span class="na-card-badge">New</span>
         <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/7.jpg', 'New Product', 1)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/7.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
         </span>
-        <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
-        <span class="na-card-badge">New</span>
         <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/8.jpg', 'New Product', 2)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/8.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
         </span>
-        <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
-        <span class="na-card-badge">New</span>
         <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/9.jpg', 'New Product', 3)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/9.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
         </span>
-        <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
-        <span class="na-card-badge">New</span>
         <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/10.jpg', 'New Product', 4)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/10.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
         </span>
-        <span class="na-card-name">Product Name</span>
       </div>
       <div class="na-card">
-        <span class="na-card-badge">New</span>
         <span class="na-card-img-wrap" onclick="openImageViewer('img/tiles catalog/11.jpg', 'New Product', 5)" style="cursor:zoom-in;">
           <img class="na-card-img" src="img/tiles catalog/11.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
         </span>
-        <span class="na-card-name">Product Name</span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/ceiling panel/2.jpg', 'New Product', 6)" style="cursor:zoom-in;">
+          <img class="na-card-img" src="img/ceiling panel/2.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
+        </span>
+      </div>
+      <div class="na-card">
+        <span class="na-card-img-wrap" onclick="openImageViewer('img/parquet/2.jpg', 'New Product', 7)" style="cursor:zoom-in;">
+          <img class="na-card-img" src="img/parquet/2.jpg" alt="New Product" loading="lazy">
+          <span class="na-card-scrim"></span>
+          <span class="na-card-name">Product Name</span>
+        </span>
       </div>
     </div>
 
   </div>
+
+  <!-- HERO BANNER — full-bleed auto-playing slideshow (sumofix + ezbond) -->
+  <div class="na-hero-banner">
+
+    <!-- Slide 1 -->
+    <img src="home/sumofix.jpeg" alt="Sumofix" class="na-hero-slide">
+    <!-- Slide 2 -->
+    <img src="home/ezbond.jpeg" alt="Ezbond" class="na-hero-slide">
+
+    <div class="na-hero-overlay"></div>
+
+    <!-- Small tagline text overlay -->
+    <div class="na-hero-tagline">
+      <span class="na-hero-tagline-line">Quality Materials</span>
+      <span class="na-hero-tagline-line na-hero-tagline-accent">Built for Lasting Performance</span>
+    </div>
+
+    <!-- Slide indicator dots (Sonee-style) -->
+    <div class="na-hero-dots">
+      <span class="na-hero-dot"></span>
+      <span class="na-hero-dot"></span>
+    </div>
+
+  </div>
+
 </section>
 
 <style>
@@ -811,24 +729,18 @@
    ════════════════════════════════════════════════════════════ */
 .na-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
   margin-top: 40px;
 }
 
 .na-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 0;
-  overflow: hidden;
-  background: var(--bg-light);
-  box-shadow: var(--card-shadow);
   position: relative;
 
   /* scroll-reveal base state */
   opacity: 0;
   transform: translateY(36px) scale(0.94);
-  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.45s cubic-bezier(0.22,1,0.36,1);
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 .na-card.is-visible {
   animation: naCardReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
@@ -838,28 +750,11 @@
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.na-card-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-  background: var(--green);
-  color: var(--black);
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(180,211,52,0.35);
-}
-
 .na-card-img-wrap {
   display: block;
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3.4;
   overflow: hidden;
   background: #e4e6da;
 }
@@ -868,25 +763,36 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* Dark gradient scrim so the label reads over any photo */
+.na-card-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(1,1,1,0.62) 0%, rgba(1,1,1,0.15) 42%, transparent 70%);
+  transition: background 0.35s ease;
 }
 
 .na-card-name {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  z-index: 2;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: clamp(16px, 1.6vw, 20px);
   letter-spacing: 0.3px;
-  text-align: center;
-  color: var(--black);
-  line-height: 1.2;
-  padding: 14px 10px;
+  color: var(--white);
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 
-.na-card:hover {
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(-6px);
+.na-card:hover .na-card-img { transform: scale(1.08); }
+.na-card:hover .na-card-scrim {
+  background: linear-gradient(0deg, rgba(1,1,1,0.72) 0%, rgba(1,1,1,0.2) 46%, transparent 72%);
 }
-.na-card:hover .na-card-img { transform: scale(1.1); }
 
 /* Stagger delays */
 .na-card:nth-child(1) { animation-delay: 0.03s; }
@@ -895,14 +801,23 @@
 .na-card:nth-child(4) { animation-delay: 0.24s; }
 .na-card:nth-child(5) { animation-delay: 0.31s; }
 .na-card:nth-child(6) { animation-delay: 0.38s; }
+.na-card:nth-child(7) { animation-delay: 0.45s; }
+.na-card:nth-child(8) { animation-delay: 0.52s; }
 
 @media (max-width: 1024px) {
-  .na-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .na-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
 }
 
 @media (max-width: 600px) {
-  .na-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; }
-  .na-card-name { font-size: 12.5px; padding: 11px 8px; }
+  .na-grid { margin-top: 28px; }
+  .na-card-name { font-size: 15px; left: 14px; bottom: 12px; }
+}
+
+@media (max-width: 420px) {
+  .na-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

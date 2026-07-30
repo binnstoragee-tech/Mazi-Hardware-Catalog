@@ -2,6 +2,35 @@
    MAZI HARDWARE – script.js
    ================================================================ */
 
+/* ══════════════════════════════════════════════════════════════════
+   "NEW" PRODUCT BADGE
+   To mark a product as new, just add its id (the same id used in
+   product-detail.html?id=xxx) to the list below. Remove the id
+   whenever it's no longer new.
+   ══════════════════════════════════════════════════════════════════ */
+const NEW_PRODUCT_IDS = [
+  // 'tiles-2', 'wpc-5',
+];
+
+(function () {
+  if (!NEW_PRODUCT_IDS.length) return;
+  document.querySelectorAll('.prod-card').forEach(card => {
+    const href = card.getAttribute('href') || '';
+    const match = href.match(/[?&]id=([^&]+)/);
+    const id = match ? decodeURIComponent(match[1]) : null;
+    if (id && NEW_PRODUCT_IDS.includes(id)) {
+      const wrap = card.querySelector('.prod-img-wrap');
+      if (wrap && !wrap.querySelector('.prod-badge-new')) {
+        const tag = document.createElement('div');
+        tag.className = 'prod-badge-new';
+        tag.textContent = 'New';
+        wrap.appendChild(tag);
+      }
+    }
+  });
+})();
+
+
 /* ── FONT LOAD — prevent flash/invisible text ───────────────────── */
 (function () {
   if (document.fonts && document.fonts.ready) {
@@ -149,24 +178,11 @@
 })();
 
 
-/* ── FILTER CATEGORY (Products page) ───────────────────────────── */
-function filterCategory(cat) {
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.filter === cat);
-  });
-
-  document.querySelectorAll('.prod-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
-  });
-}
-
-// Auto-filter from URL param e.g. products.html?cat=tiles
-(function () {
-  const p = new URLSearchParams(window.location.search).get('cat');
-  if (p) {
-    document.addEventListener('DOMContentLoaded', () => filterCategory(p));
-  }
-})();
+/* NOTE: filterCategory() for the Products page now lives in products.html's
+   own inline script (it handles .cat-drawer-item highlighting, card
+   animations, and auto-closing the mobile filter drawer). The old version
+   that used to live here was overriding it since script.js loads last —
+   removed to avoid the conflict. */
 
 
 /* ── IMAGE MODAL ────────────────────────────────────────────────── */
@@ -551,5 +567,67 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
     }, { threshold: 0.15 });
 
     els.forEach(function (el) { io.observe(el); });
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════════
+   COUNT-UP NUMBERS — animates elements like the "3+ Years" stat
+   from 0 to their target value once they scroll into view.
+   ══════════════════════════════════════════════════════════════════ */
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var els = document.querySelectorAll('[data-count-to]');
+    if (!els.length) return;
+
+    function run(el) {
+      var target = parseFloat(el.getAttribute('data-count-to')) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var dur = 1200;
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(run);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          run(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════════
+   MAGNETIC CTA BUTTONS — WhatsApp / Viber pills follow the cursor
+   slightly on hover, like real product sites (subtle, desktop only).
+   ══════════════════════════════════════════════════════════════════ */
+(function () {
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    var targets = document.querySelectorAll('.nav-pill, .cs-btn, .channel-cta');
+    targets.forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.18;
+        var y = (e.clientY - r.top - r.height / 2) * 0.28;
+        el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+      });
+    });
   });
 })();

@@ -27,51 +27,63 @@
     .pd-eyebrow-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 12px;
       margin-bottom: 10px;
     }
 
+    /* Close button now overlays the top-right corner of the product image */
     .pd-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 5;
       flex-shrink: 0;
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid var(--gray-lt);
-      background: #fff;
-      color: var(--black);
+      border: none;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
       font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
-    .pd-close-btn:hover { background: var(--black); color: #fff; border-color: var(--black); transform: rotate(90deg); }
+    .pd-close-btn:hover { background: rgba(0,0,0,0.8); transform: rotate(90deg); }
 
+    /* ── Two-column layout: gallery left, info right ─────── */
     .pd-section {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 24px 24px 60px;
+      padding: 32px 24px 60px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 460px) 1fr;
       gap: 56px;
-      align-items: flex-start;
+      align-items: start;
     }
 
-    /* ── Gallery ─────────────────────────────────────────── */
-    .pd-gallery { position: sticky; top: calc(var(--nav-h) + 20px); }
+    .pd-gallery-col { position: sticky; top: calc(var(--nav-h, 88px) + 24px); }
+
     .pd-main-img-wrap {
       position: relative;
+      width: 100%;
       aspect-ratio: 1 / 1;
-      border-radius: var(--radius);
+      border-radius: 0;
+      border: 1px solid var(--gray-lt);
       overflow: hidden;
-      background: var(--bg-section);
-      border: 2px solid var(--gray-lt);
+      background: #fff;
       cursor: zoom-in;
     }
-    .pd-main-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+    .pd-main-img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .5s ease; }
     .pd-main-img-wrap:hover .pd-main-img { transform: scale(1.05); }
+
+    /* Remove the frame around the product photo on mobile */
+    @media (max-width: 900px) {
+      .pd-main-img-wrap { border: none; }
+    }
 
     /* ── Info column ─────────────────────────────────────── */
     .pd-eyebrow {
@@ -138,8 +150,9 @@
     .pd-not-found p { color: var(--gray-dk); margin-bottom: 24px; }
 
     @media (max-width: 900px) {
-      .pd-section { grid-template-columns: 1fr; gap: 28px; }
-      .pd-gallery { position: static; }
+      .pd-section { grid-template-columns: 1fr; gap: 24px; }
+      .pd-gallery-col { position: static; }
+      .pd-main-img-wrap { aspect-ratio: 1 / 1; max-height: 420px; }
       .pd-recommend-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
   </style>
@@ -341,16 +354,16 @@ function pdEsc(str){
 
   root.innerHTML = `
     <section class="pd-section">
-      <div class="pd-gallery">
+      <div class="pd-gallery-col">
         <div class="pd-main-img-wrap" onclick="openModal('${product.image.replace(/'/g, "\\'")}')">
           <img class="pd-main-img" src="${product.image}" alt="${pdEsc(product.alt)}">
+          <button class="pd-close-btn" onclick="event.stopPropagation(); pdGoBack()" aria-label="Close"><i class="ph ph-x"></i></button>
         </div>
       </div>
 
       <div class="pd-info">
         <div class="pd-eyebrow-row">
           <span class="pd-eyebrow"><i class="ph-fill ph-house"></i> ${pdEsc(product.categoryLabel)}</span>
-          <button class="pd-close-btn" onclick="pdGoBack()" aria-label="Close"><i class="ph ph-x"></i></button>
         </div>
         <h1 class="pd-title">${pdEsc(product.name)}</h1>
         <p class="pd-sku">SKU: ${pdEsc(id.toUpperCase())}</p>

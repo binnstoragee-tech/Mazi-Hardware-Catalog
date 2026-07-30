@@ -114,13 +114,13 @@
 <div class="filter-acc-panel" id="filterAccPanel">
 <div class="filter-acc-inner">
 <div class="cat-drawer-list" id="catDrawerList">
-<button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all'); closeCatDrawer();"><span class="cdi-dot"></span>All Stock</button>
-<button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles'); closeCatDrawer();"><span class="cdi-dot"></span>Tiles</button>
-<button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble'); closeCatDrawer();"><span class="cdi-dot"></span>UV Marble</button>
-<button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling'); closeCatDrawer();"><span class="cdi-dot"></span>Ceiling Panel</button>
-<button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet'); closeCatDrawer();"><span class="cdi-dot"></span>Parquet</button>
-<button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall'); closeCatDrawer();"><span class="cdi-dot"></span>PVC Wall Panel</button>
-<button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc'); closeCatDrawer();"><span class="cdi-dot"></span>WPC Wall Panel</button>
+<button class="cat-drawer-item active" data-filter="all" onclick="filterCategory('all')"><span class="cdi-dot"></span>All Stock</button>
+<button class="cat-drawer-item" data-filter="tiles" onclick="filterCategory('tiles')"><span class="cdi-dot"></span>Tiles</button>
+<button class="cat-drawer-item" data-filter="uv-marble" onclick="filterCategory('uv-marble')"><span class="cdi-dot"></span>UV Marble</button>
+<button class="cat-drawer-item" data-filter="ceiling" onclick="filterCategory('ceiling')"><span class="cdi-dot"></span>Ceiling Panel</button>
+<button class="cat-drawer-item" data-filter="parquet" onclick="filterCategory('parquet')"><span class="cdi-dot"></span>Parquet</button>
+<button class="cat-drawer-item" data-filter="pvc-wall" onclick="filterCategory('pvc-wall')"><span class="cdi-dot"></span>PVC Wall Panel</button>
+<button class="cat-drawer-item" data-filter="wpc" onclick="filterCategory('wpc')"><span class="cdi-dot"></span>WPC Wall Panel</button>
 </div>
 </div>
 </div>
@@ -216,7 +216,7 @@ function closeCatDrawer(){
 <!-- ── UV MARBLE SHEETS 10 ────────────────────────────── -->
 <a class="prod-card" data-category="uv-marble" href="product-detail.html?id=uv-marble-10"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/uv marble sheets catalog/10.jpg"/><div class="prod-badge">UV MARBLE SHEETS</div></div><div class="prod-info"><h4 class="prod-name">MATTE</h4><p class="prod-desc">4 ft Width | 9.5 ft Length | 3mm Thickness</p></div></a>
 <!-- ── CEILING PANEL 2 ───────────────────────────────── -->
-<a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-2"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/2.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-098</h4><p class="prod-desc">Size: 300*8*5800mm printing glossy white</p></div></a>
+<a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-2"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/2.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-098</h4><p class="prod-desc">Size: 300*8*5800mm glossy</p></div></a>
 <!-- ── CEILING PANEL 3 ───────────────────────────────── -->
 <a class="prod-card" data-category="ceiling" href="product-detail.html?id=ceiling-3"><div class="prod-img-wrap"><img alt="Uv Marble Sheets" class="prod-img" src="img/ceiling panel/3.jpg"/><div class="prod-badge">CEILING PANEL</div></div><div class="prod-info"><h4 class="prod-name">DS-217</h4><p class="prod-desc">Size: 300*8*5800mm laminated</p></div></a>
 <!-- ── CEILING PANEL 4 ───────────────────────────────── -->
@@ -294,8 +294,9 @@ function filterCategory(cat) {
     setTimeout(() => cards.forEach(c => c.classList.remove('pf-showing')), 400);
   }, 180);
 
-  // Close the mobile categories drawer after picking one
-  closeCatDrawer();
+  // Brief pause so the highlight lands on the picked category first,
+  // then the drawer eases closed smoothly.
+  setTimeout(() => closeCatDrawer(), 200);
 }
 
 // Handle URL param
